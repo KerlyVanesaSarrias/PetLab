@@ -1,0 +1,163 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 2%;
+    padding: 2%;
+}
+
+section {
+    padding: 1%;
+    margin: 1%;
+    max-width: 95%;   
+}
+
+h1, h2 {
+    color: #0B3B59;
+    text-align: center;
+}
+
+/* Section 1 #infopetlab*/
+#infopetlab {
+    background-color: #ffffff;
+    border-radius: 9px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.infopetlab-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.infopetlab-text {
+    flex: 1;
+    text-align: left;
+    width: 100%;
+    text-align: justify;
+}
+
+#infopetlab img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+/**/
+#nuestrosValoresyMas {
+    background-color: #ffffff;
+    border-radius: 9px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.padrevalor {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.contenedorcuadrado {
+    display: flex;
+    flex-direction: column;
+    gap: 30rem;
+    padding: 3rem;
+    width: 100%;
+}
+.contenedorcirculo {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    width: 100%;
+}
+
+.circuloUno, .circuloTres {
+    align-self: flex-end;
+}
+
+
+.contenedorcuadrado h3,
+.contenedorcirculo h3 {
+    text-align: center;
+    color: #0B3B59;
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.circulo {
+    display: flex;
+    flex-direction: column;
+    background-color: #26A699;
+    border-radius: 50%;
+    padding: 20px;
+    height: 20rem;
+    width: 20rem;
+    min-height: 150px;
+    min-width: 150px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 0.9em;
+    flex-basis: calc(50% - 15px);
+    max-width: 300px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+.cuadrado {
+    width: 27rem;
+    background-color: #e17b1f;
+    color: #000;
+    padding: 1.5rem;
+    text-align: justify;
+    font-size: 0.9em;
+    box-sizing: border-box;
+}
+
+/**/
+#miembrosequipo {
+    background-color: #ffffff;
+    border-radius: 9px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.equipo-miembros {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 20px;
+}
+
+.tresPrimeros , .dosUltimos{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.miembro-card {
+    background-color: #145873;
+    border-radius: 9%;
+    text-align: center;
+    padding: 10px;
+    width: 210px;
+    margin-bottom: 15px;
+}
+
+.miembro-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 20%;
+    padding: 10px;
+    margin: 0 auto 10px;
+    display: block;
+}
+
+.miembro-card p {
+    font-size: 1.2em;
+    color: #ffffff;
+    margin: 0 auto;
+}
