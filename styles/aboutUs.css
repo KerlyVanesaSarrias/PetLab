@@ -105,7 +105,7 @@ h1, h2 {
 
 .cuadrado {
     width: 27rem;
-    background-color: #e17b1f;
+    background-color: #26A699;
     color: #000;
     padding: 1.5rem;
     text-align: justify;
@@ -139,7 +139,7 @@ h1, h2 {
 }
 
 .miembro-card {
-    background-color: #145873;
+    background-color: #e17b1f;
     border-radius: 9%;
     text-align: center;
     padding: 10px;
