@@ -12,24 +12,16 @@
         rel="stylesheet">
     <link rel="stylesheet" href="/styles/aboutUs.css">
     <link rel="stylesheet" href="/styles/header.css">
+    <!-- instalar esto en la pagina que la usa => css -->
+    <link rel="stylesheet" href="/styles/navbar.css">
+    
+    <!-- instalar esto en las paginas que lo usaran => bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> -->
 </head>
 
 <body>
-    <header class="header">
-        <nav>
-            <ul class="menu">
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="./aboutUs.html">Sobre Nosotros</a></li>
-                <li><a href="./login.html">Login</a></li>
-            </ul>
-        </nav>
-        <a href="./contact.html" class="btn"><button>Contacto</button></a>
-        <div class="whatsapp">
-            <a href="./contact.html">
-                <img src="../img/Whatsapp.png" alt="img_logo_whatsapp">
-            </a>
-        </div>
-    </header>
+    <div id="container-navbar"></div>
+
     <section id="infopetlab">
         <h1>¿Que es PetLab?</h1>
         <div class="infopetlab-container">
@@ -44,7 +36,8 @@
                     sólida y conectada, donde la transparencia, la confianza y el bienestar de las mascotas sean
                     nuestros pilares fundamentales.</p>
             </div>
-            <img src="https://www.clinicaraza.com/web/image/32994/Veterinario%20a%20domicilio%20-%20Clinica%20Raza.jpg"
+            <img class="img1" 
+                src="/assets/foto1.jpeg"
                 alt="Equipo de PetLab">
         </div>
     </section>
@@ -138,6 +131,7 @@
     <footer class="footer">
         <h2>© 2025 página web PetLab.</h2>
     </footer>
+    <script src="/scripts/scripts.js" defer></script>
 </body>
 
 </html>
