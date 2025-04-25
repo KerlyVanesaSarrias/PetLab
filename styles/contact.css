@@ -1,64 +1,71 @@
 body {
     font-family: 'Poppins', sans-serif;
-    margin: 2%;
-    padding: 2%;
     background: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    min-height: 80vh;
 }
 
 .contacto-section {
-    background-color: #fff;
-    border-radius: 9px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-    padding: 2% 3%;
     max-width: 1100px;
     margin: 40px auto 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: none;
+    padding: 0;
 }
 
 .contacto-title {
     color: #222;
     text-align: center;
-    margin-bottom: 16px;
     font-weight: 400;
+    font-size: 2em;     
+    margin-top: 40px;
+    margin-bottom: 16px;
+    line-height: 1.2;
 }
 
-.contacto-title br {
-    display: none;
+.contacto-title .destacado {
+    display: block;
+    font-size: 1.4em;   
+    margin-top: 18px;    
+    font-weight: 600;
 }
 
 .contacto-form {
-    width: 100%;
-    margin: 0 auto;
+    width: 90%;
+    margin: 0 auto 0 auto;
     display: flex;
     flex-direction: column;
     gap: 32px;
 }
 
-/* Grillas para inputs dobles */
-.row {
-    display: flex;
-    gap: 24px;
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+    background: none;
+}
+legend {
+    font-size: 1.1em;
+    font-weight: 500;
     margin-bottom: 12px;
+    color: #222;
+    padding: 0;
 }
 
+.row {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 10px;
+}
 .col {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-}
-
-fieldset {
-    border: none;
-    margin: 0 0 8px 0;
-    padding: 0;
-}
-
-legend {
-    font-size: 1.08em;
-    color: #222;
-    font-weight: 500;
-    margin-bottom: 8px;
-    padding: 0;
 }
 
 label {
@@ -73,16 +80,26 @@ input[type="email"],
 input[type="tel"],
 input[type="date"],
 input[type="time"],
-textarea,
-input[type="file"] {
-    border: 1.5px solid #ccc;
+input[type="file"],
+textarea {
+    background: #ccc;
+    border: none;
     border-radius: 4px;
     padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
     font-size: 1em;
-    background: #e0e0e0;
+    margin-bottom: 12px;
     color: #222;
-    outline: none;
-    transition: border 0.2s;
+}
+textarea {
+    min-height: 120px;
+    resize: none;
+}
+
+input[type="file"] {
+    background: #ccc;
+    padding: 5px;
 }
 
 input[type="text"]:focus,
@@ -91,42 +108,40 @@ input[type="tel"]:focus,
 input[type="date"]:focus,
 input[type="time"]:focus,
 textarea:focus {
-    border: 1.5px solid #26A699;
-    background: #f5f5f5;
+    background: #bdbdbd;
 }
 
 textarea {
-    resize: vertical;
+    resize: none;
     min-height: 120px;
     max-width: 100%;
-    margin-bottom: 0;
 }
 
-/* Checkboxes */
 .checkbox-group {
     display: flex;
-    gap: 48px;
-    margin: 12px 0 0 0;
+    gap: 56px;
+    margin: 16px 0 0 0;
 }
 
 .checkbox-group label {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
     font-size: 1em;
+    font-weight: 400;
 }
 
 input[type="checkbox"] {
-    width: 22px;
-    height: 22px;
-    accent-color: #26A699;
+    width: 28px;
+    height: 28px;
+    accent-color: #ccc;
     border: 1.5px solid #bbb;
     border-radius: 4px;
     margin: 0;
-    background: #e0e0e0;
+    background: #ccc;
+    box-shadow: 0 2px 0 #bbb;
 }
 
-/* Mensaje y archivo */
 .mensaje-group,
 .archivo-group {
     display: flex;
@@ -135,40 +150,55 @@ input[type="checkbox"] {
 }
 
 .archivo-group small {
-    font-size: 0.92em;
-    color: #555;
+    font-size: 0.93em;
+    color: #666;
     margin-top: 2px;
 }
 
-/* Botón enviar */
 .boton-enviar {
     display: flex;
     justify-content: center;
-    margin-top: 8px;
+    margin: 32px 0 0 0;
 }
 
 button[type="submit"] {
     background: #ccc;
     color: #222;
     border: none;
-    padding: 12px 56px;
+    padding: 12px 0;
     border-radius: 6px;
     font-size: 1.1em;
     cursor: pointer;
-    font-weight: 400;
+    width: 30%;
+    margin: 32px auto 0 auto;
+    display: block;
     transition: background 0.2s;
 }
-
 button[type="submit"]:hover {
-    background: #26A699;
-    color: #fff;
+    background: #bdbdbd;
 }
 
-/* Footer contacto */
+@media (max-width: 900px) {
+    .contacto-section {
+        padding: 0;
+    }
+    .contacto-form {
+        width: 98%;
+    }
+    .row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .boton-enviar button {
+        width: 100%;
+    }
+}
+
 .footer-contacto {
-    background: #e0e0e0;
+    background: #ccc;
     margin-top: 60px;
     padding: 32px 0 16px 0;
+    border-radius: 0;
 }
 
 .footer-container {
@@ -226,13 +256,13 @@ button[type="submit"]:hover {
 }
 
 .footer-icons a {
-    color: #0B3B59;
+    color: #222;
     font-size: 2em;
     transition: color 0.2s;
 }
 
 .footer-icons a:hover {
-    color: #26A699;
+    color: #0B3B59;
 }
 
 .footer-contacto-info {
@@ -255,11 +285,6 @@ button[type="submit"]:hover {
         align-items: center;
         gap: 32px;
     }
-    .contacto-section {
-        padding: 4% 2%;
-    }
-    .row {
-        flex-direction: column;
-        gap: 0;
-    }
 }
+
+  
