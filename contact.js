@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const formulario = document.querySelector('.contacto-form');
     const checkProducto = document.querySelector('input[name="relacion"][value="producto"]');
     const checkServicio = document.querySelector('input[name="relacion"][value="servicio"]');
     const checkGeneral = document.querySelector('input[name="relacion"][value="general"]');
@@ -20,8 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     actualizarVisibilidad();
 
-    const formulario = document.querySelector('.contacto-form');
-    const validarEmail = (email) => /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(email);
+    // agregando validación de TLD más comunes
+    const validarEmail = (email) =>
+        /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|org|net|edu|gov|mil|info|es|mx|co|us|fr|ar|eu|ru|cn|jp|ch|com\.mx|com\.ar)$/i.test(email);
 
     formulario.addEventListener('submit', function(event) {
         event.preventDefault();
@@ -102,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        // Envio cuando todo es válido
+        // Envio del formulario cuando todo es válido
         if (esValido) {
             formulario.submit();
         }
@@ -126,6 +128,13 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.campo-error').forEach(campo => campo.classList.remove('campo-error'));
     }
 });
+
+
+
+
+
+
+/*r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',*/
 
 
 
