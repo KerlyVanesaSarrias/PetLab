@@ -1,0 +1,25 @@
+{
+    "cardProducts": [
+      {
+        "id": 1,
+        "img": "https://via.placeholder.com/300x200",
+        "name": "Grip Raqueta de Tenis",
+        "price": "5900",
+        "description": "Over Grip para raqueta tenis/squash/raqueta de bádminton",
+        "stock": 3,
+        "size": "Largo 110cm, ancho 2.5.",
+        "material": "PU absorbente"
+      },
+      {
+        "id": 2,
+        "img": "https://via.placeholder.com/300x200",
+        "name": "Pelotas de tenis",
+        "price": "12000",
+        "description": "Pack de 3 pelotas oficiales para torneo",
+        "stock": 10,
+        "size": "Estándar",
+        "material": "Goma y fieltro"
+      }
+    ]
+  }
+  

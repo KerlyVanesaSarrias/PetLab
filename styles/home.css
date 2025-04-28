@@ -1,0 +1,21 @@
+.carousel-container {
+    padding: 40px;
+  }
+  
+  .carousel-r {
+    border-radius: 40px;
+  }
+
+  .carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #0451e0;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+  }
+  
+  .carousel-indicators .active {
+    background-color: #2385f5;
+    opacity: 1;
+  }
