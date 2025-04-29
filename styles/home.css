@@ -19,3 +19,43 @@
     background-color: #2385f5;
     opacity: 1;
   }
+
+
+  .img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .card-title {
+    font-size: small;
+  }
+
+  .activeBtn {
+    background: #0451e0;
+    color: white;
+  }
+
+  .disabledBtn {
+    background: #969ead;
+  }
+  
+  /* button {
+    border-radius: 10px;
+    border: solid;
+    border-color: darkblue;
+  } */
+
+  .category-button {
+    transition: all 0.3s ease;
+  }
+  
+  .category-button .active {
+    background-color: #0d6efd; 
+    border-color: #0d6efd;
+  }
+
+  .section-button.active {
+    background-color: #198754; /* verde de Bootstrap */
+    color: white;
+    border-color: #198754;
+  }
