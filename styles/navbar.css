@@ -7,7 +7,8 @@
 }
 
 .img-navbar {
-    width: 120px; 
+    width: 120px;
+    margin-bottom: 10px; 
 }
 
 .lista-navbar {
@@ -38,7 +39,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 10px 10px;
-    border-radius: 7px;
+    border-radius:0px 0px 10px 7px;
 }
 
 .icons-nav {
@@ -64,4 +65,48 @@ nav {
 
 .icons-nav:hover i {
     color: white;
+}
+
+.menu-toggle{
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #091c37;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .lista-navbar {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: white;
+        position: absolute;
+        top: 70px; 
+        left: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .lista-navbar.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .iconos-navbar {
+        display: none;
+        flex-direction:row;
+        background: none;
+        width: 20%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .iconos-navbar.active {
+        display: flex;
+    }
 }
