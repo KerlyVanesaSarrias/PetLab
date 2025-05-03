@@ -1,10 +1,11 @@
+//! con esta funcion enviamos los datos desde el formulario html
 
-// function addProduct(id, img, name, category, characteristcs, stock, price, description) {
-//     fetch("http://localhost:3000/Producto", {
+// function addProduct( img, name, category, characteristcs, stock, price, description) {
+//     fetch("http://localhost:3000/products", {
 //         method: 'POST',
 //         headers: { 'Content-Type': 'application/json' },
 //         body: JSON.stringify({
-//             id,
+            
 //             img,
 //             name,
 //             category,
@@ -24,20 +25,26 @@
 // document.getElementById("registroForm").addEventListener("submit", (e) => {
 //     e.preventDefault();
 
-//     const id = 1;
+    
 //     const img = "http.cdfdf//";
 //     const name = document.getElementById("nombre").value;
 //     const category = document.getElementById("categoria").value;
-//     const characteristcs = document.getElementById("caracteristica").value;
+//     const characteristcs = document.getElementById("caracteristicas").value;
 //     const stock = document.getElementById("stock").value;
 //     const price = document.getElementById("precio").value;
 //     const description = document.getElementById("descripcion").value;
 
-//     addProduct(id, img, name, category, characteristcs, stock, price, description)
+//     e.target.reset()
+
+//     addProduct(img, name, category, characteristcs, stock, price, description)
 // });
 
 
-//addProduct(1, "http....", "cat", "Alimento", "suave", 24, 23000, "Comodo" );
+//! Esta funcion es para enviar datos manualmente
+// addProduct(1, "http....", "cat", "Alimento", "suave", 24, 23000, "Comodo" );
+
+
+//? Este script solo almacena los datos temporalmente en un array vacio, para consultrols los observamos en consola
 
 const productos = [];
 
