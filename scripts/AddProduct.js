@@ -71,3 +71,32 @@ document.getElementById("registroForm").addEventListener("submit", (e) => {
     e.target.reset()
 
 });
+
+ const services = [];
+
+
+document.getElementById("registroForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const id = services.length ? Math.max(...services.map(u => u.id)) + 1 : 1;
+
+    const img = "http.cdfdf//";
+    const name = document.getElementById("nombre").value;
+    const category = document.getElementById("categoria").value;
+    const characteristcs = document.getElementById("caracteristicas").value;
+    const stock = document.getElementById("stock").value;
+    const price = document.getElementById("precio").value;
+    const description = document.getElementById("descripcion").value;
+    const recomendations = document.getElementById("recomendacion").value;
+    const howToDoIt = document.getElementById("agenda");
+    const duration = document.getElementById("duracion");
+
+    const newService = { id, img, name, category, characteristcs, stock, price, description, recomendations, howToDoIt, duration };
+
+    services.push(newService)
+
+    console.log(services);
+
+    e.target.reset()
+
+});

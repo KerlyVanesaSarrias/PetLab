@@ -20,6 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const modal = document.getElementById("modalGracias");
   const closeBtn = document.querySelector(".close-btn");
 
+  servicioExtras.style.display = "none";
+
   function actualizarCategorias(tipoSeleccionado) {
     categoriaSelect.innerHTML = '<option value="">Seleccione una opción</option>';
     categorias[tipoSeleccionado].forEach(categoria => {
