@@ -45,11 +45,12 @@ const productos = [];
 document.getElementById("registroForm").addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const id = 1;
+    const id = productos.length ? Math.max(...productos.map(u => u.id)) + 1 : 1;
+
     const img = "http.cdfdf//";
     const name = document.getElementById("nombre").value;
     const category = document.getElementById("categoria").value;
-    const characteristcs = document.getElementById("caracteristica").value;
+    const characteristcs = document.getElementById("caracteristicas").value;
     const stock = document.getElementById("stock").value;
     const price = document.getElementById("precio").value;
     const description = document.getElementById("descripcion").value;
@@ -60,5 +61,6 @@ document.getElementById("registroForm").addEventListener("submit", (e) => {
 
     console.log(productos);
     
-    
+    e.target.reset()
+
 });
