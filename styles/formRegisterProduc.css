@@ -1,0 +1,350 @@
+body {
+    font-family: 'Poppins', sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+    }
+  
+    main {
+      min-height: 80vh;
+  }  
+    
+  .section-registro {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 8px #0B3B59;  /*  Borde por fuera del form antes rgba(0, 0, 0, 0.05) */
+  }
+    
+  .form-title {
+      color: #000000;
+      text-align: center;
+      font-weight: 700;
+      font-size: 2em;     
+      margin-top: 40px;
+      margin-bottom: 16px;
+      line-height: 1.2;
+      font-family: "Poppins", sans-serif;
+      font-style: normal;
+  }
+  
+  
+  .registroForm {
+    width: 90%;
+    margin: 0 auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  
+  .row {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 10px;
+  }
+  .col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+ 
+  .form-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  
+  /*  Etiquetas y campos alineados */
+  .form-row label {
+    width: 180px;
+    min-width: 140px;
+    font-weight: 500;
+    color: #000000;
+  }
+  
+  /*  Inputs se ajustan al espacio */
+  .form-row input,
+  .form-row textarea,
+  .form-row select {
+    flex: 1;
+    padding: 8px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: 1px solid #bbb;
+    background: #ccc;    /*  Color de fondo de los input */
+    color: #000000;
+    box-sizing: border-box;
+  }
+  
+  .form-row textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+  
+  .radio-group {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
+    margin-top: 5px;
+  }
+  
+  input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #ccc;
+    margin-right: 6px;
+  }
+  
+    
+  input,
+  textarea,
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;  
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+    background: #bdbdbd;         /* Fondo */
+    color: #222;              /* Texto */
+  }
+  
+  input:focus,
+  textarea:focus,
+  select:focus {
+    background: #bdbdbd;      /* Fondo al escribir */
+    border: 1px solid #0B3B59;   /* Borde negro cuando se está escribiendo */
+    color: #000;              /* Texto más oscuro */
+    outline: none;            /* Sin borde azul automático */
+  }
+  
+  textarea {
+    min-height: 120px;
+    resize: none;
+  }
+  
+  input[type="file"] {
+    background: #ccc;
+    padding: 5px;
+    color: #222;
+  }
+  
+  #categoria, #imagen {
+      width: 30%; 
+      max-width: 300px; 
+  }
+  #descripcion {
+    min-height: 120px;
+    background: #ccc;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    padding: 10px;
+    color: #222;
+  } 
+  #descripcion:focus {
+    background: #bdbdbd;
+    border: 1px solid #000;
+    color: #000;
+    outline: none;
+  }
+
+  #caracteristicas {
+    min-height: 120px;
+    background: #ccc;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    padding: 10px;
+    color: #222;
+  } 
+  #caracteristicas:focus {
+    background: #bdbdbd;
+    border: 1px solid #000;
+    color: #000;
+    outline: none;
+  }
+  
+  .obligatorio {
+    color: rgb(163, 154, 154);
+  }
+  
+  button[type="submit"] {
+      background: #ccc;
+      color: #222;
+      border: none;
+      padding: 12px 0;
+      border-radius: 6px;
+      font-size: 1.1em;
+      cursor: pointer;
+      width: 30%;
+      margin: 32px auto 0 auto;
+      display: block;
+      transition: background 0.2s;
+  }
+  button[type="submit"]:hover {
+      background: #bdbdbd;
+  }
+  
+  @media (max-width: 768px) {
+    .form-row {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .form-row label {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+  
+    .checkbox-group {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+    .nota {
+      font-size: 12px;
+      margin-top: 10px;
+      color: #888;
+    }
+  
+    /* Modal: fondo oscuro */
+  .modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  /* Contenido del modal */
+  .modal-content {
+    background-color: #FFFFFF;
+    margin: 15% auto;
+    padding: 30px;
+    border: 2px solid #26A699;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Botón de cerrar */
+  .close-btn {
+    color: #145873 ;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close-btn:hover {
+    color: #000;
+  }
+  
+    .footer-contacto {
+      background: #ccc;
+      margin-top: 60px;
+      padding: 32px 0 16px 0;
+      border-radius: 0;
+  }
+  
+  .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 24px;
+  }
+  
+  .footer-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      min-width: 180px;
+  }
+  
+  .footer-logo img {
+      width: 70px;
+      margin-bottom: 4px;
+  }
+  
+  .footer-logo span {
+      color: #0B3B59;
+      font-weight: 500;
+      font-size: 1.1em;
+      text-align: center;
+  }
+  
+  .footer-logo small {
+      font-size: 0.85em;
+      color: #444;
+  }
+  
+  .footer-redes {
+      flex: 1;
+      min-width: 230px;
+      text-align: center;
+  }
+  
+  .footer-redes p {
+      margin: 0 0 8px 0;
+      color: #222;
+      font-weight: 500;
+  }
+  
+  .footer-icons {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 10px;
+  }
+  
+  .footer-icons a {
+      color: #222;
+      font-size: 2em;
+      transition: color 0.2s;
+  }
+  
+  .footer-icons a:hover {
+      color: #0B3B59;
+  }
+  
+  .footer-contacto-info {
+      min-width: 200px;
+      text-align: left;
+      color: #222;
+      font-size: 1em;
+  }
+  
+  .footer-contacto-info p {
+      margin: 4px 0;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+  }
+  
+  @media (max-width: 900px) {
+      .footer-container {
+          flex-direction: column;
+          align-items: center;
+          gap: 32px;
+      }
+  } 
+  
