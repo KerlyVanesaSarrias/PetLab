@@ -33,14 +33,14 @@ const renderCurrentPage = () => {
     const card = document.createElement('div')
     card.className = 'col-md-3 mb-4'
     card.innerHTML = `
-      <div class="card shadow" style="width: 100%">
+      <a href="/pages/detail.html" class="card shadow" style="width: 100%">
         <img src="${item.img}" class="card-img-top" alt="${item.name}">
         <div class="card-body">
           <h5 class="card-title">${item.name}</h5>
           <p class="card-text">$${item.price}</p>
-          <a href="/pages/detail.html?id=${item.id}" class="btn btn-primary">Ver detalles</a>
+          <div class="btn btn-primary" onClick='addToCart("${item.name}", ${item.price}, "${item.img}")'>Añadir al Carrito</div>
         </div>
-      </div>
+      </a>
     `
     cardsContainer.appendChild(card)
   })
@@ -96,8 +96,8 @@ const renderCategories = (cards) => {
   const categoriasUnicas = new Set()
 
   cards.forEach(item => {
-    if (item.categoria && item.categoria.trim() !== '') {
-      categoriasUnicas.add(item.categoria)
+    if (item.category && item.category.trim() !== '') {
+      categoriasUnicas.add(item.category)
     }
   });
 
@@ -108,7 +108,7 @@ const renderCategories = (cards) => {
       button.innerText = cat;
 
       button.addEventListener('click', () => {
-        const filtro = fullCards.filter(card => card.categoria == cat)
+        const filtro = fullCards.filter(card => card.category == cat)
         currentPage = 1
         renderCards(filtro)
         marcarBotonActivo(button, "category-button")
@@ -129,7 +129,7 @@ fetch('./data.json')
   .then(res => res.json())
   .then(data => {
     dataFetched = data
-    renderCards(data.cardsProducts)
+    renderCards(data.products)
     marcarBotonActivo(btnProducts, 'section-button')
 
   })
@@ -138,8 +138,8 @@ fetch('./data.json')
 btnServices.addEventListener('click', () => {
   if (dataFetched) {
     currentPage = 1
-    renderCards(dataFetched.cardsServices, true);
-    renderCategories(dataFetched.cardsServices);
+    renderCards(dataFetched.services, true);
+    renderCategories(dataFetched.services);
     marcarBotonActivo(btnServices, 'section-button')
   }
 });
@@ -147,8 +147,8 @@ btnServices.addEventListener('click', () => {
 btnProducts.addEventListener('click', () => {
   currentPage = 1
   if (dataFetched) {
-    renderCards(dataFetched.cardsProducts, true)
-    renderCategories(dataFetched.cardsProducts);
+    renderCards(dataFetched.products, true)
+    renderCategories(dataFetched.products);
     marcarBotonActivo(btnProducts, 'section-button')
 
   }
