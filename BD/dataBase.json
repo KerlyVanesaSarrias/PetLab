@@ -1,0 +1,45 @@
+{
+  "products": [
+    {
+      "id": "0f04",
+      "img": "http....",
+      "name": "perro",
+      "category": "Alimento",
+      "characteristcs": "suave",
+      "stock": 24,
+      "price": 23000,
+      "description": "Comodo"
+    },
+    {
+      "id": "76cf",
+      "img": "http....",
+      "name": "gato",
+      "category": "jugete",
+      "characteristcs": "suave",
+      "stock": 24,
+      "price": 2551212,
+      "description": "juguete"
+    },
+    {
+      "id": "ff8e",
+      "img": "http....",
+      "name": "perro",
+      "category": "Alimento",
+      "characteristcs": "suave",
+      "stock": 24,
+      "price": 23000,
+      "description": "Comodo"
+    },
+    {
+      "id": "33bf",
+      "img": "http.cdfdf//",
+      "name": "comida de perros grandes",
+      "category": "Alimentos",
+      "characteristcs": "comida a granel",
+      "stock": "20",
+      "price": "150000",
+      "description": "comida en bulto"
+    }
+  ],
+  "sevices": []
+}
