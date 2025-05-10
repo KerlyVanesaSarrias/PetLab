@@ -1,17 +1,17 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-storage.js";
-
+import { getStorage } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-storage.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDXOEfvwdZoKHgGy5fpG0bjl7hAR1wVqAc",
-    authDomain: "petlab-6c7ad.firebaseapp.com",
-    projectId: "petlab-6c7ad",
-    storageBucket: "petlab-6c7ad.firebasestorage.app",
-    messagingSenderId: "980993567961",
-    appId: "1:980993567961:web:218638cccfe43f3680e2c8"
-  };
-  
-  const app = initializeApp(firebaseConfig);
-  const storage = getStorage(app);
-  
-  export{storage,ref,uploadBytes,getDownloadURL};
+    apiKey: "AIzaSyAq-hDdBH1GIhaiQ6dOMiMxDexQVjQodak",
+    authDomain: "apptactical-74663.firebaseapp.com",
+    projectId: "apptactical-74663",
+    storageBucket: "apptactical-74663.appspot.com",
+    messagingSenderId: "314383299963",
+    appId: "1:314383299963:web:c378ef05aa238fa302f9de",
+    measurementId: "G-MYYE89DV7W"
+};
+
+const app = initializeApp(firebaseConfig);
+const storage = getStorage(app);
+
+window.firebaseStorage = storage;

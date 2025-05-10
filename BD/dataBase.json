@@ -1,171 +1,89 @@
 {
   "products": [
     {
-      "id": "0f04",
-      "img": "http....",
-      "name": "perro",
-      "category": "Alimento",
-      "characteristcs": "suave",
-      "stock": 24,
-      "price": 23000,
-      "description": "Comodo"
-    },
-    {
-      "id": "76cf",
-      "img": "http....",
-      "name": "gato",
-      "category": "jugete",
-      "characteristcs": "suave",
-      "stock": 24,
-      "price": 2551212,
-      "description": "juguete"
-    },
-    {
-      "id": "ff8e",
-      "img": "http....",
-      "name": "perro",
-      "category": "Alimento",
-      "characteristcs": "suave",
-      "stock": 24,
-      "price": 23000,
-      "description": "Comodo"
-    },
-    {
-      "id": "33bf",
-      "img": "http.cdfdf//",
-      "name": "comida de perros grandes",
+      "id": "43c7",
+      "img": "HTT.",
+      "name": "HECTOR",
       "category": "Alimentos",
-      "characteristcs": "comida a granel",
+      "characteristcs": "CARACTERISTICAS",
+      "stock": "125",
+      "price": "125000",
+      "description": "ALIMENTOS"
+    },
+    {
+      "id": "876f",
+      "img": "/dddddd",
+      "name": "ffdfdf",
+      "category": "Alimentos",
+      "characteristcs": "fdfdfd",
+      "stock": "3232",
+      "price": "23223",
+      "description": "fdfdf"
+    },
+    {
+      "id": "1449",
+      "img": "/dddddd",
+      "name": "sdsdsdsd",
+      "category": "Alimentos",
+      "characteristcs": "sdsd",
+      "stock": "34232",
+      "price": "32323",
+      "description": "dsdsd"
+    },
+    {
+      "id": "f321",
+      "img": "https://firebasestorage.googleapis.com/v0/b/apptactical-74663.appspot.com/o/productos%2F1746849242268_WhatsApp%20Image%202025-05-06%20at%2016.40.49.jpeg?alt=media&token=f2f241ea-e82a-4e8f-aafa-cabba0c32baf",
+      "name": "hector",
+      "category": "Alimentos",
+      "characteristcs": "dsds",
+      "stock": "4545",
+      "price": "12",
+      "description": "fer"
+    },
+    {
+      "id": "e4ce",
+      "img": "https://firebasestorage.googleapis.com/v0/b/apptactical-74663.appspot.com/o/productos%2F1746849431924_ChatGPT%20Image%205%20may%202025%2C%2009_16_35%20a.m..png?alt=media&token=744fa4b3-be13-4fc9-9e95-d7dc667b1a40",
+      "name": "comida para perros",
+      "category": "Alimentos",
+      "characteristcs": "que rico",
+      "stock": "2",
+      "price": "125000",
+      "description": "comida deliciosa"
+    },
+    {
+      "id": "7664",
+      "img": "https://firebasestorage.googleapis.com/v0/b/apptactical-74663.appspot.com/o/productos%2F1746884909745_WhatsApp%20Image%202025-05-06%20at%2015.33.21.jpeg?alt=media&token=3e3bc54a-750f-4360-bd42-0a00477e4be6",
+      "name": "PRUEBA 10-05-2025 : 08-48",
+      "category": "Alimentos",
+      "characteristcs": "DADADDAD",
+      "stock": "125",
+      "price": "1235121",
+      "description": "DADADAD"
+    },
+    {
+      "id": "39b0",
+      "img": "https://firebasestorage.googleapis.com/v0/b/apptactical-74663.appspot.com/o/productos%2F1746885516136_ChatGPT%20Image%2022%20abr%202025%2C%2003_36_42%20p.m..png?alt=media&token=a1d73ff3-b508-4d3a-b794-4aae454a6c1b",
+      "name": "FERNANDO 10-05-2025 08:57",
+      "category": "Alimentos",
+      "characteristcs": "CARACTERISTICAS",
       "stock": "20",
-      "price": "150000",
-      "description": "comida en bulto"
-    },
-    {
-      "id": "8b4d",
-      "img": "http.cdfdf//",
-      "name": "Hills - Comida Perro Adult Perfect Weight Dog",
-      "category": "Alimentos",
-      "characteristcs": "Pollo (carne, piel), cebada perlada quebrada, arroz integral, fibra de guisantes, harina de gluten de maíz, harina de pollo (carne), pulpa de tomate desecada, fibra de avena, saborizante de hígado de pollo, linaza, pulpa de remolacha desecada, aceite de coco, saborizante de cerdo, ácido láctico, cloruro de potasio, l-lisina, dl-metion",
-      "stock": "2323",
-      "price": "230000",
-      "description": "1. Bajo en calorías, alto en fibra, bajo en grasa y formulado con ingredientes para favorecer el metabolismo de las grasas. 2. Pollo fresco magro de alta digestibilidad. 3.Por su balance nutricional, es apto y seguro su consumo en mascotas que requieren controlar su peso"
-    },
-    {
-      "id": "1918",
-      "img": "http.cdfdf//",
-      "name": "Hemotologia",
-      "category": "Hematología Veterinaria",
-      "characteristcs": "asdafkjlkfmd",
-      "stock": "23",
-      "price": "23000",
-      "description": "fdsfkjdskf"
-    },
-    {
-      "id": "9238",
-      "img": "http.cdfdf//",
-      "name": "concentrado",
-      "category": "Alimentos",
-      "characteristcs": "el mejor",
-      "stock": "23",
-      "price": "23000",
-      "description": "el mejor"
-    },
-    {
-      "id": "69da",
-      "img": "http.cdfdf//",
-      "name": "concentrado",
-      "category": "Alimentos",
-      "characteristcs": "zdfsdgsg",
-      "stock": "23",
-      "price": "23444",
-      "description": "sfsfsdf"
-    },
-    {
-      "id": "1baf",
-      "img": "http.cdfdf//",
-      "name": "Prueba1",
-      "category": "Alimentos",
-      "characteristcs": "Prueba producto 7/05 8:32",
-      "stock": "22",
-      "price": "2222",
-      "description": "Prueba producto 7/05 8:32"
-    },
-    {
-      "id": "1aca",
-      "img": "http.cdfdf//",
-      "name": "Prueba 9/ mayo",
-      "category": "Alimentos",
-      "characteristcs": "Prueba 9/ mayo",
-      "stock": "233",
-      "price": "2222",
-      "description": "Prueba 9/ mayo"
+      "price": "125000",
+      "description": "DESCRTIPCION"
     }
   ],
   "services": [
     {
-      "id": "6d72",
+      "id": "b55e",
       "img": "http.cdfdf//",
-      "name": "",
-      "category": "",
-      "characteristcs": "",
-      "stock": "",
-      "price": "",
-      "description": "",
-      "recommendations": "",
-      "howToDoIt": {},
-      "duration": {}
-    },
-    {
-      "id": "3a81",
-      "img": "http.cdfdf//",
-      "name": "",
-      "category": "",
-      "characteristcs": "",
-      "stock": "",
-      "price": "",
-      "description": "",
-      "recommendations": "",
-      "howToDoIt": {},
-      "duration": {}
-    },
-    {
-      "id": "6e48",
-      "img": "http.cdfdf//",
-      "name": "hemograa",
-      "category": "Bioquímica",
-      "characteristcs": "zdfdfdf",
-      "stock": "23",
-      "price": "233",
-      "description": "vffxgdsg",
-      "recommendations": "fdfdvdxv ",
-      "howToDoIt": {},
-      "duration": {}
-    },
-    {
-      "id": "0daa",
-      "img": "http.cdfdf//",
-      "name": "hemograa",
+      "name": "FERNANDO",
       "category": "Hematología Veterinaria",
-      "characteristcs": "prueba",
-      "stock": "23",
-      "price": "233",
-      "description": "priueba",
-      "recommendations": "prueba",
-      "howToDoIt": "lunea ",
-      "duration": "233"
-    },
-    {
-      "id": "a1d9",
-      "img": "http.cdfdf//",
-      "name": "Prueba 1 servicios",
-      "category": "Hematología Veterinaria",
-      "characteristcs": "Prueba servicios 7/05 8:32",
-      "stock": "22",
-      "price": "2222",
-      "description": "Prueba servicios1",
-      "recommendations": "Prueba producto 7/05 8:32",
-      "howToDoIt": "Prueba producto 7/05 8:32",
-      "duration": "22"
+      "characteristcs": "CARACTERISTICAS",
+      "stock": "25",
+      "price": "125000",
+      "description": "DESCRIPCION",
+      "recommendations": "RECOMENDACIONES",
+      "howToDoIt": "AGENDA",
+      "duration": "DURECION"
     }
   ]
 }

@@ -1,65 +1,70 @@
-import { storage,ref,uploadBytes,getDownloadURL } from "./FirebaseConfig"; 
-//! con esta funcion enviamos los datos desde el formulario html
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-storage.js";
 
- function addProduct( img, name, category, characteristcs, stock, price, description) {
-     fetch("http://localhost:3000/products", {
-         method: 'POST',
-         headers: { 'Content-Type': 'application/json' },
-         body: JSON.stringify({
-            
-             img,
-             name,
-             category,
-             characteristcs,
-             stock,
-             price,
-             description
+const storage = window.firebaseStorage;
 
-         })
-     }).then(res => res.json()).then(datos1 => console.log(datos1)
-     ).catch(err => console.log(err)
-     )
+function addProduct(img, name, category, characteristcs, stock, price, description) {
+    fetch("http://localhost:3000/products", {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            img,
+            name,
+            category,
+            characteristcs,
+            stock,
+            price,
+            description
+        })
+    })
+    .then(res => res.json())
+    .then(data => console.log("Respuesta del backend:", data))
+    .catch(err => console.error("Error en fetch:", err));
+}
 
- }
 
+document.getElementById("registroForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
 
- document.getElementById("registroForm").addEventListener("submit", async (e) => {
-     e.preventDefault();
-     const imgImput = document.getElementById("imagen").value;
-     const listaImag = imgImput.files[0];
-
-     if (!listaImag || !listaImag.type.startsWith("image/")) {
-        alert("Por favor selecciona una imagen válida.");
+    const fileInput = document.getElementById("imagen");
+    const file = fileInput.files[0]; 
+    
+    
+    if (!file) {
+        alert("Por favor selecciona una imagen.");
         return;
     }
-     
-     const imgRef = ref(storage, `productos/${Date.now()}-${file.name}`);
-     
-     try {
-         
-        await uploadBytes(imgRef,file);
 
+    try {
+        const storageRef = ref(storage, `productos/${Date.now()}_${file.name}`);
+        const snapshot = await uploadBytes(storageRef, file);
+        console.log("IMAGEN ENVIADA");
+        const imgURL = await getDownloadURL(snapshot.ref);
 
-        const img = await getDownloadURL(imgRef);
         const name = document.getElementById("nombre").value;
         const category = document.getElementById("categoria").value;
         const characteristcs = document.getElementById("caracteristicas").value;
         const stock = document.getElementById("stock").value;
         const price = document.getElementById("precio").value;
         const description = document.getElementById("descripcion").value;
-        
-        addProduct(img, name, category, characteristcs, stock, price, description)
 
-        e.target.reset()
+        addProduct(imgURL, name, category, characteristcs, stock, price, description);
 
-     } catch (error) {
-        console.error("Produjo un error en: ", error );
-        
-        
-     }
-     
-     
- });
+        e.target.reset();
+
+    } catch (error) {
+        console.error("Error al subir la imagen:", error);
+        alert("Hubo un error al subir la imagen.");
+    }
+});
+
+
+
+
+
+
+
+
+
 
 // Funcion para  servicios
  function addService( img, name, category, characteristcs, stock, price, description, recommendations,howToDoIt, duration ) {
@@ -108,8 +113,9 @@ document.getElementById("registroFormServices").addEventListener("submit", (e) =
     addService(imgS, nameS, categoryS, characteristcsS, stockS, priceS, descriptionS,recommendationsS, howToDoItS, durationS  )
 });
 
-//! Esta funcion es para enviar datos manualmente
-// addProduct(1, "http....", "cat", "Alimento", "suave", 24, 23000, "Comodo" );
+
+
+
 
 
 //? Este script solo almacena los datos temporalmente en un array vacio, para consultrols los observamos en consola
