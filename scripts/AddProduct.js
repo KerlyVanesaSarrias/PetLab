@@ -66,57 +66,6 @@ document.getElementById("registroForm").addEventListener("submit", async (e) => 
 
 
 
-// Funcion para  servicios
- function addService( img, name, category, characteristcs, stock, price, description, recommendations,howToDoIt, duration ) {
-    fetch("http://localhost:3000/services", {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-           
-            img,
-            name,
-            category,
-            characteristcs,
-            stock,
-            price,
-            description,
-            recommendations,
-            howToDoIt,
-            duration
-
-
-
-        })
-    }).then(res => res.json()).then(datos1 => console.log(datos1)
-    ).catch(err => console.log(err)
-    )
-
-}
-
-
-document.getElementById("registroFormServices").addEventListener("submit", (e) => {
-    e.preventDefault();
-
-   
-    const imgS = "http.cdfdf//";
-    const nameS = document.getElementById("nombreS").value;
-    const categoryS = document.getElementById("categoriaS").value;
-    const characteristcsS = document.getElementById("caracteristicasS").value;
-    const stockS = document.getElementById("stockS").value;
-    const priceS = document.getElementById("precioS").value;
-    const descriptionS = document.getElementById("descripcionS").value;
-    const recommendationsS = document.getElementById("recomendacionS").value;
-    const howToDoItS = document.getElementById("agendaS").value;
-    const durationS = document.getElementById("duracionS").value;
-    e.target.reset()
-
-    addService(imgS, nameS, categoryS, characteristcsS, stockS, priceS, descriptionS,recommendationsS, howToDoItS, durationS  )
-});
-
-
-
-
-
 
 //? Este script solo almacena los datos temporalmente en un array vacio, para consultrols los observamos en consola
 

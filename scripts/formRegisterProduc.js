@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "Bioquímica",
       "Serología Veterinaria",
       "Gases Sanguíneos",
-      "Pruebas Moleculares"
+      "Ayudas Diagnósticas Veterinarias"
     ]
   };
 
