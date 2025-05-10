@@ -73,6 +73,7 @@ function renderCart() {
             </p>
           </div>
           <i class="bi bi-trash" onclick="removeItem(${index})"></i>
+         
         `;
         container.appendChild(div);
     });

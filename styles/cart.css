@@ -1,0 +1,155 @@
+
+ .cart-sidebar {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    height: 100%;
+    width: 400px;
+    max-width: 90%;
+    background-color: #fff;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
+    z-index: 2000;
+    padding: 25px 20px;
+    overflow-y: auto;
+    transition: right 0.3s ease-in-out;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .cart-sidebar.active {
+    right: 0;
+  }
+  
+  .cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1a1919;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+  } 
+  
+  .cart-header h2 {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .close-cart {
+    font-size: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.2s;
+  }
+  
+  .close-cart:hover {
+    color: #043881;
+  }
+  
+  
+  .cart-item img {
+   margin: 0, 5px;
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .item-info {
+    flex-grow: 1;
+    font-size: 14px;
+  }
+  
+  .item-info p {
+    margin: 4px 0;
+  }
+  
+  .cantidad {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .cantidad button {
+    padding: 2px 8px;
+    background-color: #758296;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .cantidad button:hover {
+    background-color: #1d4885;
+  }
+
+  .cart-item {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    border-bottom: solid #b1afaf 1px;
+    margin-bottom: 1rem;
+    padding: 10px;
+  }
+
+  
+  .cart-item i.bi-trash {
+    font-size: 20px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .cart-item i.bi-trash:hover {
+    color: #043881;
+  }
+  
+  .cart-footer {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .clear-btn,
+  .buy-btn {
+    padding: 8px;
+    margin: 10px 5px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .clear-btn {
+    background-color: white;
+    border: 2px solid #043881;
+    color: #043881;
+  }
+  
+  .clear-btn:hover {
+    background-color: #5f9df3;
+    color: white;
+  }
+  
+  .buy-btn {
+    background-color:#043881;
+    color: white;
+    border: 2px solid transparent;
+  }
+  
+  .buy-btn:hover {
+    background-color: #5f9df3;
+  }
+  
+  .total {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #111;
+  }
+  
+  .total strong {
+    color: #043881;
+  }

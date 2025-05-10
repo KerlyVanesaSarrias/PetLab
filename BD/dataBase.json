@@ -41,5 +41,26 @@
       "description": "comida en bulto"
     }
   ],
-  "sevices": []
+  "services": [
+    {
+      "id": "ff8e",
+      "img": "http....",
+      "name": "perro",
+      "category": "Alimento",
+      "characteristcs": "suave",
+      "stock": 24,
+      "price": 23000,
+      "description": "Comodo"
+    },
+    {
+      "id": "33bf",
+      "img": "http.cdfdf//",
+      "name": "comida de perros grandes",
+      "category": "Alimentos",
+      "characteristcs": "comida a granel",
+      "stock": "20",
+      "price": "150000",
+      "description": "comida en bulto"
+    }
+  ]
 }

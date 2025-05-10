@@ -1,3 +1,11 @@
+:root {
+  --blue-dark:   #1e3a8a; /* tono principal */
+  --blue-darker: #162d60; /* hover/activo */
+  --blue-light:  #3b82f6; /* accent */
+  --text-light:  #ffffff;
+  --border-radius: 0.375rem; /* 6px */
+  --transition-time: 0.2s;
+}
 .carousel-container {
     padding: 40px;
   }
@@ -26,36 +34,58 @@
     height: 250px;
   }
 
-  .card-title {
-    font-size: small;
+
+  .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
   }
 
-  .activeBtn {
-    background: #0451e0;
-    color: white;
-  }
+.btnCard{
+  background-color: rgb(28, 86, 245);
+  color: white;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 10px;
+  align-content: center;
+  text-align: center;
+  cursor: pointer;
+}
+.card-title {
+  color: #1e3a8a;
+}
+.btnCard:hover {
+  background-color: #7072ca;
 
-  .disabledBtn {
-    background: #969ead;
-  }
-  
-  /* button {
-    border-radius: 10px;
-    border: solid;
-    border-color: darkblue;
-  } */
+}
 
-  .category-button {
-    transition: all 0.3s ease;
-  }
-  
-  .category-button .active {
-    background-color: #0d6efd; 
-    border-color: #0d6efd;
-  }
+.category-button {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  border: 1px solid #1e3a8a;
+  border-radius: 9999px;
+  margin-right: 0.5rem;
+  color: #1e3a8a;
+  cursor: pointer;
+
+}
+
+.category-button.active {
+  background-color: #337bbe; 
+  color: white;
+}
 
   .section-button.active {
-    background-color: #198754; /* verde de Bootstrap */
+    background-color: #1e3a8a;
     color: white;
-    border-color: #198754;
+  }
+
+  .section-button {
+    color:#1e3a8a;
+    border-color: #3b82f6;   
   }

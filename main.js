@@ -11,14 +11,20 @@ let currentPage = 1;
 const cardsPerPage = 8;
 
 
+fetch('./BD/dataBase.json')
+  .then(res => res.json())
+  .then(data => {
+    dataFetched = data
+    renderCards(data.products)
+    marcarBotonActivo(btnProducts, 'section-button')
+
+  }).catch(err => console.error("Error al cargar productos y servicios:", err))
 
 const renderCards = (cards, isFull = false) => {
-
   if (isFull) {
     fullCards = cards
   }
   currentCards = cards
-
   renderCurrentPage();
   renderPagination();
 
@@ -33,14 +39,16 @@ const renderCurrentPage = () => {
     const card = document.createElement('div')
     card.className = 'col-md-3 mb-4'
     card.innerHTML = `
-      <a href="/pages/detail.html" class="card shadow" style="width: 100%">
-        <img src="${item.img}" class="card-img-top" alt="${item.name}">
-        <div class="card-body">
-          <h5 class="card-title">${item.name}</h5>
-          <p class="card-text">$${item.price}</p>
-          <div class="btn btn-primary" onClick='addToCart("${item.name}", ${item.price}, "${item.img}")'>Añadir al Carrito</div>
+      <div  class="card shadow" style="width: 100%">
+        <a href="/pages/detail.html">
+          <img src="${item.img}" class="card-img-top" alt="${item.name}">
+         <div class="card-body">
+            <h5 class="card-title">${item.name}</h5>
+            <p class="card-text">$${item.price}</p>
+       </a>
+          <div class="btnCard" onClick='addToCart("${item.name}", ${item.price}, "${item.img}")'>Añadir al Carrito</div>
         </div>
-      </a>
+      </div>
     `
     cardsContainer.appendChild(card)
   })
@@ -104,7 +112,7 @@ const renderCategories = (cards) => {
   if (categoriasUnicas.size > 0) {
     categoriasUnicas.forEach(cat => {
       const button = document.createElement('button')
-      button.className = 'btn btn-outline-info m-1 category-button'
+      button.className = 'category-button'
       button.innerText = cat;
 
       button.addEventListener('click', () => {
@@ -124,16 +132,6 @@ const marcarBotonActivo = (botonSeleccionado, grupoClase) => {
   todosLosBotones.forEach(btn => btn.classList.remove('active'));
   botonSeleccionado.classList.add('active');
 }
-
-fetch('./data.json')
-  .then(res => res.json())
-  .then(data => {
-    dataFetched = data
-    renderCards(data.products)
-    marcarBotonActivo(btnProducts, 'section-button')
-
-  })
-  .catch(err => console.error("Error al cargar productos y servicios:", err))
 
 btnServices.addEventListener('click', () => {
   if (dataFetched) {
