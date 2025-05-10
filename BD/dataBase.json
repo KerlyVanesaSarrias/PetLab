@@ -39,7 +39,133 @@
       "stock": "20",
       "price": "150000",
       "description": "comida en bulto"
+    },
+    {
+      "id": "8b4d",
+      "img": "http.cdfdf//",
+      "name": "Hills - Comida Perro Adult Perfect Weight Dog",
+      "category": "Alimentos",
+      "characteristcs": "Pollo (carne, piel), cebada perlada quebrada, arroz integral, fibra de guisantes, harina de gluten de maíz, harina de pollo (carne), pulpa de tomate desecada, fibra de avena, saborizante de hígado de pollo, linaza, pulpa de remolacha desecada, aceite de coco, saborizante de cerdo, ácido láctico, cloruro de potasio, l-lisina, dl-metion",
+      "stock": "2323",
+      "price": "230000",
+      "description": "1. Bajo en calorías, alto en fibra, bajo en grasa y formulado con ingredientes para favorecer el metabolismo de las grasas. 2. Pollo fresco magro de alta digestibilidad. 3.Por su balance nutricional, es apto y seguro su consumo en mascotas que requieren controlar su peso"
+    },
+    {
+      "id": "1918",
+      "img": "http.cdfdf//",
+      "name": "Hemotologia",
+      "category": "Hematología Veterinaria",
+      "characteristcs": "asdafkjlkfmd",
+      "stock": "23",
+      "price": "23000",
+      "description": "fdsfkjdskf"
+    },
+    {
+      "id": "9238",
+      "img": "http.cdfdf//",
+      "name": "concentrado",
+      "category": "Alimentos",
+      "characteristcs": "el mejor",
+      "stock": "23",
+      "price": "23000",
+      "description": "el mejor"
+    },
+    {
+      "id": "69da",
+      "img": "http.cdfdf//",
+      "name": "concentrado",
+      "category": "Alimentos",
+      "characteristcs": "zdfsdgsg",
+      "stock": "23",
+      "price": "23444",
+      "description": "sfsfsdf"
+    },
+    {
+      "id": "1baf",
+      "img": "http.cdfdf//",
+      "name": "Prueba1",
+      "category": "Alimentos",
+      "characteristcs": "Prueba producto 7/05 8:32",
+      "stock": "22",
+      "price": "2222",
+      "description": "Prueba producto 7/05 8:32"
+    },
+    {
+      "id": "1aca",
+      "img": "http.cdfdf//",
+      "name": "Prueba 9/ mayo",
+      "category": "Alimentos",
+      "characteristcs": "Prueba 9/ mayo",
+      "stock": "233",
+      "price": "2222",
+      "description": "Prueba 9/ mayo"
     }
   ],
-  "sevices": []
+  "services": [
+    {
+      "id": "6d72",
+      "img": "http.cdfdf//",
+      "name": "",
+      "category": "",
+      "characteristcs": "",
+      "stock": "",
+      "price": "",
+      "description": "",
+      "recommendations": "",
+      "howToDoIt": {},
+      "duration": {}
+    },
+    {
+      "id": "3a81",
+      "img": "http.cdfdf//",
+      "name": "",
+      "category": "",
+      "characteristcs": "",
+      "stock": "",
+      "price": "",
+      "description": "",
+      "recommendations": "",
+      "howToDoIt": {},
+      "duration": {}
+    },
+    {
+      "id": "6e48",
+      "img": "http.cdfdf//",
+      "name": "hemograa",
+      "category": "Bioquímica",
+      "characteristcs": "zdfdfdf",
+      "stock": "23",
+      "price": "233",
+      "description": "vffxgdsg",
+      "recommendations": "fdfdvdxv ",
+      "howToDoIt": {},
+      "duration": {}
+    },
+    {
+      "id": "0daa",
+      "img": "http.cdfdf//",
+      "name": "hemograa",
+      "category": "Hematología Veterinaria",
+      "characteristcs": "prueba",
+      "stock": "23",
+      "price": "233",
+      "description": "priueba",
+      "recommendations": "prueba",
+      "howToDoIt": "lunea ",
+      "duration": "233"
+    },
+    {
+      "id": "a1d9",
+      "img": "http.cdfdf//",
+      "name": "Prueba 1 servicios",
+      "category": "Hematología Veterinaria",
+      "characteristcs": "Prueba servicios 7/05 8:32",
+      "stock": "22",
+      "price": "2222",
+      "description": "Prueba servicios1",
+      "recommendations": "Prueba producto 7/05 8:32",
+      "howToDoIt": "Prueba producto 7/05 8:32",
+      "duration": "22"
+    }
+  ]
 }

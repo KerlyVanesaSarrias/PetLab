@@ -15,12 +15,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const tipoInputs = document.querySelectorAll('input[name="relacion"]');
   const categoriaSelect = document.getElementById('categoria');
-  const servicioExtras = document.getElementById('servicioExtras');
+ 
   const form = document.getElementById("registroForm");
+  const formService = document.getElementById("registroFormServices");
   const modal = document.getElementById("modalGracias");
   const closeBtn = document.querySelector(".close-btn");
 
-  servicioExtras.style.display = "none";
+  
 
   function actualizarCategorias(tipoSeleccionado) {
     categoriaSelect.innerHTML = '<option value="">Seleccione una opción</option>';
@@ -38,15 +39,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
       actualizarCategorias(tipoSeleccionado);
 
-      if (tipoSeleccionado === "Servicio") {
-        servicioExtras.style.display = "block";
-      } else {
-        servicioExtras.style.display = "none";
-      }
+     
     });
   });
 
   form.addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita recarga
+    modal.style.display = "block"; // Muestra el modal
+    // form.reset(); // Limpia el formulario si quieres
+  });
+
+  formService.addEventListener("submit", function (event) {
     event.preventDefault(); // Evita recarga
     modal.style.display = "block"; // Muestra el modal
     // form.reset(); // Limpia el formulario si quieres
