@@ -34,45 +34,33 @@
 }
 
 nav {
-    background: linear-gradient(to right, #ffffff, #4eb8b2, #0047ab);
+    background: linear-gradient(to right, #e7f1f8f6, #2b7491, #043881);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 10px;
     border-radius:0px 0px 10px 7px;
+    height: 130px;
 }
 
 .icons-nav {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin: 0 10px;
-    text-decoration: none;
     padding: 5px;
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
+    color: white; 
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
 
-.icons-nav i {
-    color: black;
-    transition: color 0.3s ease;
-}
 
-.icons-nav:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
-.icons-nav:hover i {
-    color: white;
-}
 
 .menu-toggle{
     display: none;
     font-size: 2rem;
     background: none;
     border: none;
-    color: #091c37;
+    color: #e0e4eb;
     cursor: pointer;
 }
 
@@ -110,3 +98,4 @@ nav {
         display: flex;
     }
 }
+
