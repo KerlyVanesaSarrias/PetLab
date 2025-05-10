@@ -16,7 +16,7 @@ main {
   padding: 2rem;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 0 8px #0B3B59;
+ /* box-shadow: 0 0 8px #0B3B59;
   /*  Borde por fuera del form antes rgba(0, 0, 0, 0.05) */
 }
 
@@ -30,6 +30,17 @@ main {
   line-height: 1.2;
   font-family: "Poppins", sans-serif;
   font-style: normal;
+}
+
+.form-subtitle {
+  text-align: center;
+  font-weight: 600;
+  font-size: 2em;
+  margin-bottom: 16px;
+  color: #000000;
+  border-bottom: 2px solid #26A699;
+  padding-bottom: 0.5rem;
+  width: 100%;
 }
 
 
@@ -155,6 +166,12 @@ input[type="file"] {
   max-width: 300px;
 }
 
+#categoriaS,
+#imagenS {
+  width: 30%;
+  max-width: 300px;
+}
+
 #descripcion {
   min-height: 120px;
   background: #ccc;
@@ -187,6 +204,14 @@ input[type="file"] {
   border: 1px solid #000;
   color: #000;
   outline: none;
+}
+
+#registroFormProductos {
+  display: none;
+}
+
+#registroFormServices {
+  display: block;
 }
 
 .obligatorio {
@@ -226,7 +251,29 @@ button[type="submit"]:hover {
     flex-direction: column;
     gap: 12px;
   }
+
+ 
+  .row {
+    flex-direction: column;
+  }
+
+  .col {
+    width: 100%;
+  }
+
+  #categoria,
+  #imagen,
+  #categoriaS,
+  #imagenS {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+  }
 }
+
 
 .nota {
   font-size: 12px;

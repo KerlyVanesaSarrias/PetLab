@@ -21,21 +21,21 @@
     <div id="container-navbar"></div>
     <main>
         <section class="section-registro">
-            <form class="formulario" id="registroForm">
-                <h2 class="form-title">Registro de producto o servicio </h2>
-
-
-                <div class="form-row">
-                    <label for="tipo">Tipo: <span class="obligatorio">*</span></label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="relacion" value="Producto"> Producto</label>
-                        <label><input type="radio" name="relacion" value="Servicio"> Servicio</label>
-                    </div>
+            <h2 class="form-subtitle" >Panel de administración: Registro de ítems</h2>
+            <div class="form-row">
+              <label for="tipo">Tipo: <span class="obligatorio">*</span></label>
+                <div class="radio-group">
+                    <label><input type="radio" name="relacion" value="Producto"> Producto</label>
+                    <label><input type="radio" name="relacion" value="Servicio"> Servicio</label>
                 </div>
+            </div>
 
+            <!-- Formulario Productos -->
+            <form class="formulario" id="registroForm">
+                <h2 class="form-title">Registro de producto </h2>
 
                 <div class="form-row">
-                    <!-- organiza campos de un formulario en una fila horizontal uno al lado del otro -->
+
                     <label for="nombre">Nombre: <span class="obligatorio">*</span></label>
                     <input type="text" id="nombre" class="name" name="nombre"
                         placeholder="Ingresa el nombre del producto o servicio" required>
@@ -74,21 +74,78 @@
                     <input type="number" id="stock" name="stock" placeholder="cantidad del producto en Stock" required>
                 </div>
 
-                <div class="form-row" id="servicioExtras">
-                    <div class="form-row">
-                        <label for="recomendacion">Recomendaciones: <span class="obligatorio">*</span> </label>
-                        <textarea type="text" id="recomendacion" name="recomendacion"
-                            placeholder="Indica las recomendaciones previas al servicio." rows="4" cols="50"></textarea>
-                    </div>
-                    <div class="form-row">
-                        <label for="duracion">Duración: <span class="obligatorio">*</span> </label>
-                        <input type="text" id="duracion" name="duracion" placeholder="Cuanto tiempo dura el servicio. ">
-                    </div>
-                    <div class="form-row">
-                        <label for="agenda">Agenda: <span class="obligatorio">*</span> </label>
-                        <input type="text" id="agenda" name="agenda" placeholder="Ej. Disponible de lunes a viernes">
-                    </div>
+
+
+                <button type="submit" class="btn-enviar">Enviar</button>
+
+
+            </form>
+        </section>
+        <!-- Formulario Servicios -->
+        <section class="section-registro">
+
+
+            <form class="formulario" id="registroFormServices" style="display: block;">
+                <h2 class="form-title">Registro de servicios </h2>
+
+
+
+
+
+                <div class="form-row">
+
+                    <label for="nombre">Nombre: <span class="obligatorio">*</span></label>
+                    <input type="text" id="nombreS" class="name" name="nombre"
+                        placeholder="Ingresa el nombre del producto o servicio" required>
                 </div>
+                <div class="form-row">
+                    <label for="categoria">Categoría: <span class="obligatorio">*</span></label>
+                    <select id="categoriaS" name="categoria" required>
+                        <option value="">Seleccione una opción</option>
+                    </select>
+                </div>
+
+                <div class="form-row" class="Descripcion-group">
+                    <label for="descripcion">Descripción: <span class="obligatorio">*</span></label>
+                    <textarea type="text" id="descripcionS" name="descripcion"
+                        placeholder="Describe el producto o servicio " rows="4" cols="50" required></textarea>
+                </div>
+                <div class="form-row">
+                    <label for="imagen">Imagenes: <span class="obligatorio">*</span></label>
+                    <input type="file" id="imagenS" name="imagen" placeholder="Imagenes del producto o servicio"
+                        accept="image/*" multiple required>
+                </div>
+
+                <div class="form-row">
+                    <label for="precio">Precio: <span class="obligatorio">*</span></label>
+                    <input type="number" id="precioS" name="precio"
+                        placeholder="Precio de venta del producto o servicio" required>
+                </div>
+                <div class="form-row">
+                    <label for="Caracteristicas">Caracteristicas: <span class="obligatorio">*</span></label>
+                    <textarea type="text" id="caracteristicasS" name="caracteristicas"
+                        placeholder="Caracteristicas del producto o servicio" rows="4" cols="20" required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <label for="Stock">Cantidad en stock: <span class="obligatorio">*</span></label>
+                    <input type="number" id="stockS" name="stock" placeholder="cantidad del producto en Stock" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="recomendacion">Recomendaciones: <span class="obligatorio">*</span> </label>
+                    <textarea type="text" id="recomendacionS" name="recomendacion"
+                        placeholder="Indica las recomendaciones previas al servicio." rows="4" cols="50"></textarea>
+                </div>
+                <div class="form-row">
+                    <label for="duracion">Duración: <span class="obligatorio">*</span> </label>
+                    <input type="text" id="duracionS" name="duracion" placeholder="Cuanto tiempo dura el servicio. ">
+                </div>
+                <div class="form-row">
+                    <label for="agenda">Agenda: <span class="obligatorio">*</span> </label>
+                    <input type="text" id="agendaS" name="agenda" placeholder="Ej. Disponible de lunes a viernes">
+                </div>
+
 
                 <button type="submit" class="btn-enviar">Enviar</button>
 
@@ -127,9 +184,17 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Ana, este script no lo debes mover, no debes colocar scripts encima de el, lo que agregues hazlo al final -->
+    <script type="module" src="/scripts/FirebaseConfig.js"></script>
+    
+        
     <script src="/scripts/scripts.js" defer></script>
+    <script src="/scripts/formPyS.js"></script>
     <script src="/scripts/formRegisterProduc.js"></script>
-    <script src="/scripts/AddProduct.js"></script>
+    <Script src="/scripts/formRegisterServ.js"></Script>
+    <script type="module" src="/scripts/AddProduct.js"></script>
+    
 </body>
 
 </html>
