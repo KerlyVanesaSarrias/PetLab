@@ -65,21 +65,27 @@
                 <div class="register">
                     <img src="/assets/logo.png" class="img-register" alt="">
                     <h2>Inicia tu registro</h2>
-                    <div class="mb-3 mt-5">
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingresa tu nombre de usuario">
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese un correo electronico">
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese una contraseña">
-                    </div>
-                    <div class="mb-3">
-                        <input type="text" class="form-control mb-5" id="formGroupExampleInput" placeholder="Confirma tu contraseña">
-                    </div>
-                    <div class="button-iniciar mb-3">
-                        <button class="button-login">Iniciar sesiòn</button>
-                    </div>
+                    <form action="" class="register" id="form-register">
+                        <div class="mb-3 mt-5">
+                        <input type="text" class="form-control" id="form-name" placeholder="Ingresa tu nombre de usuario">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="form-email" placeholder="Ingrese un correo electronico">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="form-number" placeholder="Ingresa tu numero telefonico">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="form-password" placeholder="Ingrese una contraseña">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control mb-5" id="formGroupExampleInput" placeholder="Confirma tu contraseña">
+                        </div>
+                        <div class="button-iniciar mb-3">
+                            <button class="button-login" type="submit">Registrarse</button>
+                        </div>
+                    </form>
+                    
                     <div class="link-registro mt-5">
                         <p>¿Ya tienes cuenta? <a href="#" class="btn-login">Inicia sesión</a></p>
                     </div>
@@ -95,7 +101,7 @@
             </div>
         </div>
     </div>
-    <script src="/scripts/transitionLogin.js"></script>
+    <script src="/scripts/login_Scripts/transitionLogin.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 </body>
 </html>
