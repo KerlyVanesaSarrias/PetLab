@@ -55,39 +55,35 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
 
     let allFilled = true;
-    let passwordsMatch = true;
-
-    const password = document.getElementById("form-password").value;
-    const confirm = document.getElementById("form-confirm-password").value;
+    let noErrors = true;
 
     inputs.forEach(input => {
       if (input.value.trim() === "") {
         allFilled = false;
       }
+      const errorMsg = input.nextElementSibling;
+      if (errorMsg && errorMsg.textContent.trim() !== "") {
+        noErrors = false;
+      }
     });
-
-    if (password !== confirm) {
-      passwordsMatch = false;
-    }
 
     if (!allFilled) {
       showModal("Todos los campos son requeridos.");
-    } else if (!passwordsMatch) {
-      showModal("Las contraseñas no coinciden.");
+    } else if (!noErrors) {
+      showModal("Por favor corrija los errores antes de continuar.");
     } else {
       showModal("Registro exitoso, por favor inicie sesión.");
       form.reset();
     }
   });
+
 });
 
-// Función para mostrar el modal
 function showModal(mensaje) {
   document.getElementById("modal-message").textContent = mensaje;
   document.getElementById("modal").style.display = "flex";
 }
 
-// Función para cerrar el modal
 function closeModal() {
   document.getElementById("modal").style.display = "none";
 }

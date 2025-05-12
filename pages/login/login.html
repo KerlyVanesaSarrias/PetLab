@@ -83,19 +83,14 @@
                             <small class="error-text"></small>
                         </div>
                         <div class="mb-3">
-                            <input type="password" class="form-control mb-5" id="form-confirm-password" placeholder="Confirma tu contraseña">
+                            <input type="password" class="form-control mb-2" id="form-confirm-password" placeholder="Confirma tu contraseña">
                             <small class="error-text"></small>
                         </div>
                         <div class="button-iniciar mb-3">
                             <button class="button-login" type="submit">Registrarse</button>
                         </div>
                     </form>
-                    <div id="modal" class="modal" style="display: none;">
-                        <div class="modal-content">
-                            <p id="modal-message"></p>
-                            <button onclick="closeModal()">Cerrar</button>
-                        </div>
-                    </div>
+                    
                     <div class="link-registro mt-5">
                         <p>¿Ya tienes cuenta? <a href="#" class="btn-login">Inicia sesión</a></p>
                     </div>
@@ -109,6 +104,12 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div id="modal" class="modal" style="display: none;">
+            <div class="modal-content">
+            <p id="modal-message"></p>
+            <button onclick="closeModal()">Cerrar</button>
         </div>
     </div>
     <script src="/scripts/login_Scripts/validateForm.js"></script>
