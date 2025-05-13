@@ -33,14 +33,18 @@
                         <h2>Laboratorio Veterinario</h2>
                         <p>Ingresa tus credenciales para iniciar sesión</p>
                     </div>
-                    <div class="mb-3">
-                        <label for="formGroupExampleInput" class="form-label">Usuario</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese su usuario o correo">
-                    </div>
-                    <div class="mb-3">
-                        <label for="formGroupExampleInput2" class="form-label">Contraseña</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ingrese su contraseña">
-                    </div>
+                    <form action="" id="form-login" class="login">
+                        <div class="mb-3">
+
+                            <label for="formGroupExampleInput" class="form-label">Usuario</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese su usuario o correo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput2" class="form-label">Contraseña</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ingrese su contraseña">
+                        </div>
+                    </form>
+                    
                     <div class="container olvido-contrasena mb-3" >
                         <a href="">¿Olvido su contraseña?</a>
                     </div>
@@ -106,15 +110,36 @@
             </div>
         </div>
     </div>
+    <!-- Modal del register -->
     <div id="modal" class="modal" style="display: none;">
         <div class="modal-content">
             <p id="modal-message"></p>
             <button type="button" id="modal-close-button">Cerrar</button>
         </div>
     </div>
+    <!-- Modal de login -->
+    <div class="modal fade" id="modalValidacion" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center">
+        <div class="modal-header">
+            <h5 class="modal-title">Atención</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+            <p id="modalTexto">Mensaje del sistema</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
     <script src="/scripts/login_Scripts/validateForm.js"></script>
     <!-- <script src="/scripts/login_Scripts/regiterUser.js"></script> -->
     <script src="/scripts/login_Scripts/transitionLogin.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="/scripts/login_Scripts/validateUser.js"></script>
+    
 </body>
 </html>

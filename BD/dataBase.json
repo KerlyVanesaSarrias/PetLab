@@ -83,6 +83,41 @@
       "email": "usuario8@gemail.com",
       "phoneNumber": "12312314",
       "password": "123456"
+    },
+    {
+      "id": "551f",
+      "name": "usuario11",
+      "email": "usuario11@gmail.com",
+      "phoneNumber": "1234567",
+      "password": "123456"
+    },
+    {
+      "id": "7fc7",
+      "name": "usuario12",
+      "email": "usuario12@gmail.com",
+      "phoneNumber": "1234567",
+      "password": "123456"
+    },
+    {
+      "id": "abc1",
+      "name": "fernando",
+      "email": "fernando@gmail.com",
+      "phoneNumber": "3172576290",
+      "password": "123456"
+    },
+    {
+      "id": "d22f",
+      "name": "ana ",
+      "email": "ana@gmail.com",
+      "phoneNumber": "32175664",
+      "password": "123456"
+    },
+    {
+      "id": "c390",
+      "name": "fernando2",
+      "email": "fernando2@gmail.com",
+      "phoneNumber": "3172546565",
+      "password": "123456"
     }
   ],
   "products": [

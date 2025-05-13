@@ -10,11 +10,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const pantalla = document.querySelector('.pantalla-principal');
 
   modalCloseButton.addEventListener("click", () => {
-    modal.style.display = "none";
-    if (redirectAfterClose) {
+  modal.style.display = "none";
+  if (redirectAfterClose) {
+    setTimeout(() => {
       pantalla.classList.remove('registro-activo'); 
-    }
-  });
+    }, 4000); // esperar 300ms
+  }
+});
 
   // Validación en tiempo real de los campos del formulario
   inputs.forEach(input => {
