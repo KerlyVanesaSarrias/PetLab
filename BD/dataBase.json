@@ -27,6 +27,20 @@
       "email": "no@gmail.com",
       "phoneNumber": "3172576290",
       "password": "123456"
+    },
+    {
+      "id": "364b",
+      "name": "usuario4",
+      "email": "usuario4@gmail.com",
+      "phoneNumber": "1234567",
+      "password": "123456"
+    },
+    {
+      "id": "13f8",
+      "name": "usuario5",
+      "email": "usuario5@gmail.com",
+      "phoneNumber": "1234567",
+      "password": "123456"
     }
   ],
   "products": [

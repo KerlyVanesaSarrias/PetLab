@@ -1,9 +1,21 @@
+let redirectAfterClose = false;
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form-register");
   const inputs = form.querySelectorAll("input");
+  const modal = document.getElementById("modal");
+  const modalMessage = document.getElementById("modal-message");
 
-  // Validación en tiempo real
+
+  const closeBtn = modal.querySelector("button");
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+    if (redirectAfterClose) {
+      window.location.href = "login.html";
+    }
+  });
+
+  
   inputs.forEach(input => {
     const errorMsg = input.nextElementSibling;
 
@@ -50,8 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Validación al enviar el formulario
-  form.addEventListener("submit", (e) => {
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     let allFilled = true;
@@ -72,18 +84,38 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (!noErrors) {
       showModal("Por favor corrija los errores antes de continuar.");
     } else {
-      showModal("Registro exitoso, por favor inicie sesión.");
-      form.reset();
+    
+      const name = document.getElementById("form-name").value;
+      const email = document.getElementById("form-email").value;
+      const phoneNumber = document.getElementById("form-number").value;
+      const password = document.getElementById("form-password").value;
+
+      try {
+        const response = await fetch("http://localhost:3000/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, phoneNumber, password }),
+        });
+
+        if (response.ok) {
+          form.reset();
+          showModal("Registro exitoso. Presiona cerrar para iniciar sesión.", true);
+        } else {
+          showModal("Error al registrar usuario.");
+        }
+      } catch (err) {
+        console.error("Error al enviar datos:", err);
+        showModal("Error de conexión con el servidor.");
+      }
     }
   });
 
+
+  function showModal(mensaje, shouldRedirect = false) {
+    modalMessage.textContent = mensaje;
+    modal.style.display = "flex";
+    redirectAfterClose = shouldRedirect;
+  }
 });
-
-function showModal(mensaje) {
-  document.getElementById("modal-message").textContent = mensaje;
-  document.getElementById("modal").style.display = "flex";
-}
-
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
