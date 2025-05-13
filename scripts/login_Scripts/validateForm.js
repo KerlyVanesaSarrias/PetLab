@@ -5,17 +5,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const inputs = form.querySelectorAll("input");
   const modal = document.getElementById("modal");
   const modalMessage = document.getElementById("modal-message");
+  const modalCloseButton = document.getElementById("modal-close-button");
 
+  const pantalla = document.querySelector('.pantalla-principal');
 
-  const closeBtn = modal.querySelector("button");
-  closeBtn.addEventListener("click", () => {
+  modalCloseButton.addEventListener("click", () => {
     modal.style.display = "none";
     if (redirectAfterClose) {
-      window.location.href = "login.html";
+      pantalla.classList.remove('registro-activo'); 
     }
   });
 
-  
+  // Validación en tiempo real de los campos del formulario
   inputs.forEach(input => {
     const errorMsg = input.nextElementSibling;
 
@@ -62,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-
+  // Validación y envío de datos al archivo json
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -84,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (!noErrors) {
       showModal("Por favor corrija los errores antes de continuar.");
     } else {
-    
+      // Datos del formulario
       const name = document.getElementById("form-name").value;
       const email = document.getElementById("form-email").value;
       const phoneNumber = document.getElementById("form-number").value;
@@ -112,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-
+  // Función para mostrar el modal
   function showModal(mensaje, shouldRedirect = false) {
     modalMessage.textContent = mensaje;
     modal.style.display = "flex";
