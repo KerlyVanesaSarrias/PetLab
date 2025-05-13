@@ -67,19 +67,24 @@
                     <h2>Inicia tu registro</h2>
                     <form action="" class="register" id="form-register">
                         <div class="mb-3 mt-5">
-                        <input type="text" class="form-control" id="form-name" placeholder="Ingresa tu nombre de usuario">
+                            <input type="text" class="form-control" id="form-name" placeholder="Ingresa tu nombre de usuario">
+                            <small class="error-text"></small>
                         </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="form-email" placeholder="Ingrese un correo electronico">
+                            <input type="email" class="form-control" id="form-email" placeholder="Ingrese un correo electronico">
+                            <small class="error-text"></small>
                         </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="form-number" placeholder="Ingresa tu numero telefonico">
+                            <input type="number" class="form-control" id="form-number" placeholder="Ingresa tu numero telefonico">
+                            <small class="error-text"></small>
                         </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="form-password" placeholder="Ingrese una contraseña">
+                            <input type="password" class="form-control" id="form-password" placeholder="Ingrese una contraseña">
+                            <small class="error-text"></small>
                         </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control mb-5" id="form-confirm-password" placeholder="Confirma tu contraseña">
+                            <input type="password" class="form-control mb-2" id="form-confirm-password" placeholder="Confirma tu contraseña">
+                            <small class="error-text"></small>
                         </div>
                         <div class="button-iniciar mb-3">
                             <button class="button-login" type="submit">Registrarse</button>
@@ -101,6 +106,14 @@
             </div>
         </div>
     </div>
+    <div id="modal" class="modal" style="display: none;">
+            <div class="modal-content">
+            <p id="modal-message"></p>
+            <button onclick="closeModal()">Cerrar</button>
+        </div>
+    </div>
+    <script src="/scripts/login_Scripts/validateForm.js"></script>
+    <script src="/scripts/login_Scripts/regiterUser.js"></script>
     <script src="/scripts/login_Scripts/transitionLogin.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 </body>

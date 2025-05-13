@@ -1,6 +1,8 @@
 
 function registerUser (name, email, phoneNumber, password){
-    fetch('', {
+    console.log("datos recibidos desde el formulario");
+    
+    fetch('http://localhost:3000/users', {
         method : 'POST',
         headers : { 'Content-Type': 'application/json' },
         body : JSON.stringify({
@@ -16,8 +18,10 @@ function registerUser (name, email, phoneNumber, password){
 
 }
 
-document.getElementById("form-register").addEventListener((e) =>{
+document.getElementById("form-register").addEventListener('submit',(e) =>{
     e.preventDefault();
+    console.log("datos tomados");
+    
     try {
         const name = document.getElementById("form-name").value;
         const email = document.getElementById("form-email").value;
@@ -25,6 +29,8 @@ document.getElementById("form-register").addEventListener((e) =>{
         const password = document.getElementById("form-password").value;
 
         registerUser(name,email,phoneNumber, password);
+        console.log("datos enviados a la funcion");
+        
 
         e.target.reset();
 
