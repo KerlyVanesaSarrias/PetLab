@@ -37,11 +37,11 @@
                         <div class="mb-3">
 
                             <label for="formGroupExampleInput" class="form-label">Usuario</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ingrese su usuario o correo">
+                            <input type="text" class="form-control" id="usuario" placeholder="Ingrese su usuario o correo">
                         </div>
                         <div class="mb-3">
                             <label for="formGroupExampleInput2" class="form-label">Contraseña</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ingrese su contraseña">
+                            <input type="password" class="form-control" id="contrasena" placeholder="Ingrese su contraseña">
                         </div>
                     </form>
                     
@@ -119,20 +119,20 @@
     </div>
     <!-- Modal de login -->
     <div class="modal fade" id="modalValidacion" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content text-center">
-        <div class="modal-header">
-            <h5 class="modal-title">Atención</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center">
+                <div class="modal-header">
+                    <h5 class="modal-title">Atención</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalTexto">Mensaje del sistema</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-            <p id="modalTexto">Mensaje del sistema</p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
-        </div>
-        </div>
-    </div>
     </div>
 
     <script src="/scripts/login_Scripts/validateForm.js"></script>

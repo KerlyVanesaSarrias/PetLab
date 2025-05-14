@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".button-login").addEventListener("click", function (e) {
         e.preventDefault();
 
-        const usuarioInput = document.getElementById("formGroupExampleInput").value.trim();
-        const contrasenaInput = document.getElementById("formGroupExampleInput2").value.trim();
+        const usuarioInput = document.getElementById("usuario").value.trim();
+        const contrasenaInput = document.getElementById("contrasena").value.trim();
 
         const modalMensaje = document.getElementById("modalTexto");
         const modalBootstrap = new bootstrap.Modal(document.getElementById("modalValidacion"));

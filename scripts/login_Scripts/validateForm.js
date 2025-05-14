@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (redirectAfterClose) {
     setTimeout(() => {
       pantalla.classList.remove('registro-activo'); 
-    }, 4000); // esperar 300ms
+    }, 4000); 
   }
 });
 
