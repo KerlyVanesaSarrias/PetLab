@@ -1,137 +1,162 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="/styles/aboutUs.css">
-    <link rel="stylesheet" href="/styles/header.css">
-    <!-- instalar esto en la pagina que la usa => css -->
-    <link rel="stylesheet" href="/styles/navbar.css">
-    
-    <!-- instalar esto en las paginas que lo usaran => bootstrap icons -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/styles/navbar.css">
+    <link rel="stylesheet" href="/styles/cart.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/aboutUs.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <title>Nosotros - PetLab</title>
 </head>
 
 <body>
     <div id="container-navbar"></div>
-
-    <section id="infopetlab">
-        <h1>¿Que es PetLab?</h1>
-        <div class="infopetlab-container">
-            <div class="infopetlab-text">
-                <p>Es una plataforma e-commerce innovadora que te permite obtener cotizaciones en tiempo real para
-                    cualquier tratamiento o cita que tu mascota necesite. Olvídate de la incertidumbre al momento de
-                    pagar; con PetLab, conocerás los precios exactos antes de acudir a la clínica o laboratorio, dándote
-                    el poder de tomar decisiones informadas sobre el bienestar de tu mascota.</p>
-                <p>Nuestra misión va más allá de facilitar la consulta de precios. En PetLab, buscamos brindar
-                    información clara y confiable, empoderando así a los dueños de mascotas por medio de una vitrina
-                    digital a los profesionales veterinarios apasionados de Bogotá. Queremos construir una comunidad
-                    sólida y conectada, donde la transparencia, la confianza y el bienestar de las mascotas sean
-                    nuestros pilares fundamentales.</p>
-            </div>
-            <img class="img1" 
-                src="/assets/foto1.jpeg"
-                alt="Equipo de PetLab">
-        </div>
-    </section>
-
-    <section id="nuestrosValoresyMas">
-        <h2>Nuestros Valores, Misión y Visión</h2>
-        <div class="padrevalor">
-            <div class="contenedorcirculo">
-                <div class="circulo circuloUno">
-                    <h3>Bienestar de los <br> nuestras mascotas</h3>
-                    <p>Priorizamos la salud, seguridad y felicidad de las mascotas en cada decisión guiada por datos
-                        reales.
-                    </p>
-                </div>
-                <div class="circulo circuloDos">
-                    <h3>Confiabilidad y <br> Transparencia</h3>
-                    <p>Ofrecemos información clara, verificada además de calificaciones objetivas para el beneficio de
-                        todos
-                        nuestros usuarios.</p>
-                </div>
-                <div class="circulo circuloTres">
-                    <h3>Conexión y <br> Comunidad</h3>
-                    <p>Fomentamos una comunidad colaborativa entre dueños de mascotas y el proveedor, facilitando así la
-                        comunicación y el apoyo mutuo.</p>
-                </div>
-                <div class="circulo circuloCuatro">
-                    <h3>Innovación y <br> Accesibilidad</h3>
-                    <p>Buscamos constantemente nuevas formas de mejorar la experiencia de los usuarios y hacer que los
-                        servicios veterinarios sean más accesibles para todos los dueños de mascotas en Bogotá.</p>
+    <main>
+        <section id="infopetlab" class="container my-5 py-5 bg-light rounded shadow-sm">
+            <h1>¿Qué es PetLab?</h1>
+            <div class="infopetlab-image-container">
+                <img class="img-fluid infopetlab-background-image" src="../assets/Fondo_PetLab.png" alt="Fondo PetLab">
+                <div class="infopetlab-text-overlay">                    
+                    <p>Es una plataforma e-commerce innovadora que te permite obtener cotizaciones en tiempo real para
+                        cualquier tratamiento o cita que tu mascota necesite. Olvídate de la incertidumbre al momento de
+                        pagar; con PetLab, conocerás los precios exactos antes de acudir a la clínica o laboratorio,
+                        dándote
+                        el poder de tomar decisiones informadas sobre el bienestar de tu mascota.</p>
+                    <p>Nuestra misión va más allá de facilitar la consulta de precios. En PetLab, buscamos brindar
+                        información clara y confiable, empoderando así a los dueños de mascotas por medio de una vitrina
+                        digital a los profesionales veterinarios apasionados de Bogotá. Queremos construir una comunidad
+                        sólida y conectada, donde la transparencia, la confianza y el bienestar de las mascotas sean
+                        nuestros pilares fundamentales.</p>
                 </div>
             </div>
-            <div class="contenedorcuadrado">
-                <div class="cuadrado">
-                    <h3>Misión</h3>
-                    <p>Democratizar el acceso a información transparente y en tiempo real con respecto al costo de cada
-                        servicio veterinario en Bogotá, empoderando a los dueños de mascotas con cotizaciones precisas
-                        para
-                        el cuidado y bienestar de sus animales por medio de nuestro laboratorio.</p>
+        </section>
+
+        <section id="nuestrosValoresyMas" class="container my-5 py-5 bg-light rounded shadow-sm">
+            <h2 class="text-center mb-4">Nuestros Valores, Misión y Visión</h2>
+            <div class="valores-container row justify-content-center mb-4">
+                <div class="col-6 col-md-6 col-lg-3 text-center">
+                    <div
+                        class="valor-circulo rounded-circle mx-auto d-flex flex-column align-items-center justify-content-center valor-uno">
+                        <h3 class="text-white text-center p-2 small mb-1">Bienestar de<br>nuestras mascotas</h3>
+                        <p class="text-white text-center small p-1">Priorizamos la salud, seguridad y felicidad de las
+                            mascotas en cada decisión guiada por datos reales.</p>
+                    </div>
                 </div>
-                <div class="cuadrado">
-                    <h3>Visión</h3>
-                    <p>Para el año 2027 seremos el e-commerce líder en Bogotá para la cotización de servicios
-                        veterinarios,
-                        reconocido por su transparencia y contribución al bienestar de las mascotas. Aspiramos a
-                        construir
-                        una comunidad sólida y conectada entre dueños de mascotas y nosotros como proveedor, fomentando
-                        la
-                        toma de decisiones informadas y promoviendo el acceso a servicios veterinarios de calidad.</p>
+                <div class="col-6 col-md-6 col-lg-3 text-center">
+                    <div
+                        class="valor-circulo rounded-circle mx-auto d-flex flex-column align-items-center justify-content-center valor-dos">
+                        <h3 class="text-white text-center p-2 small mb-1">Confiabilidad y <br> Transparencia</h3>
+                        <p class="text-white text-center small p-1">Ofrecemos información clara, verificada además de
+                            calificaciones objetivas para el beneficio de todos nuestros usuarios.</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-3 text-center">
+                    <div
+                        class="valor-circulo rounded-circle mx-auto d-flex flex-column align-items-center justify-content-center valor-tres">
+                        <h3 class="text-white text-center p-2 small mb-1">Conexión y <br> Comunidad</h3>
+                        <p class="text-white text-center small p-1">Fomentamos una comunidad colaborativa entre dueños
+                            de mascotas y el proveedor, facilitando así la comunicación y el apoyo mutuo.</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-3 text-center">
+                    <div
+                        class="valor-circulo rounded-circle mx-auto d-flex flex-column align-items-center justify-content-center valor-cuatro">
+                        <h3 class="text-white text-center p-2 small mb-1">Innovación y <br> Accesibilidad</h3>
+                        <p class="text-white text-center small p-1">Buscamos constantemente nuevas formas de mejorar la
+                            experiencia de los usuarios y hacer que los servicios veterinarios sean más accesibles para
+                            todos los dueños de mascotas en Bogotá.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="mision-vision-container row justify-content-center g-4">
+                <div class="col-md-5">
+                    <div class="mision-vision-card mision bg-light rounded shadow-sm p-4 text-center">
+                        <h3 class="mb-3">Misión</h3>
+                        <p class="small">Democratizar el acceso a información transparente y en tiempo real con
+                            respecto al costo de cada servicio veterinario en Bogotá, empoderando a los dueños de
+                            mascotas con cotizaciones precisas para el cuidado y bienestar de sus animales por medio de
+                            nuestro laboratorio.</p>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="mision-vision-card vision bg-light rounded shadow-sm p-4 text-center">
+                        <h3 class="mb-3">Visión</h3>
+                        <p class="small">Para el año 2027 seremos el e-commerce líder en Bogotá para la cotización de
+                            servicios veterinarios, reconocido por su transparencia y contribución al bienestar de las
+                            mascotas. Aspiramos a construir una comunidad sólida y conectada entre dueños de mascotas y
+                            nosotros como proveedor, fomentando la toma de decisiones informadas y promoviendo el acceso
+                            a
+                            servicios veterinarios de calidad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section id="miembrosequipo">
-        <h2>Conoce a los miembros de nuestro equipo.</h2>
-        <div class="equipo-miembros">
-            <div class="tresPrimeros">
-                <div class="miembro-card">
+        <section id="miembrosequipo" class="container my-5 py-5 bg-light rounded shadow-sm">
+            <h2 class="text-center mb-4">Conoce a los miembros de nuestro equipo.</h2>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4 justify-content-center">
+
+                <div class="front-page">
                     <img src="https://e1.pxfuel.com/desktop-wallpaper/640/211/desktop-wallpaper-cute-anime-gamer-girl-pink-gamer-girl.jpg"
-                        alt="Kerly Vanessa Sarrias Rojas">
-                    <p>Kerly Vanessa <br> Sarrias Rojas</p>
+                        alt="Foto_Kerly">
+                    <div class="card-info">
+                        <h2 class="card-title">Kerly Vanessa Sarrias Rojas</h2>
+                        <p class="mb-0 small">Desarrolladora Web</p>
+                    </div>
                 </div>
-                <div class="miembro-card">
+
+                <div class="front-page">
                     <img src="https://img.freepik.com/fotos-premium/hombre-misterioso-cabello-largo-oscuro-barba-mirando-oceano_777078-206131.jpg?semt=ais_hybrid&w=740"
-                        alt="Hermel Francisco Rojas Gallo">
-                    <p>Hermel Francisco <br> Rojas Gallo</p>
+                        alt="Foto_Hermel">
+                    <div class="card-info">
+                        <h2 class="card-title">Hermel Francisco Rojas Gallo</h2>
+                        <p class="mb-0 small">Desarrollador Web</p>
+                    </div>
                 </div>
-                <div class="miembro-card">
-                    <img src="https://i.pinimg.com/474x/d3/89/d8/d389d8e2921af767b3109a45c83f16a2.jpg"
-                        alt="Ana Carla Martinez Caraballo">
-                    <p>Ana Carla <br> Martinez Caraballo</p>
+
+                <div class="front-page">
+                    <img src="https://i.pinimg.com/474x/d3/89/d8/d389d8e2921af767b3109a45c83f16a2.jpg" alt="Foto_Ana">
+                    <div class="card-info">
+                        <h2 class="card-title">Ana Carla Martinez Caraballo</h2>
+                        <p class="mb-0 small">Desarrolladora Web</p>
+                    </div>
                 </div>
-            </div>
 
-
-            <div class="dosUltimos">
-                <div class="miembro-card">
+                <div class="front-page">
                     <img src="https://img.freepik.com/vector-premium/hombre-estilo-anime_925122-1436.jpg"
-                        alt="Hector Fernando Muñoz Muñoz">
-                    <p>Hector Fernando <br> Muñoz Muñoz</p>
+                        alt="Foto_Hector">
+                    <div class="card-info">
+                        <h2 class="card-title">Hector Fernando Muñoz Muñoz</h2>
+                        <p class="mb-0 small">Desarrollador Web</p>
+                    </div>
                 </div>
-                <div class="miembro-card">
+
+                <div class="front-page">
                     <img src="https://ih1.redbubble.net/image.5071874396.2038/raf,360x360,075,t,fafafa:ca443f4786.jpg"
-                        alt="Karen Estefania España Chavez">
-                    <p>Karen Estefania <br> España Chavez</p>
+                        alt="Foto_Karen">
+                    <div class="card-info">
+                        <h2 class="card-title">Karen Estefania España Chavez</h2>
+                        <p class="mb-0 small">Desarrolladora Web</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <br>
-    <footer class="footer">
-        <h2>© 2025 página web PetLab.</h2>
-    </footer>
-    <script src="/scripts/scripts.js" defer></script>
+        </section>
+    </main>
+    <div class="container-footer"></div>
+
+    <script src="../main.js" defer></script>
+    <script src="../scripts/scripts.js" defer></script>
+    <script src="../scripts/cart.js" defer></script>
+    <script src="../scripts/footer.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
