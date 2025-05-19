@@ -219,8 +219,8 @@ input[type="file"] {
 }
 
 button[type="submit"] {
-  background: #ccc;
-  color: #222;
+  background: #156082;
+  color: rgb(195, 188, 188);
   border: none;
   padding: 12px 0;
   border-radius: 6px;
