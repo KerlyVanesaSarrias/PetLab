@@ -1,4 +1,20 @@
 {
+  "adminUser":[
+    {
+      "id": "998c",
+      "name": "usuarioAdmin",
+      "email": "admin@gmail.com",
+      "phoneNumber": "3172576290",
+      "password": "123456"
+    },
+    {
+      "id": "927e",
+      "name": "usuarioAdmin2",
+      "email": "admin2@gmail.com",
+      "phoneNumber": "3172576290",
+      "password": "123456"
+    }
+  ],
   "users": [
     {
       "id": "998c",
