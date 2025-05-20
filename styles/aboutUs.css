@@ -20,6 +20,7 @@ body {
     max-height: 500px;
     border-radius: 20px;
     overflow: hidden;
+    box-shadow: 5px 5px 10px #00000033;
 }
 
 .infopetlab-background-image {
@@ -95,6 +96,7 @@ body {
     margin-bottom: 15px;
     border: 2px solid #14587348; 
     padding: 10px; 
+    box-shadow: 5px 5px 10px #00000033;
 }
 
 /* Estilos específicos para cada círculo de valor (fondo)*/
@@ -116,6 +118,7 @@ body {
 }
 
 .mision-vision-card {
+    box-shadow: 5px 5px 10px #000000d7;
     border: 1px solid  #e17a1fb0;
 }
 
