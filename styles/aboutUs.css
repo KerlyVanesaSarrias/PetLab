@@ -178,13 +178,16 @@ body {
 }
 
 /* Ajustes responsivos para la sección Valores */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
     .valor-circulo {
         width: 120px;
         height: 120px;
     }
     .valor-circulo h3 {
         font-size: 0.9em;
+    }
+        .valores-container .col-6 {
+        width: 50%; 
     }
 }
 
@@ -196,13 +199,7 @@ body {
     .valor-circulo h3 {
         font-size: 0.8em;
     }
-    .valores-container .col-6 {
-        width: 50%; 
-    }
-}
-
-@media (max-width: 400px) {
-    .valores-container .col-6 {
+        .valores-container .col-6 {
         width: 100%; 
     }
 }
