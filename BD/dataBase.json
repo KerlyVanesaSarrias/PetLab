@@ -1,5 +1,5 @@
 {
-  "adminUser":[
+  "adminUser": [
     {
       "id": "998c",
       "name": "usuarioAdmin",
@@ -134,6 +134,27 @@
       "email": "fernando2@gmail.com",
       "phoneNumber": "3172546565",
       "password": "123456"
+    },
+    {
+      "id": "ba75",
+      "name": "jemplo2",
+      "email": "ejemplo2@gmail.com",
+      "phoneNumber": "3172576290",
+      "password": "123456"
+    },
+    {
+      "id": "215e",
+      "name": "ejemplo3",
+      "email": "ejemplo3@gmail.com",
+      "phoneNumber": "3172576290",
+      "password": "123456"
+    },
+    {
+      "id": "5dcf",
+      "name": "ejemplo4",
+      "email": "ejemplo4@gmail.com",
+      "phoneNumber": "3172576290",
+      "password": "123456"
     }
   ],
   "products": [
@@ -216,6 +237,16 @@
       "stock": "4567",
       "price": "5700",
       "description": "Mix de trozos delicadamente picados combinado con un delicioso paté. Eleva su experiencia gastronomica con una variedad de platillos gourmet preparados tal y como a el le gustan."
+    },
+    {
+      "id": "e249",
+      "img": "https://firebasestorage.googleapis.com/v0/b/apptactical-74663.appspot.com/o/productos%2F1747686293403_Chillitips.png?alt=media&token=a3a0b96b-5a99-4f7e-9f67-b538a4661464",
+      "name": "ejemplo de producto ",
+      "category": "Alimentos",
+      "characteristcs": "caracteristicas ejemplo",
+      "stock": "2",
+      "price": "123500",
+      "description": "ejemplo de descripción"
     }
   ],
   "services": [
