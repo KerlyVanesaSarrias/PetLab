@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/styles/login.css">
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,13 +36,15 @@
                     </div>
                     <form action="" id="form-login" class="login">
                         <div class="mb-3">
-
                             <label for="formGroupExampleInput" class="form-label">Usuario</label>
                             <input type="text" class="form-control" id="usuario" placeholder="Ingrese su usuario o correo">
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 input-password-container">
                             <label for="formGroupExampleInput2" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="contrasena" placeholder="Ingrese su contraseña">
+                            <div class="input-wrapper">
+                                <input type="password" class="form-control" id="contrasena" placeholder="Ingrese su contraseña">
+                                <i class="bi bi-eye-slash toggle-password" id="toggle-login-password"></i>
+                            </div>
                         </div>
                     </form>
                     
@@ -82,12 +85,18 @@
                             <input type="number" class="form-control" id="form-number" placeholder="Ingresa tu numero telefonico">
                             <small class="error-text"></small>
                         </div>
-                        <div class="mb-3">
-                            <input type="password" class="form-control" id="form-password" placeholder="Ingrese una contraseña">
+                        <div class="mb-3 input-password-container">
+                            <div class="input-wrapper">
+                                <input type="password" class="form-control" id="form-password" placeholder="Ingrese una contraseña">
+                                <i class="bi bi-eye-slash toggle-password" id="toggle-password"></i>
+                            </div>
                             <small class="error-text"></small>
                         </div>
-                        <div class="mb-3">
-                            <input type="password" class="form-control mb-2" id="form-confirm-password" placeholder="Confirma tu contraseña">
+                        <div class="mb-3 input-password-container">
+                            <div class="input-wrapper">
+                                <input type="password" class="form-control mb-2" id="form-confirm-password" placeholder="Confirma tu contraseña">
+                                <i class="bi bi-eye-slash toggle-password" id="toggle-confirm-password"></i>
+                            </div>
                             <small class="error-text"></small>
                         </div>
                         <div class="button-iniciar mb-3">

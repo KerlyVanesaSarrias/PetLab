@@ -380,3 +380,29 @@ body, html {
     
 }
 
+/* icono para mostrar contraseña */
+.input-password-container {
+  position: relative;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding-right: 35px; /* espacio para el icono */
+  box-sizing: border-box;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
+  font-size: 1.2rem;
+  pointer-events: auto;
+}
+
