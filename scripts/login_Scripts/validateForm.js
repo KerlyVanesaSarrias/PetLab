@@ -37,8 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
           }
           break;
         case "password":
-          if (input.id === "form-password" && input.value.length < 6) {
-            msg = "La contraseña debe tener al menos 6 caracteres";
+          if (input.id === "form-password" && !/^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{6,}$/.test(input.value)) {
+            msg = "Incluye una mayúscula, un número y un carácter especial.";
           }
           if (input.id === "form-confirm-password") {
             const pass = document.getElementById("form-password").value;
