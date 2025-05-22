@@ -6,7 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("modal");
   const modalMessage = document.getElementById("modal-message");
   const modalCloseButton = document.getElementById("modal-close-button");
-
+  const passwordInput = document.getElementById("form-password");
+  const toggleIcon = document.getElementById("toggle-password");
+  const confirmPasswordInput = document.getElementById("form-confirm-password");
+  const toggleConfirmIcon = document.getElementById("toggle-confirm-password");
   const pantalla = document.querySelector('.pantalla-principal');
 
   modalCloseButton.addEventListener("click", () => {
@@ -20,7 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Validación en tiempo real de los campos del formulario
   inputs.forEach(input => {
-    const errorMsg = input.nextElementSibling;
+    const errorMsg = input.closest('.input-wrapper')
+      ? input.closest('.input-wrapper').parentElement.querySelector('.error-text')
+      : input.parentElement.querySelector('.error-text');
 
     input.addEventListener("input", () => {
       let msg = "";
@@ -37,8 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
           }
           break;
         case "password":
-          if (input.id === "form-password" && input.value.length < 6) {
-            msg = "La contraseña debe tener al menos 6 caracteres";
+          if (input.id === "form-password" && !/^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{6,}$/.test(input.value)) {
+            msg = "Incluye una mayúscula, un número y un carácter especial.";
           }
           if (input.id === "form-confirm-password") {
             const pass = document.getElementById("form-password").value;
@@ -121,4 +126,20 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.style.display = "flex";
     redirectAfterClose = shouldRedirect;
   }
+
+  // funcion para mostrar contraseña con icono 
+  toggleIcon.addEventListener("click", () => {
+    const isPassword = passwordInput.type === "password";
+    passwordInput.type = isPassword ? "text" : "password";
+    toggleIcon.classList.toggle("bi-eye");
+    toggleIcon.classList.toggle("bi-eye-slash");
+  });
+
+  // funcion para mostrar contraseña con icono en confirmar contraseña
+  toggleConfirmIcon.addEventListener("click", () => {
+    const isPassword = confirmPasswordInput.type === "password";
+    confirmPasswordInput.type = isPassword ? "text" : "password";
+    toggleConfirmIcon.classList.toggle("bi-eye");
+    toggleConfirmIcon.classList.toggle("bi-eye-slash");
+});
 });
