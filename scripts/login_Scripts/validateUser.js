@@ -21,13 +21,25 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(response => response.json())
             .then(data => {
                 const usuarios = data.users;
+                const admins = data.adminUser;
 
                 const usuarioValido = usuarios.find(u =>
                     (u.email === usuarioInput || u.name === usuarioInput) &&
                     u.password === contrasenaInput
                 );
 
-                if (usuarioValido) {
+                const adminValido = admins.find(u =>
+                    (u.email === usuarioInput || u.name === usuarioInput) &&
+                    u.password === contrasenaInput
+                );
+
+                if(adminValido){
+                    localStorage.setItem("rol", "admin");
+                    localStorage.setItem("nombreUsuario", adminValido.name);
+                    window.location.href = "/index.html"
+                }else if (usuarioValido) {
+                    localStorage.setItem("rol", "usuario");
+                    localStorage.setItem("nombreUsuario", usuarioValido.name);
                     window.location.href = "/index.html";
                 } else {
                     modalMensaje.textContent = "Usuario o contraseña incorrectos.";
