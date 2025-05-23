@@ -1,28 +1,94 @@
-<!-- instalar esto en la pagina que la usa => css -->
-<!-- <link rel="stylesheet" href="/styles/navbar.css"> -->
-
-<!-- instalar esto en las paginas que lo usaran => bootstrap icons -->
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> -->
-<div >
+<div>
   <nav class="container-navbar">
     <img class="img-navbar" src="/assets/logo.png" alt="logo" />
-    <button class="menu-toggle">
-      <i class="bi bi-list"></i>
-    </button>
+    
     <ul class="lista-navbar">
       <a href="../index.html"><li>Inicio</li></a>
       <a href="../pages/aboutUs.html"><li>Nosotros</li></a>
       <a href="../pages/formRegisterProduc.html"><li>Registros</li></a>
       <a href="../pages/contact.html"><li>Contáctenos</li></a>
     </ul>
-    <div class="iconos-navbar">
-      <div
-        class="icons-nav bi bi-cart3"
-        onclick="openCartSidebar()"
-      ></div>
-      <a class="icons-nav" href=""><i class="bi bi-person-circle"></i></a>
+    
+    <div class="search-wrapper">
+      <i class="">
+         <lord-icon
+         color=""
+          trigger="hover"
+          src="/lottie/system-regular-42-search-hover-search.json"
+        >
+        </lord-icon></a>
+      </i>
+      <input type="search" placeholder="Busca tus productos…" />
     </div>
+    
+    <div class="iconos-navbar">
+      <div class="icons-nav " onclick="openCartSidebar()">
+        <lord-icon
+          trigger="hover"
+          src="/lottie/system-regular-6-shopping-hover-shopping.json"
+        >
+        </lord-icon>
+      </div>
+      <a class="icons-nav" href="">
+        <lord-icon
+          trigger="hover"
+          src="/lottie/system-regular-8-account-hover-account.json"
+        >
+        </lord-icon></a>
+    </div>
+    
+    <button class="menu-toggle">
+      <i class="bi bi-list"></i>
+    </button>
   </nav>
+  
+  <!-- Modal para navegación móvil -->
+  <div id="mobileNavModal" class="mobile-nav-modal">
+    <div class="mobile-nav-header">
+      <h3>Menú</h3>
+      <button class="close-mobile-nav">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    
+    <div class="mobile-search-wrapper search-wrapper">
+      <i class="">  
+        <lord-icon
+          trigger="hover"
+          src="/lottie/system-regular-42-search-hover-search.json"
+        >
+        </lord-icon></a>
+      </i>
+      <input type="search" placeholder="Busca tus productos…" />
+    </div>
+    
+    <div class="mobile-nav">
+      <a href="../index.html">Inicio</a>
+      <a href="../pages/aboutUs.html">Nosotros</a>
+      <a href="../pages/formRegisterProduc.html" id="registroLink">Registros</a>
+      <a href="../pages/contact.html">Contáctenos</a>
+    </div>
+    
+    <div class="mobile-nav-footer">
+      <div class="mobile-icons">
+        <div class="icons-nav" onclick="openCartSidebar()">
+             <lord-icon
+          trigger="hover"
+          src="/lottie/system-regular-6-shopping-hover-shopping.json"
+        >
+        </lord-icon>
+        </div>
+        <a class="icons-nav" href=""> <lord-icon
+             trigger="hover"
+        src="/lottie/system-solid-8-account-hover-account.json"
+        >
+        </lord-icon></i></a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="overlay"></div>
+</div>
 
   <!-- Carrito lateral -->
   <div id="cartSidebar" class="cart-sidebar">

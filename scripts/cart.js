@@ -9,12 +9,12 @@ function closeCartSidebar() {
     document.getElementById("cartSidebar").classList.remove("active");
 }
 
-function addToCart(name, price, img) {
+function addToCart(name, price, img, qty=1 ) {
     const existing = cart.find(item => item.name === name);
     if (existing) {
-        existing.qty += 1;
+        existing.qty += qty;
     } else {
-        cart.push({ name, price, img, qty: 1 });
+        cart.push({ name, price, img, qty });
     }
     saveCart();
     openCartSidebar();
@@ -61,7 +61,7 @@ function renderCart() {
         const div = document.createElement("div");
         div.classList.add("cart-item");
         div.innerHTML = `
-          <img src="${item.img}" alt="${item.name}" />
+          <img src="${item.img}" alt="${item.name}" class="me-2" />
           <div class="item-info">
             <p><strong>${item.name}</strong></p>
             <p><b>${formatPrice(item.price)} COP</b></p>
@@ -72,7 +72,13 @@ function renderCart() {
               <button onclick="increaseQty(${index})">+</button>
             </p>
           </div>
-          <i class="bi bi-trash" onclick="removeItem(${index})"></i>
+          <i class="" onclick="removeItem(${index})">
+            <lord-icon
+          trigger="hover"
+          src="/lottie/system-regular-39-trash-hover-trash-empty.json"
+        >
+        </lord-icon>
+          </i>
          
         `;
         container.appendChild(div);
@@ -85,4 +91,13 @@ function formatPrice(value) {
     return value.toLocaleString("es-CO");
 }
 
-document.querySelector(".clear-btn").addEventListener("click", clearCart);
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || []
+
+  const totalItems = cart.reduce((total, item) => total + item.qty, 0)
+
+  const cartCount = document.querySelector(".cart-count")
+  if (cartCount) {
+    cartCount.textContent = totalItems
+  }
+};
