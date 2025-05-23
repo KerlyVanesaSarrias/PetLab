@@ -15,8 +15,9 @@ fetch('./BD/dataBase.json')
   .then(res => res.json())
   .then(data => {
     dataFetched = data
-    renderCards(data.products)
-    marcarBotonActivo(btnProducts, 'section-button')
+    renderCards(data.services)
+    marcarBotonActivo(btnServices, 'section-button')
+      renderCategories(dataFetched.services);
 
   }).catch(err => console.error("Error al cargar productos y servicios:", err))
 
@@ -35,21 +36,33 @@ const renderCurrentPage = () => {
   const end = start + cardsPerPage;
   const cardsToShow = currentCards.slice(start, end);
 
+  const truncate = (str, max = 35) => {
+    return str.length > max ? str.slice(0, max) + '…' : str;
+  }
+
+
   cardsToShow.forEach(item => {
     const card = document.createElement('div')
-    card.className = 'col-md-3 mb-4'
+    card.className = 'col-6 col-md-3 mb-4 mb-4'
     card.innerHTML = `
-      <div  class="card shadow" style="width: 100%">
-        <a href="/pages/detail.html">
+      <div  class="card shadow" style="width: 100% cursor: pointer">
           <img src="${item.img}" class="card-img-top" alt="${item.name}">
          <div class="card-body">
-            <h5 class="card-title">${item.name}</h5>
+            <h5 class="card-title">${truncate(item.name, 25)}</h5>
             <p class="card-text">$${item.price}</p>
-       </a>
-          <div class="btnCard" onClick='addToCart("${item.name}", ${item.price}, "${item.img}")'>Añadir al Carrito</div>
+          <div class="btnCard add-cart">Añadir al Carrito</div>
         </div>
       </div>
     `
+    card.querySelector('.card').addEventListener('click', () => {
+      sessionStorage.setItem('selectedItem', JSON.stringify(item))
+      window.location.href = '/pages/detail.html'
+    })
+
+    card.querySelector('.add-cart').addEventListener('click', e => {
+      e.stopPropagation()
+      addToCart(item.name, item.price, item.img)
+    })
     cardsContainer.appendChild(card)
   })
 }
@@ -151,4 +164,3 @@ btnProducts.addEventListener('click', () => {
 
   }
 });
-

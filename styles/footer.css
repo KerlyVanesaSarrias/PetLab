@@ -1,93 +1,195 @@
-/* Footer contacto*/
-.footer-contacto {
-    background: #ccc;
-    margin-top: 60px;
-    padding: 32px 0 16px 0;
-    border-radius: 0;
+
+.newsletter-section {
+  padding: 0;
+  margin: 2rem 0 0;
 }
 
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 24px;
+.newsletter-container {
+  background-color: #0B3B59 ;
+  border-radius: 10px;
+  padding: 2rem;
+  color: white;
+  align-items: center;
+}
+
+.newsletter-container h3 {
+  font-weight: 700;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.newsletter-form .input-group {
+  background-color: white !important;
+  border-radius: 50px !important;
+  overflow: hidden !important;
+}
+
+.newsletter-form .input-group-text {
+  background-color: white;
+  border: none;
+  color: #777;
+}
+
+.newsletter-form .form-control {
+  border: none;
+  padding: 0.75rem 0.5rem;
+}
+
+.newsletter-form .form-control:focus {
+  box-shadow: none;
+}
+
+.btn-subscribe {
+  background-color: white;
+  color: #333;
+  border-radius: 50px;
+  padding: 0.75rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-subscribe:hover {
+  background-color: #f0f0f0;
+}
+
+/* Estilos para el footer principal */
+.footer-main {
+  background-color: #222;
+  color: #fff;
+  margin-top: 2rem;
+}
+
+.footer-brand {
+  margin-bottom: 1.5rem;
 }
 
 .footer-logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    min-width: 180px;
-}
-
-.footer-logo img {
-    width: 70px;
-    margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .footer-logo span {
-    color: #0B3B59;
-    font-weight: 500;
-    font-size: 1.1em;
-    text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 .footer-logo small {
-    font-size: 0.85em;
-    color: #444;
+  font-size: 0.8rem;
+  font-weight: 400;
+  opacity: 0.8;
 }
 
-.footer-redes {
-    flex: 1;
-    min-width: 230px;
-    text-align: center;
+.footer-social {
+  display: flex;
+  gap: 1rem;
 }
 
-.footer-redes p {
-    margin: 0 0 8px 0;
-    color: #222;
-    font-weight: 500;
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  transition: all 0.3s ease;
 }
 
-.footer-icons {
-    display: flex;
+.social-icon:hover {
+  background-color: #26A699;
+  color: white;
+}
+
+.footer-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #26A699;
+}
+
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-contact li {
+  margin-bottom: 0.75rem;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-contact li i {
+  color: #26A699;
+}
+
+.footer-bottom {
+  background-color: #1a1a1a;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+.payment-methods {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.payment-methods img {
+  height: 25px;
+  width: auto;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.payment-methods img:hover {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .newsletter-container {
+    padding: 1.5rem;
+  }
+
+  .newsletter-container h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-bottom .col-md-6 {
+    text-align: center !important;
+    margin-bottom: 1rem;
+  }
+
+  .payment-methods {
     justify-content: center;
-    gap: 24px;
-    margin-top: 10px;
-}
-
-.footer-icons a {
-    color: #222;
-    font-size: 2em;
-    transition: color 0.2s;
-}
-
-.footer-icons a:hover {
-    color: #0B3B59;
-}
-
-.footer-contacto-info {
-    min-width: 200px;
-    text-align: left;
-    color: #222;
-    font-size: 1em;
-}
-
-.footer-contacto-info p {
-    margin: 4px 0;
-    display: flex;
-    align-items: center;
-    gap: 7px;
-}
-
-@media (max-width: 900px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 32px;
-    }
+  }
 }

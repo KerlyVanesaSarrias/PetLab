@@ -44,7 +44,7 @@
   }
   
   .close-cart:hover {
-    color: #043881;
+    color: #145873;
   }
   
   
@@ -82,7 +82,7 @@
     cursor: pointer;
   }
   .cantidad button:hover {
-    background-color: #1d4885;
+    background-color: #145873;
   }
 
   .cart-item {
@@ -103,7 +103,7 @@
   }
   
   .cart-item i.bi-trash:hover {
-    color: #043881;
+    color: #145873;
   }
   
   .cart-footer {
@@ -125,23 +125,23 @@
   
   .clear-btn {
     background-color: white;
-    border: 2px solid #043881;
-    color: #043881;
+    border: 2px solid #145873;
+    color: #145873;
   }
   
   .clear-btn:hover {
-    background-color: #5f9df3;
+    background-color: #26A699;
     color: white;
   }
   
   .buy-btn {
-    background-color:#043881;
+    background-color:#145873;
     color: white;
     border: 2px solid transparent;
   }
   
   .buy-btn:hover {
-    background-color: #5f9df3;
+    background-color: #26A699;
   }
   
   .total {
@@ -151,5 +151,5 @@
   }
   
   .total strong {
-    color: #043881;
+    color: #145873;
   }

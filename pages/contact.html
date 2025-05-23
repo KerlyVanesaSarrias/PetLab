@@ -1,153 +1,156 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contáctenos | PetLab</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/contact.css">
-    <link rel="stylesheet" href="/styles/header.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/contact.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
     <script src="/contact.js" defer></script>
-
-    <link rel="stylesheet" href="/styles/navbar.css">
-
-    <link rel="stylesheet" href="/styles/cart.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/styles/footer.css" />
+    <link rel="stylesheet" href="/styles/navbar.css" />
+    <link rel="stylesheet" href="/styles/cart.css" />
+         <script src="https://cdn.lordicon.com/lordicon.js"></script>
+  </head>
+  <body>
     <div id="container-navbar"></div>
 
     <main>
-        <section class="contacto-section">
-            <h2 class="contacto-title">
-                ¿Tienes dudas?<br>
-                <span class="destacado">¡Contáctenos!</span>
-            </h2>
-            <form
-                class="contacto-form"
-                action="https://formspree.io/f/mwpokgnr"
-                method="POST"
-                enctype="multipart/form-data"
+      <section class="contacto-section">
+        <h2 class="contacto-title">
+          ¿Tienes dudas?<br />
+          <span class="destacado">¡Contáctenos!</span>
+        </h2>
+        <form
+          class="contacto-form"
+          action="https://formspree.io/f/mwpokgnr"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div>
+            <div class="row">
+              <div class="col">
+                <label for="nombres">Nombres</label>
+                <input type="text" id="nombres" name="nombres" required />
+              </div>
+              <div class="col">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos" required />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="correo">Correo Electrónico</label>
+                <input type="email" id="correo" name="correo" required />
+              </div>
+              <div class="col">
+                <label for="correo_confirm"
+                  >Confirma tu correo Electrónico</label
+                >
+                <input
+                  type="email"
+                  id="correo_confirm"
+                  name="correo_confirm"
+                  required
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="telefono">Teléfono de contacto</label>
+                <input type="tel" id="telefono" name="telefono" />
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="consulta-label">Tu consulta está relacionada con:</div>
+            <div class="checkbox-group">
+              <label
+                ><input type="checkbox" name="relacion" value="producto" />
+                Producto</label
+              >
+              <label
+                ><input type="checkbox" name="relacion" value="servicio" />
+                Servicio</label
+              >
+              <label
+                ><input type="checkbox" name="relacion" value="general" />
+                Consulta general</label
+              >
+            </div>
+          </div>
+
+          <div class="info-producto">
+            <div class="row">
+              <div class="col">
+                <label for="orden">Número de la orden</label>
+                <input type="text" id="orden" name="orden" />
+              </div>
+              <div class="col">
+                <label for="fecha_compra">Fecha de la compra</label>
+                <input type="date" id="fecha_compra" name="fecha_compra" />
+              </div>
+            </div>
+          </div>
+
+          <div class="info-servicio">
+            <div class="row">
+              <div class="col">
+                <label for="tipo_servicio">Tipo</label>
+                <input type="text" id="tipo_servicio" name="tipo_servicio" />
+              </div>
+              <div class="col">
+                <label for="nombre_mascota">Nombre de tu mascota</label>
+                <input type="text" id="nombre_mascota" name="nombre_mascota" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="fecha_servicio">Fecha del servicio</label>
+                <input type="date" id="fecha_servicio" name="fecha_servicio" />
+              </div>
+              <div class="col">
+                <label for="hora_servicio">Hora del servicio</label>
+                <input type="time" id="hora_servicio" name="hora_servicio" />
+              </div>
+            </div>
+          </div>
+
+          <div class="mensaje-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+          </div>
+
+          <div class="archivo-group">
+            <label for="archivo">Adjunta un archivo:</label>
+            <input type="file" id="archivo" name="archivo" multiple />
+            <small
+              >Puedes adjuntar máximo 5 archivos. El tamaño total es de
+              10mb</small
             >
-                <div>
-                    <div class="row">
-                        <div class="col">
-                            <label for="nombres">Nombres</label>
-                            <input type="text" id="nombres" name="nombres" required>
-                        </div>
-                        <div class="col">
-                            <label for="apellidos">Apellidos</label>
-                            <input type="text" id="apellidos" name="apellidos" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label for="correo">Correo Electrónico</label>
-                            <input type="email" id="correo" name="correo" required>
-                        </div>
-                        <div class="col">
-                            <label for="correo_confirm">Confirma tu correo Electrónico</label>
-                            <input type="email" id="correo_confirm" name="correo_confirm" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label for="telefono">Teléfono de contacto</label>
-                            <input type="tel" id="telefono" name="telefono">
-                        </div>
-                    </div>
-                </div>
+          </div>
 
-                <div>
-                    <div class="consulta-label">Tu consulta está relacionada con:</div>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="relacion" value="producto"> Producto</label>
-                        <label><input type="checkbox" name="relacion" value="servicio"> Servicio</label>
-                        <label><input type="checkbox" name="relacion" value="general"> Consulta general</label>
-                    </div>
-                </div>
-
-                <div class="info-producto">
-                    <div class="row">
-                        <div class="col">
-                            <label for="orden">Número de la orden</label>
-                            <input type="text" id="orden" name="orden">
-                        </div>
-                        <div class="col">
-                            <label for="fecha_compra">Fecha de la compra</label>
-                            <input type="date" id="fecha_compra" name="fecha_compra">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-servicio">
-                    <div class="row">
-                        <div class="col">
-                            <label for="tipo_servicio">Tipo</label>
-                            <input type="text" id="tipo_servicio" name="tipo_servicio">
-                        </div>
-                        <div class="col">
-                            <label for="nombre_mascota">Nombre de tu mascota</label>
-                            <input type="text" id="nombre_mascota" name="nombre_mascota">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label for="fecha_servicio">Fecha del servicio</label>
-                            <input type="date" id="fecha_servicio" name="fecha_servicio">
-                        </div>
-                        <div class="col">
-                            <label for="hora_servicio">Hora del servicio</label>
-                            <input type="time" id="hora_servicio" name="hora_servicio">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mensaje-group">
-                    <label for="mensaje">Mensaje</label>
-                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-                </div>
-
-                <div class="archivo-group">
-                    <label for="archivo">Adjunta un archivo:</label>
-                    <input type="file" id="archivo" name="archivo" multiple>
-                    <small>Puedes adjuntar máximo 5 archivos. El tamaño total es de 10mb</small>
-                </div>
-
-                <div class="boton-enviar">
-                    <button type="submit">Enviar</button>
-                </div>
-            </form>
-        </section>
+          <div class="boton-enviar">
+            <button type="submit">Enviar</button>
+          </div>
+        </form>
+      </section>
+         <div id="container-footer"></div>
     </main>
-
-    <footer class="footer-contacto">
-        <div class="footer-container">
-            <div class="footer-logo">
-                <img src="/assets/logo.png" alt="PetLab logo" style="width: 80px;">
-                <span>PetLab<br><small>Laboratory Services & Products</small></span>
-            </div>
-            <div class="footer-redes">
-                <p>Nuestras Redes</p>
-                <p>Síguenos y descubre nuestro contenido de interés:</p>
-                <div class="footer-icons">
-                    <a href="#"><i class="bi bi-instagram"></i></a>
-                    <a href="#"><i class="bi bi-facebook"></i></a>
-                    <a href="#"><i class="bi bi-tiktok"></i></a>
-                </div>
-            </div>
-            <div class="footer-contacto-info">
-                <p>Líneas de Atención</p>
-                <p><i class="bi bi-telephone"></i> +57 3100000000</p>
-                <p><i class="bi bi-envelope"></i> petlab@gmail.com</p>
-                <p><i class="bi bi-whatsapp"></i> +57 3100000000</p>
-            </div>
-        </div>
-    </footer>
-    <script src="/scripts/scripts.js" defer></script>
-</body>
+    <script src="/main.js" defer></script>
+    <script src="../scripts/scripst.js" defer></script>
+    <script src="../scripts/cart.js" defer></script>
+    <script src="../scripts/footer.js" defer></script>
+  </body>
 </html>
-
-
