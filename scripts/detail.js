@@ -142,7 +142,7 @@ function renderDetail(item) {
 
   document.getElementById("addToCartBtn").addEventListener("click", () => {
     if (isService) {
-      alert("Servicio reservado correctamente");
+      document.getElementById("toast").innerHTML = toast
       addToCart(item.name, Number(item.price), item.img);
       updateCartCount()
     } else {

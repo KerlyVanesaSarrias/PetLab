@@ -153,8 +153,8 @@ input[type="checkbox"] {
 }
 
 button[type="submit"] {
-    background: #ccc;
-    color: #222;
+    background: #145873;
+    color: white;
     border: none;
     padding: 12px 0;
     border-radius: 6px;
@@ -166,7 +166,7 @@ button[type="submit"] {
     transition: background 0.2s;
 }
 button[type="submit"]:hover {
-    background: #bdbdbd;
+    background: #26a699;
 }
 
 @media (max-width: 900px) {

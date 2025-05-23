@@ -4,3 +4,4 @@ fetch("/pages/footer.html")
         document.getElementById("container-footer").innerHTML = data;
 
     });
+    

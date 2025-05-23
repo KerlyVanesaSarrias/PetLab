@@ -218,9 +218,9 @@ input[type="file"] {
   color: rgb(163, 154, 154);
 }
 
-button[type="submit"] {
-  background: #156082;
-  color: rgb(195, 188, 188);
+.btn-principal  {
+  background: #145873;
+  color: white;
   border: none;
   padding: 12px 0;
   border-radius: 6px;
@@ -232,8 +232,8 @@ button[type="submit"] {
   transition: background 0.2s;
 }
 
-button[type="submit"]:hover {
-  background: #bdbdbd;
+.btn-principal:hover {
+  background: #26a699;
 }
 
 @media (max-width: 768px) {
