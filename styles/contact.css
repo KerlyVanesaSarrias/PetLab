@@ -43,20 +43,6 @@ main {
     gap: 32px;
 }
 
-fieldset {
-    border: none;
-    padding: 0;
-    margin: 0 0 24px 0;
-    background: none;
-}
-legend {
-    font-size: 1.1em;
-    font-weight: 500;
-    margin-bottom: 12px;
-    color: #222;
-    padding: 0;
-}
-
 .row {
     display: flex;
     gap: 32px;
@@ -78,9 +64,6 @@ label {
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-input[type="date"],
-input[type="time"],
-input[type="file"],
 textarea {
     background: #ccc;
     border: none;
@@ -97,24 +80,11 @@ textarea {
     resize: none;
 }
 
-input[type="file"] {
-    background: #ccc;
-    padding: 5px;
-}
-
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="tel"]:focus,
-input[type="date"]:focus,
-input[type="time"]:focus,
 textarea:focus {
     background: #bdbdbd;
-}
-
-textarea {
-    resize: none;
-    min-height: 120px;
-    max-width: 100%;
 }
 
 .checkbox-group {
@@ -131,28 +101,22 @@ textarea {
     font-weight: 400;
 }
 
-input[type="checkbox"] {
-    width: 28px;
-    height: 28px;
-    accent-color: #ccc;
+input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #222; /* o usa 'black' */
     border: 1.5px solid #bbb;
-    border-radius: 4px;
+    border-radius: 50%;
     margin: 0;
     background: #ccc;
     box-shadow: 0 2px 0 #bbb;
 }
 
-.mensaje-group,
-.archivo-group {
+
+.mensaje-group {
     display: flex;
     flex-direction: column;
     gap: 4px;
-}
-
-.archivo-group small {
-    font-size: 0.93em;
-    color: #666;
-    margin-top: 2px;
 }
 
 .boton-enviar {
@@ -287,4 +251,6 @@ button[type="submit"]:hover {
     }
 }
 
-  
+.orden-group {
+    margin-bottom: 0;
+}

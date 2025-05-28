@@ -26,7 +26,6 @@
                 class="contacto-form"
                 action="https://formspree.io/f/mwpokgnr"
                 method="POST"
-                enctype="multipart/form-data"
             >
                 <div>
                     <div class="row">
@@ -61,10 +60,7 @@
                     <div class="consulta-label">Tu consulta está relacionada con:</div>
                     <div class="checkbox-group">
                         <label>
-                            <input type="radio" name="relacion" value="producto" required> Producto
-                        </label>
-                        <label>
-                            <input type="radio" name="relacion" value="servicio"> Servicio
+                            <input type="radio" name="relacion" value="compra" required> Compra
                         </label>
                         <label>
                             <input type="radio" name="relacion" value="general"> Consulta general
@@ -72,38 +68,11 @@
                     </div>
                 </div>
 
-                <div class="info-producto">
+                <div class="orden-group" style="display:none;">
                     <div class="row">
                         <div class="col">
                             <label for="orden">Número de la orden</label>
                             <input type="text" id="orden" name="orden">
-                        </div>
-                        <div class="col">
-                            <label for="fecha_compra">Fecha de la compra</label>
-                            <input type="date" id="fecha_compra" name="fecha_compra">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-servicio">
-                    <div class="row">
-                        <div class="col">
-                            <label for="tipo_servicio">Tipo</label>
-                            <input type="text" id="tipo_servicio" name="tipo_servicio">
-                        </div>
-                        <div class="col">
-                            <label for="nombre_mascota">Nombre de tu mascota</label>
-                            <input type="text" id="nombre_mascota" name="nombre_mascota">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label for="fecha_servicio">Fecha del servicio</label>
-                            <input type="date" id="fecha_servicio" name="fecha_servicio">
-                        </div>
-                        <div class="col">
-                            <label for="hora_servicio">Hora del servicio</label>
-                            <input type="time" id="hora_servicio" name="hora_servicio">
                         </div>
                     </div>
                 </div>
@@ -111,12 +80,6 @@
                 <div class="mensaje-group">
                     <label for="mensaje">Mensaje</label>
                     <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-                </div>
-
-                <div class="archivo-group">
-                    <label for="archivo">Adjunta un archivo:</label>
-                    <input type="file" id="archivo" name="archivo" multiple>
-                    <small>Puedes adjuntar máximo 5 archivos. El tamaño total es de 10mb</small>
                 </div>
 
                 <div class="boton-enviar">
@@ -149,9 +112,7 @@
             </div>
         </div>
     </footer>
-    <!-- Scripts: primero navbar, luego contacto -->
     <script src="/scripts/scripts.js" defer></script>
     <script src="/scripts/contact.js" defer></script>
 </body>
 </html>
-

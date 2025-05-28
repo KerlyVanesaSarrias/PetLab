@@ -1,21 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
     const formulario = document.querySelector('.contacto-form');
     const radiosRelacion = document.querySelectorAll('input[name="relacion"]');
-    const seccionProducto = document.querySelector('.info-producto');
-    const seccionServicio = document.querySelector('.info-servicio');
+    const ordenGroup = document.querySelector('.orden-group');
+    const ordenInput = document.getElementById('orden');
 
-    function actualizarVisibilidad() {
+    function actualizarVisibilidadOrden() {
         const seleccion = document.querySelector('input[name="relacion"]:checked');
-        seccionProducto.style.display = (seleccion && seleccion.value === "producto") ? 'block' : 'none';
-        seccionServicio.style.display = (seleccion && seleccion.value === "servicio") ? 'block' : 'none';
+        if (seleccion && seleccion.value === "compra") {
+            ordenGroup.style.display = 'block';
+            ordenInput.required = true;
+        } else {
+            ordenGroup.style.display = 'none';
+            ordenInput.required = false;
+            ordenInput.value = '';
+        }
     }
 
     radiosRelacion.forEach(radio => {
-        radio.addEventListener('change', actualizarVisibilidad);
+        radio.addEventListener('change', actualizarVisibilidadOrden);
     });
-    actualizarVisibilidad();
+    actualizarVisibilidadOrden();
 
-    // agregando validación de TLD más comunes
+    // Validación de TLD más comunes
     const validarEmail = (email) =>
         /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|org|net|edu|gov|mil|info|es|mx|co|us|fr|ar|eu|ru|cn|jp|ch|com\.mx|com\.ar)$/i.test(email);
 
@@ -51,53 +57,12 @@ document.addEventListener('DOMContentLoaded', function() {
             esValido = false;
         }
 
-        const archivoInput = document.getElementById('archivo');
-        if (archivoInput.files.length > 5) {
-            mostrarError(archivoInput, "Máximo 5 archivos permitidos");
-            esValido = false;
-        }
-
-        let tamañoTotal = 0;
-        Array.from(archivoInput.files).forEach(file => {
-            tamañoTotal += file.size;
-        });
-
-        if (tamañoTotal > 10 * 1024 * 1024) {
-            mostrarError(archivoInput, "Tamaño total excede 10MB");
-            esValido = false;
-        }
-
-        // Validación de secciones de compra, servicio y consulta general
+        // Validación específica para el campo de número de orden si está visible y requerido
         const seleccion = document.querySelector('input[name="relacion"]:checked');
-        if (seleccion) {
-            if (seleccion.value === "producto") {
-                const orden = document.getElementById('orden');
-                const fechaCompra = document.getElementById('fecha_compra');
-
-                if (!orden.value.trim()) {
-                    mostrarError(orden, "Número de orden requerido");
-                    esValido = false;
-                }
-
-                if (!fechaCompra.value) {
-                    mostrarError(fechaCompra, "Fecha de compra requerida");
-                    esValido = false;
-                }
-            }
-
-            if (seleccion.value === "servicio") {
-                const tipoServicio = document.getElementById('tipo_servicio');
-                const fechaServicio = document.getElementById('fecha_servicio');
-
-                if (!tipoServicio.value.trim()) {
-                    mostrarError(tipoServicio, "Tipo de servicio requerido");
-                    esValido = false;
-                }
-
-                if (!fechaServicio.value) {
-                    mostrarError(fechaServicio, "Fecha de servicio requerida");
-                    esValido = false;
-                }
+        if (seleccion && seleccion.value === "compra") {
+            if (!ordenInput.value.trim()) {
+                mostrarError(ordenInput, "Número de orden requerido");
+                esValido = false;
             }
         }
 
@@ -115,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
         errorDiv.style.marginTop = '0.25rem';
         errorDiv.textContent = mensaje;
 
-        const contenedor = campo.closest('.col') || campo.closest('.mensaje-group') || campo.closest('.archivo-group');
+        const contenedor = campo.closest('.col') || campo.closest('.mensaje-group');
         contenedor.appendChild(errorDiv);
         campo.classList.add('campo-error');
     }
@@ -125,6 +90,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.campo-error').forEach(campo => campo.classList.remove('campo-error'));
     }
 });
+
+
 
 
 
