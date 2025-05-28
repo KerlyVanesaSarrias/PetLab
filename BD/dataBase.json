@@ -155,6 +155,48 @@
       "email": "ejemplo4@gmail.com",
       "phoneNumber": "3172576290",
       "password": "123456"
+    },
+    {
+      "id": "0896",
+      "name": "sss",
+      "email": "asa@gmail.com",
+      "phoneNumber": "1231212",
+      "password": "Fer1986*"
+    },
+    {
+      "id": "3c38",
+      "name": "fer",
+      "email": "fer@gmail.com",
+      "phoneNumber": "312576565",
+      "password": "Fer1986*"
+    },
+    {
+      "id": "8985",
+      "name": "fer",
+      "email": "fer@gmail.com",
+      "phoneNumber": "312576255",
+      "password": "Fer1986*"
+    },
+    {
+      "id": "f774",
+      "name": "fer",
+      "email": "fer@gmail.com",
+      "phoneNumber": "1234567",
+      "password": "Fer1986*"
+    },
+    {
+      "id": "058a",
+      "name": "Fer",
+      "email": "fer@gmail.com",
+      "phoneNumber": "1234567",
+      "password": "Fer1986*"
+    },
+    {
+      "id": "0ce1",
+      "name": "fer",
+      "email": "fer@gmail.com",
+      "phoneNumber": "1234564",
+      "password": "Fer1986*"
     }
   ],
   "products": [
@@ -239,14 +281,14 @@
       "description": "Mix de trozos delicadamente picados combinado con un delicioso paté. Eleva su experiencia gastronomica con una variedad de platillos gourmet preparados tal y como a el le gustan."
     },
     {
-      "id": "e249",
-      "img": "https://firebasestorage.googleapis.com/v0/b/apptactical-74663.appspot.com/o/productos%2F1747686293403_Chillitips.png?alt=media&token=a3a0b96b-5a99-4f7e-9f67-b538a4661464",
-      "name": "ejemplo de producto ",
+      "id": "259a",
+      "img": "https://firebasestorage.googleapis.com/v0/b/apptactical-74663.appspot.com/o/productos%2F1748033011033_PRODUCTO.jpeg?alt=media&token=d80f7681-a7c0-422b-98c1-6767d749f9c1",
+      "name": "ejemplo23/05/2025",
       "category": "Alimentos",
-      "characteristcs": "caracteristicas ejemplo",
-      "stock": "2",
-      "price": "123500",
-      "description": "ejemplo de descripción"
+      "characteristcs": "ejemplo23/05/2025",
+      "stock": "5",
+      "price": "125000",
+      "description": "ejemplo23/05/2025"
     }
   ],
   "services": [
