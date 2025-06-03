@@ -61,10 +61,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const rol = localStorage.getItem("rol")
     const registroLink = document.querySelector('a[href*="formRegisterProduc.html"]')
     const mobileRegistroLink = document.getElementById("registroLink")
+    const adminUserLink = document.querySelector('a[href*="adminUsers.html"]')
+    const adminProductLink = document.querySelector('a[href*="adminProductos.html"]')
 
     if (rol !== "admin") {
       if (registroLink) registroLink.style.display = "none"
       if (mobileRegistroLink) mobileRegistroLink.style.display = "none"
+      if (adminUserLink) adminUserLink.style.display = "none"
+      if (adminProductLink) adminProductLink.style.display = "none"
     }
   }
 })
