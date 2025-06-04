@@ -24,8 +24,11 @@
   </head>
 
   <body>
-    <div id="container-navbar"></div>
+    <div id="container-navbar"></div>  
+    
     <main>
+    <div class="formularios-container">
+     
       <section class="section-registro">
         <h2 class="form-subtitle">
           Panel de administración: Registro de ítems
@@ -57,7 +60,7 @@
               id="nombre"
               class="name"
               name="nombre"
-              placeholder="Ingresa el nombre del producto o servicio"
+              placeholder="Ingresa el nombre del producto."
               required
             />
           </div>
@@ -70,7 +73,7 @@
             </select>
           </div>
 
-          <div class="form-row" class="Descripcion-group">
+          <div class="form-row Descripcion-group">
             <label for="descripcion"
               >Descripción: <span class="obligatorio">*</span></label
             >
@@ -78,7 +81,7 @@
               type="text"
               id="descripcion"
               name="descripcion"
-              placeholder="Describe el producto o servicio "
+              placeholder="Describe el producto. "
               rows="4"
               cols="50"
               required
@@ -86,13 +89,13 @@
           </div>
           <div class="form-row">
             <label for="imagen"
-              >Imagenes: <span class="obligatorio">*</span></label
+              >Imagen: <span class="obligatorio">*</span></label
             >
             <input
               type="file"
               id="imagen"
               name="imagen"
-              placeholder="Imagenes del producto o servicio"
+              placeholder="Imagen del producto."
               accept="image/*"
               multiple
               required
@@ -107,7 +110,7 @@
               type="number"
               id="precio"
               name="precio"
-              placeholder="Precio de venta del producto o servicio"
+              placeholder="Precio de venta del producto."
               required
             />
           </div>
@@ -119,7 +122,7 @@
               type="text"
               id="caracteristicas"
               name="caracteristicas"
-              placeholder="Caracteristicas del producto o servicio"
+              placeholder="Caracteristicas del producto. "
               rows="4"
               cols="20"
               required
@@ -134,21 +137,21 @@
               type="number"
               id="stock"
               name="stock"
-              placeholder="cantidad del producto en Stock"
+              placeholder="Cantidad del producto en Stock."
               required
             />
           </div>
 
           <button type="submit" class="btn-principal ">Enviar</button>
         </form>
-      </section>
+      
       <!-- Formulario Servicios -->
-      <section class="section-registro">
+      
         <form
           class="formulario"
           id="registroFormServices"
           style="display: block"
-        >
+          >
           <h2 class="form-title">Registro de servicios</h2>
           <div class="form-row">
             <label for="nombre"
@@ -159,7 +162,7 @@
               id="nombreS"
               class="name"
               name="nombre"
-              placeholder="Ingresa el nombre del producto o servicio"
+              placeholder="Ingresa el nombre del servicio."
               required
             />
           </div>
@@ -172,7 +175,7 @@
             </select>
           </div>
 
-          <div class="form-row" class="Descripcion-group">
+          <div class="form-row Descripcion-group">
             <label for="descripcion"
               >Descripción: <span class="obligatorio">*</span></label
             >
@@ -180,7 +183,7 @@
               type="text"
               id="descripcionS"
               name="descripcion"
-              placeholder="Describe el producto o servicio "
+              placeholder="Describe el servicio. "
               rows="4"
               cols="50"
               required
@@ -188,13 +191,13 @@
           </div>
           <div class="form-row">
             <label for="imagen"
-              >Imagenes: <span class="obligatorio">*</span></label
+              >Imagen: <span class="obligatorio">*</span></label
             >
             <input
               type="file"
               id="imagenS"
               name="imagen"
-              placeholder="Imagenes del producto o servicio"
+              placeholder="Imagen del servicio."
               accept="image/*"
               multiple
               required
@@ -209,7 +212,7 @@
               type="number"
               id="precioS"
               name="precio"
-              placeholder="Precio de venta del producto o servicio"
+              placeholder="Precio de venta del servicio."
               required
             />
           </div>
@@ -221,7 +224,7 @@
               type="text"
               id="caracteristicasS"
               name="caracteristicas"
-              placeholder="Caracteristicas del producto o servicio"
+              placeholder="Caracteristicas del servicio."
               rows="4"
               cols="20"
               required
@@ -236,7 +239,7 @@
               type="number"
               id="stockS"
               name="stock"
-              placeholder="cantidad del producto en Stock"
+              placeholder="Cantidad del servicio en Stock."
               required
             />
           </div>
@@ -273,34 +276,42 @@
               type="text"
               id="agendaS"
               name="agenda"
-              placeholder="Ej. Disponible de lunes a viernes"
+              placeholder="Ej. Disponible de lunes a viernes."
             />
           </div>
 
           <button type="submit" class="btn-principal ">Enviar</button>
         </form>
+
+
         <!-- Modal de agradecimiento -->
         <div id="modalGracias" class="modal">
           <div class="modal-content">
             <span class="close-btn">&times;</span>
+            <div class="modal-success-icon">✔️</div>
             <p>¡Datos registrados con éxito!</p>
           </div>
         </div>
       </section>
-      <div id="container-footer"></div>
+    </div>
+    
     </main>
+
+    <div class="clearfix"></div> 
+    <div style="height: 40px;"></div>
+    <div id="container-footer"></div>
 
     <!--  este script no se debe mover, no  colocar scripts encima de el, lo que agregues hazlo al final -->
     <script type="module" src="/scripts/FirebaseConfig.js"></script>
    <script src="/main.js" defer></script>
     <script src="../scripts/scripst.js" defer></script>
     <script src="../scripts/cart.js" defer></script>
-    <script src="../scripts/footer.js" defer></script>
     <script src="../scripts/formPyS.js"></script>
     <script src="../scripts/formRegisterProduc.js"></script>
     <script src="../scripts/formRegisterServ.js"></script>
-
     <script type="module" src="/scripts/AddProduct.js"></script>
     <script type="module" src="/scripts/AddServices.js"></script>
+    
+    <script src="../scripts/footer.js" defer></script>
   </body>
 </html>
