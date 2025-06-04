@@ -11,15 +11,16 @@ let currentPage = 1;
 const cardsPerPage = 8;
 
 
-fetch('./BD/dataBase.json')
-  .then(res => res.json())
-  .then(data => {
-    dataFetched = data
-    renderCards(data.services)
-    marcarBotonActivo(btnServices, 'section-button')
-      renderCategories(dataFetched.services);
+Promise.all([
+  fetch('http://localhost:8081/servicios').then(res => res.json()),
+  fetch('http://localhost:8081/productos').then(res => res.json())
+]).then(([services, products]) => {
+  dataFetched = { services, products };
+  renderCards(dataFetched.services);
+  renderCategories(dataFetched.services);
+  marcarBotonActivo(btnServices, 'section-button');
+}).catch(err => console.error("Error al cargar productos y servicios:", err));
 
-  }).catch(err => console.error("Error al cargar productos y servicios:", err))
 
 const renderCards = (cards, isFull = false) => {
   if (isFull) {
@@ -46,10 +47,10 @@ const renderCurrentPage = () => {
     card.className = 'col-6 col-md-3 mb-4 mb-4'
     card.innerHTML = `
       <div  class="card shadow" style="width: 100% cursor: pointer">
-          <img src="${item.img}" class="card-img-top" alt="${item.name}">
+          <img src="${item.imagen}" class="card-img-top" alt="${item.nombre}">
          <div class="card-body">
-            <h5 class="card-title">${truncate(item.name, 25)}</h5>
-            <p class="card-text">$${item.price}</p>
+            <h5 class="card-title">${truncate(item.nombre, 25)}</h5>
+            <p class="card-text">$${item.precio}</p>
           <div class="btnCard add-cart">Añadir al Carrito</div>
         </div>
       </div>
@@ -61,7 +62,7 @@ const renderCurrentPage = () => {
 
     card.querySelector('.add-cart').addEventListener('click', e => {
       e.stopPropagation()
-      addToCart(item.name, item.price, item.img)
+      addToCart(item.nombre, item.precio, item.imagen)
     })
     cardsContainer.appendChild(card)
   })
@@ -117,8 +118,8 @@ const renderCategories = (cards) => {
   const categoriasUnicas = new Set()
 
   cards.forEach(item => {
-    if (item.category && item.category.trim() !== '') {
-      categoriasUnicas.add(item.category)
+    if (item.categoria && item.categoria.trim() !== '') {
+      categoriasUnicas.add(item.categoria)
     }
   });
 
@@ -129,7 +130,7 @@ const renderCategories = (cards) => {
       button.innerText = cat;
 
       button.addEventListener('click', () => {
-        const filtro = fullCards.filter(card => card.category == cat)
+        const filtro = fullCards.filter(card => card.categoria == cat)
         currentPage = 1
         renderCards(filtro)
         marcarBotonActivo(button, "category-button")
