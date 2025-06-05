@@ -11,27 +11,27 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function renderDetail(item) {
-  const characteristics = (item.characteristcs || "").replace(/\n/g, "<br>")
-  const recommendations = item.recommendations ? item.recommendations.replace(/\n/g, "<br>") : ""
+  const caracteristicas = (item.caracteristicas || "").replace(/\n/g, "<br>")
+  const recomendaciones = item.recomendaciones ? item.recomendaciones.replace(/\n/g, "<br>") : ""
 
-  const isService = item.howToDoIt || item.duration
+  const isService = item.duracion
 
   const html = `
     <div class="row">
       <!-- Columna de imagen -->
       <div class="col-md-5">
         <div class="product-image-container">
-          <img src="${item.img}" class="product-image" alt="${item.name}">
+          <img src="${item.imagen}" class="product-image mt-4 rounded-5" alt="${item.nombre}">
         </div>
         ${Number.parseInt(item.stock) < 10 ? '<div class="last-units">Últimas Unidades</div>' : ""}
       </div>
       
       <!-- Columna de información -->
       <div class="col-md-7">
-        <h1 class="mb-2">${item.name}</h1>
+        <h1 class="mb-2">${item.nombre}</h1>
         
         <div class="mb-2">
-          <span>Categoria: <strong>${item.category || "No especificada"}</strong></span>
+          <span>Categoria: <strong>${item.categoria || "No especificada"}</strong></span>
         </div>
         
         <div class="star-rating mb-2">
@@ -44,24 +44,26 @@ function renderDetail(item) {
         
         <div class="price-container">
           <div class="original-price">Precio normal</div>
-          <div class="current-price">$${Number(item.price).toLocaleString()}</div>
+          <div class="current-price">$${Number(item.precio).toLocaleString()}</div>
         </div>
         
         <div class="availability">
-          Disponible: <span class="text-success">${item.stock}</span>
-        </div>
+            Disponible
+         </div>
         
         ${isService
       ? `
-          <div class="mb-3">
-            <strong>Horario:</strong> ${item.howToDoIt || "No especificado"}
+          <div class="mb-2">
+            <strong>Horario:</strong> ${item.agenda || "No especificado"}
           </div>
           <div class="mb-3">
-            <strong>Duración aproximada:</strong> ${item.duration || "No especificada"}
+            <strong>Duración aproximada:</strong> ${item.duracion || "No especificada"}
           </div>
         `
       : `
-          
+          <div class="availability">
+            Disponible: <span class="text-success">${item.stock}</span>
+         </div>
           <div class="quantity-selector">
             <div class="me-3">Cantidad</div>
             <button class="btn btn-outline-secondary" id="decreaseBtn">-</button>
@@ -78,8 +80,13 @@ function renderDetail(item) {
     </div>
 
     <div class="product-tabs mt-5">
-      <div class="d-flex align-items-center mb-3">
-        <i class="fas fa-info-circle me-2"></i>
+      <div class="d-flex gap-3 align-items-center mb-3">
+          <lord-icon
+         color=""
+          trigger="hover"
+          src="/lottie/system-regular-28-info-hover-info.json"
+        >
+        </lord-icon>
         <h5 class="mb-0">Información de ${isService ? "servicio" : "producto"}</h5>
       </div>
       
@@ -90,7 +97,7 @@ function renderDetail(item) {
         <li class="nav-item" role="presentation">
           <button class="nav-link" id="characteristics-tab" data-bs-toggle="tab" data-bs-target="#characteristics" type="button" role="tab">Características</button>
         </li>
-        ${recommendations
+        ${recomendaciones
       ? `
         <li class="nav-item" role="presentation">
           <button class="nav-link" id="recommendations-tab" data-bs-toggle="tab" data-bs-target="#recommendations" type="button" role="tab">Recomendaciones</button>
@@ -102,15 +109,15 @@ function renderDetail(item) {
       
       <div class="tab-content" id="productTabsContent">
         <div class="tab-pane fade show active" id="description" role="tabpanel">
-          ${item.description ? `<p>${item.description}</p>` : "<p>No hay descripción disponible.</p>"}
+          ${item.descripcion ? `<p>${item.descripcion}</p>` : "<p>No hay descripción disponible.</p>"}
         </div>
         <div class="tab-pane fade" id="characteristics" role="tabpanel">
-          ${characteristics ? `<p>${characteristics}</p>` : "<p>No hay características disponibles.</p>"}
+          ${caracteristicas ? `<p>${caracteristicas}</p>` : "<p>No hay características disponibles.</p>"}
         </div>
-        ${recommendations
+        ${recomendaciones
       ? `
         <div class="tab-pane fade" id="recommendations" role="tabpanel">
-          <p>${recommendations}</p>
+          <p>${recomendaciones}</p>
         </div>
         `
       : ""
@@ -142,12 +149,22 @@ function renderDetail(item) {
 
   document.getElementById("addToCartBtn").addEventListener("click", () => {
     if (isService) {
-      document.getElementById("toast").innerHTML = toast
-      addToCart(item.name, Number(item.price), item.img);
+      servicioSeleccionado = item;
+      fechaSeleccionada = null;
+      horaSeleccionada = null;
+
+      inputFecha.value = '';
+      inputFecha.min = new Date().toISOString().split('T')[0];
+      horasContainer.innerHTML = '';
+      confirmarBtn.disabled = true;
+
+      const modal = new bootstrap.Modal(document.getElementById('modalReserva'));
+      modal.show();
+
       updateCartCount()
     } else {
       const quantity = parseInt(document.getElementById("quantityInput").value);
-      addToCart(item.name, Number(item.price), item.img, Number(quantity));
+      addToCart(item.nombre, Number(item.precio), item.imagen, Number(quantity));
       updateCartCount();
 
     }

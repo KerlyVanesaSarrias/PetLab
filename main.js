@@ -22,6 +22,8 @@ Promise.all([
 }).catch(err => console.error("Error al cargar productos y servicios:", err));
 
 
+
+
 const renderCards = (cards, isFull = false) => {
   if (isFull) {
     fullCards = cards
@@ -41,17 +43,21 @@ const renderCurrentPage = () => {
     return str.length > max ? str.slice(0, max) + '…' : str;
   }
 
-
   cardsToShow.forEach(item => {
+    const isService = item.duracion
     const card = document.createElement('div')
     card.className = 'col-6 col-md-3 mb-4 mb-4'
     card.innerHTML = `
-      <div  class="card shadow" style="width: 100% cursor: pointer">
+      <div  class="card card-hover shadow" style="width: 100% ">
           <img src="${item.imagen}" class="card-img-top" alt="${item.nombre}">
          <div class="card-body">
             <h5 class="card-title">${truncate(item.nombre, 25)}</h5>
             <p class="card-text">$${item.precio}</p>
-          <div class="btnCard add-cart">Añadir al Carrito</div>
+              ${isService ?
+        `<div class="btnCard add-cart">Reservar Servicio</div>` :
+        `<div class="btnCard add-cart">Añadir al Carrito</div>`
+      }
+          
         </div>
       </div>
     `
@@ -61,9 +67,23 @@ const renderCurrentPage = () => {
     })
 
     card.querySelector('.add-cart').addEventListener('click', e => {
-      e.stopPropagation()
-      addToCart(item.nombre, item.precio, item.imagen)
-    })
+      e.stopPropagation();
+      if (isService) {
+        servicioSeleccionado = item;
+        fechaSeleccionada = null;
+        horaSeleccionada = null;
+
+        inputFecha.value = '';
+        inputFecha.min = new Date().toISOString().split('T')[0];
+        horasContainer.innerHTML = '';
+        confirmarBtn.disabled = true;
+
+        const modal = new bootstrap.Modal(document.getElementById('modalReserva'));
+        modal.show();
+      } else {
+        addToCart(item.nombre, item.precio, item.imagen);
+      }
+    });
     cardsContainer.appendChild(card)
   })
 }

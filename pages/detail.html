@@ -13,6 +13,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
     <link rel="stylesheet" href="/styles/detail.css" />
     <link rel="stylesheet" href="/styles/header.css" />
     <link rel="stylesheet" href="/styles/navbar.css" />
@@ -25,10 +29,52 @@
     <div id="toast"></div>
     <div id="container-footer"></div>
 
+    <!-- Modal para reservar servicio -->
+    <div class="modal fade" id="modalReserva" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Reservar Servicio</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Cerrar"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <label>Selecciona una fecha:</label>
+            <input
+              type="date"
+              id="inputFecha"
+              class="form-control mb-3"
+              min=""
+            />
+
+            <label>Selecciona una hora:</label>
+            <div
+              id="horasContainer"
+              class="d-flex flex-wrap gap-2 mt-2 mb-3"
+            ></div>
+          </div>
+          <div class="modal-footer">
+            <button id="confirmarReserva" class="btn btn-primary" disabled>
+              Confirmar reserva
+            </button>
+            <button class="btn btn-secondary" data-bs-dismiss="modal">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/scripts/detail.js"></script>
     <script src="/scripts/cart.js"></script>
+    <script src="/scripts/reserva.js"></script>
     <script src="/scripts/scripst.js"></script>
-     <script src="/scripts/footer.js"></script>
+    <script src="/scripts/footer.js"></script>
   </body>
 </html>

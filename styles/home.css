@@ -55,6 +55,17 @@
 }
 .card {
   height: 350px !important;
+  cursor: pointer;
+}
+
+.card-hover {
+  transition: transform 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  z-index: 2;
 }
 .card-img-top {
   height: 200px;
