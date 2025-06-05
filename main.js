@@ -12,8 +12,8 @@ const cardsPerPage = 8;
 
 
 Promise.all([
-  fetch('http://localhost:8081/servicios').then(res => res.json()),
-  fetch('http://localhost:8081/productos').then(res => res.json())
+  fetch('http://localhost:8080/servicios').then(res => res.json()),
+  fetch('http://localhost:8080/productos').then(res => res.json())
 ]).then(([services, products]) => {
   dataFetched = { services, products };
   renderCards(dataFetched.services);
