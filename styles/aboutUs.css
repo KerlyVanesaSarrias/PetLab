@@ -1,5 +1,5 @@
 body {
-    background-color:#1458731f;
+    background-color:#ffffff;
 }
 
 #infopetlab {
@@ -9,9 +9,8 @@ body {
     border-radius: 20px;
 }
 
-#infopetlab h1{
-    color: #A64F3C;
-    text-align: center;
+#infopetlab h1 {
+    color: #ffffff;
 }
 
 .infopetlab-image-container {
@@ -20,13 +19,18 @@ body {
     max-height: 500px;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 5px 5px 10px #00000033;
+    box-shadow: 5px 5px 10px #0000005e;
 }
 
 .infopetlab-background-image {
     width: 100%;
     height: auto;
     display: block;
+    transition: transform 0.4s ease-in-out;
+}
+
+.infopetlab-background-image:hover {
+  transform: scale(1.05);
 }
 
 .infopetlab-text-overlay {
@@ -43,63 +47,90 @@ body {
     align-items: flex-start;
     border-radius: 0 20px 20px 0;
     box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .infopetlab-text-overlay p {
-    color: #202020;
-    line-height: 1.3;
-    font-size: 1em;
+    color: #ffffff;
+    font-size: 1.2em;
+    text-align: justify;
 }
 
 /* Media Query para pantallas más pequeñas*/
 @media (max-width: 1200px) {
     .infopetlab-text-overlay {
-        position: relative;
-        top: auto;
-        right: auto;
-        width: 100%;
-        height: auto;
-        background-color: #ffffffe6;
-        color: #111;
-        padding: 20px;
-        display: block; 
-        border-radius: 20px; 
-        align-items: flex-start; 
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60%;
+        height: 107%;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        background-color: rgba(0, 0, 0, 0.6);
     }
 
     .infopetlab-text-overlay h1 {
-        font-size: 1.5em; 
+        font-size: 1.5em;
     }
 
     .infopetlab-text-overlay p {
+        color: #ffffff;
         font-size: 0.9em;
+        text-align: justify;
+    }
+}
+
+@media (max-width: 768px) {
+    .infopetlab-text-overlay {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);/* Fondo oscuro semitransparente */
+        padding: 1rem;
     }
 
-    .infopetlab-image-container {
-        max-height: none;
+    .infopetlab-text-overlay h1,
+    .infopetlab-text-overlay p {
+        text-align: justify;
+    }
+}
+
+@media (max-width: 615px) {
+    .infopetlab-text-overlay {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);/* Fondo oscuro semitransparente */
+    }
+
+    .infopetlab-text-overlay h1,
+    .infopetlab-text-overlay p {
+        text-align: justify;
+        font-size: 9px;
+        margin: 1px;
     }
 }
 
 /* Estilos para la sección Nuestros Valores */
-.valores-container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
+/* Sección Nuestros Valores */
 .valor-circulo {
-    min-width: 245px; 
-    min-height: 230px; 
+    width: 235px;
+    height: 235px;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 15px;
-    border: 2px solid #14587348; 
-    padding: 10px; 
-    box-shadow: 5px 5px 10px #00000033;
+    border: 2px solid #14587348;
+    padding: 10px;
+    box-shadow: 5px 5px 10px #0000005e;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Estilos específicos para cada círculo de valor (fondo)*/
+.valor-circulo:hover {
+    background-color: #0a2c3a;
+}
+
+/* Colores de fondo por valor */
 .valor-uno,
 .valor-dos,
 .valor-tres,
@@ -107,23 +138,41 @@ body {
     background-color: #145873;
 }
 
-/* Estilos para la sección Misión y Visión */
-.mision-vision-container {
-    max-width: 1000px;
-    margin: 0 auto;
+/* Misión y Visión */
+.mision-vision-card {
+    border: 2px solid #e17a1fb0;
+    box-shadow: 5px 5px 10px #0000005e !important;
+    transition: transform 0.4s ease-in-out;
 }
 
+.mision-vision-card:hover {
+  transform: scale(0.9);
+}
+
+.mision-vision-card h3 {
+    color: #E17B1F;
+    font-weight: bold;
+}
+
+.mision-vision-card p {
+    text-align: justify;
+    color: #303030;
+}
+
+
+/* Encabezado */
 #nuestrosValoresyMas h2.text-center.mb-4 {
     color: #145873;
 }
 
+
 .mision-vision-card {
-    box-shadow: 5px 5px 10px #000000d7;
-    border: 1px solid  #e17a1fb0;
+    border: 2px solid #e17a1fb0;
+    box-shadow: 5px 5px 10px #0000005e !important;
 }
 
 .mision-vision-card h3 {
-    color:  #E17B1F;
+    color: #E17B1F;
     font-weight: bold;
 }
 
@@ -131,83 +180,10 @@ body {
     color: #303030;
 }
 
-/* Titulo cards*/
-#miembrosequipo h2.text-center.mb-4 {
-    color: #26A699;
-}
-
-/* Cards de miembros*/
-.front-page {
-    margin: 15px;
-    padding: 0;
-    width: 230px; 
-    height: 290px; 
-    border-radius: 15px; 
-    overflow: hidden; 
-    position: relative; 
-    box-shadow: 5px 5px 10px #00000033; 
-    font-family: sans-serif; 
-}
-
-.front-page img {
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-}
-
-.card-info {
-    position: absolute; 
-    bottom: 0; 
-    width: 100%;
-    background-color: #26a699bb; 
-    padding: 9px;
-    text-align: center;
-}
-
-.card-info h2 {
-    margin: 0; 
-    color: #d6d6d6; 
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-.card-info p {
-    margin: 0; 
-    color: #d6d6d6; 
-    font-size: 0.9em;
-}
-
-/* Ajustes responsivos para la sección Valores */
-@media (max-width: 1200px) {
-    .valor-circulo {
-        width: 120px;
-        height: 120px;
-    }
-    .valor-circulo h3 {
-        font-size: 0.9em;
-    }
-        .valores-container .col-6 {
-        width: 50%; 
-    }
-}
-
-@media (max-width: 576px) {
-    .valor-circulo {
-        width: 100px;
-        height: 100px;
-    }
-    .valor-circulo h3 {
-        font-size: 0.8em;
-    }
-        .valores-container .col-6 {
-        width: 100%; 
-    }
-}
-
 /* Ajustes responsivos para la sección Misión y Visión */
 @media (max-width: 992px) {
     .mision-vision-container .col-md-5 {
-        width: 80%; 
+        width: 80%;
         margin-left: auto;
         margin-right: auto;
     }
@@ -217,4 +193,65 @@ body {
     .mision-vision-container .col-md-5 {
         width: 95%;
     }
+}
+
+/* Titulo cards*/
+#miembrosequipo h1.text-center.mb-4 {
+    color: #26A699;
+}
+
+/* Cards de miembros*/
+.front-page {
+    margin: 15px;
+    padding: 0;
+    width: 300px;
+    height: 350px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 5px 5px 10px #0000005e;
+    font-family: sans-serif;
+}
+
+.front-page img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #26a699bb;
+    padding: 9px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    transition: transform 0.4s ease-in-out;
+}
+
+.front-page:hover .card-info {
+    background-color: #1f807a;
+    transform: scale(1.1);
+}
+
+.card-info h2 {
+    margin: 0;
+    color: #d6d6d6;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.card-info p {
+    margin: 0;
+    color: #d6d6d6;
+    font-size: 1em;
+}
+
+/* Distribución en pantallas medianas */
+@media (min-width: 768px) and (max-width: 1299px) {
+  #equipo-container .front-page:nth-child(3),
+  #equipo-container .front-page:nth-child(5) {
+    margin-top: 15px; /* fila 2 y 3 */
+  }
 }
