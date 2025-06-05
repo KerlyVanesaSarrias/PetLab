@@ -3,22 +3,22 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstati
 
 const storage = window.firebaseStorage;
  
-function addService( img, name, category, characteristcs, stock, price, description, recommendations,howToDoIt, duration ) {
-    fetch("http://localhost:3000/services", {
+function addService( imagen, nombre, categoria, caracteristicas, stock, precio, descripcion, recomendaciones,agenda, duracion ) {
+    fetch("http://localhost:8080/servicios", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
            
-            img,
-            name,
-            category,
-            characteristcs,
+            imagen,
+            nombre,
+            categoria,
+            caracteristicas,
             stock,
-            price,
-            description,
-            recommendations,
-            howToDoIt,
-            duration
+            precio,
+            descripcion,
+            recomendaciones,
+            agenda,
+            duracion
 
 
 
@@ -48,17 +48,17 @@ document.getElementById("registroFormServices").addEventListener("submit", async
         console.log("IMAGEN ENVIADA");
         const imgURLS = await getDownloadURL(snapshot.ref);
         
-        const nameS = document.getElementById("nombreS").value;
-        const categoryS = document.getElementById("categoriaS").value;
-        const characteristcsS = document.getElementById("caracteristicasS").value;
+        const nombreS = document.getElementById("nombreS").value;
+        const categoriaS = document.getElementById("categoriaS").value;
+        const caracteristicasS = document.getElementById("caracteristicasS").value;
         const stockS = document.getElementById("stockS").value;
-        const priceS = document.getElementById("precioS").value;
-        const descriptionS = document.getElementById("descripcionS").value;
-        const recommendationsS = document.getElementById("recomendacionS").value;
-        const howToDoItS = document.getElementById("agendaS").value;
-        const durationS = document.getElementById("duracionS").value;
+        const precioS = document.getElementById("precioS").value;
+        const descripcionS = document.getElementById("descripcionS").value;
+        const recomendacionesS = document.getElementById("recomendacionS").value;
+        const agendaS = document.getElementById("agendaS").value;
+        const duracionS = document.getElementById("duracionS").value;
         
-        addService(imgURLS, nameS, categoryS, characteristcsS, stockS, priceS, descriptionS, recommendationsS, howToDoItS, durationS)
+        addService(imgURLS, nombreS, categoriaS, caracteristicasS, stockS, precioS, descripcionS, recomendacionesS, agendaS, duracionS)
         
         e.target.reset();
 

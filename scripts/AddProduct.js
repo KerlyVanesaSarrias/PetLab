@@ -2,18 +2,18 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstati
 
 const storage = window.firebaseStorage;
 
-function addProduct(img, name, category, characteristcs, stock, price, description) {
-    fetch("http://localhost:3000/products", {
+function addProduct(imagen, nombre, categoria, caracteristicas, stock, precio, descripcion) {
+    fetch("http://localhost:8080/productos", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            img,
-            name,
-            category,
-            characteristcs,
+            imagen,
+            nombre,
+            categoria,
+            caracteristicas,
             stock,
-            price,
-            description
+            precio,
+            descripcion
         })
     })
     .then(res => res.json())
@@ -40,14 +40,14 @@ document.getElementById("registroForm").addEventListener("submit", async (e) => 
         console.log("IMAGEN ENVIADA");
         const imgURL = await getDownloadURL(snapshot.ref);
 
-        const name = document.getElementById("nombre").value;
-        const category = document.getElementById("categoria").value;
-        const characteristcs = document.getElementById("caracteristicas").value;
+        const nombre = document.getElementById("nombre").value;
+        const categoria = document.getElementById("categoria").value;
+        const caracteristicas = document.getElementById("caracteristicas").value;
         const stock = document.getElementById("stock").value;
-        const price = document.getElementById("precio").value;
-        const description = document.getElementById("descripcion").value;
+        const precio = document.getElementById("precio").value;
+        const descripcion = document.getElementById("descripcion").value;
 
-        addProduct(imgURL, name, category, characteristcs, stock, price, description);
+        addProduct(imgURL, nombre, categoria, caracteristicas, stock, precio, descripcion);
 
         e.target.reset();
 
