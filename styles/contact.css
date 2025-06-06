@@ -34,20 +34,6 @@
     gap: 32px;
 }
 
-fieldset {
-    border: none;
-    padding: 0;
-    margin: 0 0 24px 0;
-    background: none;
-}
-legend {
-    font-size: 1.1em;
-    font-weight: 500;
-    margin-bottom: 12px;
-    color: #222;
-    padding: 0;
-}
-
 .row {
     display: flex;
     gap: 32px;
@@ -69,9 +55,6 @@ label {
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-input[type="date"],
-input[type="time"],
-input[type="file"],
 textarea {
     background: #ccc;
     border: none;
@@ -88,24 +71,11 @@ textarea {
     resize: none;
 }
 
-input[type="file"] {
-    background: #ccc;
-    padding: 5px;
-}
-
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="tel"]:focus,
-input[type="date"]:focus,
-input[type="time"]:focus,
 textarea:focus {
     background: #bdbdbd;
-}
-
-textarea {
-    resize: none;
-    min-height: 120px;
-    max-width: 100%;
 }
 
 .checkbox-group {
@@ -122,28 +92,22 @@ textarea {
     font-weight: 400;
 }
 
-input[type="checkbox"] {
-    width: 28px;
-    height: 28px;
-    accent-color: #ccc;
+input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #222; /* o usa 'black' */
     border: 1.5px solid #bbb;
-    border-radius: 4px;
+    border-radius: 50%;
     margin: 0;
     background: #ccc;
     box-shadow: 0 2px 0 #bbb;
 }
 
-.mensaje-group,
-.archivo-group {
+
+.mensaje-group {
     display: flex;
     flex-direction: column;
     gap: 4px;
-}
-
-.archivo-group small {
-    font-size: 0.93em;
-    color: #666;
-    margin-top: 2px;
 }
 
 .boton-enviar {
@@ -183,4 +147,101 @@ button[type="submit"]:hover {
     .boton-enviar button {
         width: 100%;
     }
+}
+
+.footer-contacto {
+    background: #ccc;
+    margin-top: 60px;
+    padding: 32px 0 16px 0;
+    border-radius: 0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 180px;
+}
+
+.footer-logo img {
+    width: 70px;
+    margin-bottom: 4px;
+}
+
+.footer-logo span {
+    color: #0B3B59;
+    font-weight: 500;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.footer-logo small {
+    font-size: 0.85em;
+    color: #444;
+}
+
+.footer-redes {
+    flex: 1;
+    min-width: 230px;
+    text-align: center;
+}
+
+.footer-redes p {
+    margin: 0 0 8px 0;
+    color: #222;
+    font-weight: 500;
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 10px;
+}
+
+.footer-icons a {
+    color: #222;
+    font-size: 2em;
+    transition: color 0.2s;
+}
+
+.footer-icons a:hover {
+    color: #0B3B59;
+}
+
+.footer-contacto-info {
+    min-width: 200px;
+    text-align: left;
+    color: #222;
+    font-size: 1em;
+}
+
+.footer-contacto-info p {
+    margin: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+@media (max-width: 900px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+}
+
+.orden-group {
+    margin-bottom: 0;
 }
