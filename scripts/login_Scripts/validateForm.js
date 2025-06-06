@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (redirectAfterClose) {
     setTimeout(() => {
       pantalla.classList.remove('registro-activo'); 
-    }, 4000); 
+    }, 1000); 
   }
 });
 
@@ -93,18 +93,18 @@ document.addEventListener("DOMContentLoaded", () => {
       showModal("Por favor corrija los errores antes de continuar.");
     } else {
       // Datos del formulario
-      const name = document.getElementById("form-name").value;
-      const email = document.getElementById("form-email").value;
-      const phoneNumber = document.getElementById("form-number").value;
-      const password = document.getElementById("form-password").value;
+      const nombre = document.getElementById("form-name").value;
+      const correo = document.getElementById("form-email").value;
+      const telefono = document.getElementById("form-number").value;
+      const contrasena = document.getElementById("form-password").value;
 
       try {
-        const response = await fetch("http://localhost:3000/users", {
+        const response = await fetch("http://localhost:8081/auth/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ name, email, phoneNumber, password }),
+          body: JSON.stringify({ nombre, correo, telefono, contrasena }),
         });
 
         if (response.ok) {
