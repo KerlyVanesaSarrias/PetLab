@@ -17,40 +17,63 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        fetch("/BD/dataBase.json")
-            .then(response => response.json())
-            .then(data => {
-                const usuarios = data.users;
-                const admins = data.adminUser;
+        const admins = [
+            {
+                "id": "998c",
+                "name": "usuarioAdmin",
+                "email": "admin@gmail.com",
+                "phoneNumber": "3172576290",
+                "password": "123456"
+            },
+            {
+                "id": "927e",
+                "name": "usuarioAdmin2",
+                "email": "admin2@gmail.com",
+                "phoneNumber": "3172576290",
+                "password": "123456"
+            }
+        ];
 
-                const usuarioValido = usuarios.find(u =>
-                    (u.email === usuarioInput || u.name === usuarioInput) &&
-                    u.password === contrasenaInput
-                );
+        const adminValido = admins.find(u =>
+            (u.email === usuarioInput || u.name === usuarioInput) &&
+            u.password === contrasenaInput
+        );
 
-                const adminValido = admins.find(u =>
-                    (u.email === usuarioInput || u.name === usuarioInput) &&
-                    u.password === contrasenaInput
-                );
-
-                if(adminValido){
-                    localStorage.setItem("rol", "admin");
-                    localStorage.setItem("nombreUsuario", adminValido.name);
-                    window.location.href = "/index.html"
-                }else if (usuarioValido) {
-                    localStorage.setItem("rol", "usuario");
-                    localStorage.setItem("nombreUsuario", usuarioValido.name);
-                    window.location.href = "/index.html";
-                } else {
-                    modalMensaje.textContent = "Usuario o contraseña incorrectos.";
-                    modalBootstrap.show();
+        if (adminValido) {
+            localStorage.setItem("rol", "admin");
+            localStorage.setItem("nombreUsuario", adminValido.name);
+            window.location.href = "/index.html";
+        } else {
+            // Consulta a Spring Boot (usuario real desde base de datos)
+            fetch("http://localhost:8081/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    correo: usuarioInput,
+                    nombre: usuarioInput,
+                    contrasena: contrasenaInput
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Credenciales NO VALIDAS");
                 }
+                return response.json();
+            })
+            .then(data => {
+                localStorage.setItem("rol", "usuario");
+                localStorage.setItem("nombreUsuario", data.token);
+                localStorage.setItem("nombreUsuario", data.nombre )
+                window.location.href = "/index.html";
             })
             .catch(error => {
-                console.error('Error al cargar el archivo JSON:', error);
-                modalMensaje.textContent = "Hubo un problema al intentar validar tus datos.";
+                modalMensaje.textContent = error.message;
                 modalBootstrap.show();
             });
+        }
+
     });
 
     //Funcion para mostrar contraseña en inicio se sesion
