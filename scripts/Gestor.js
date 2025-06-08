@@ -239,8 +239,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
       tr.innerHTML = `
         <td>
-          <img src="${producto.imagen}" alt="${producto.nombre}"  style="width: 50px; height: 50px;" class="producto-imagen" 
-               onerror="this.src='/placeholder.svg?height=60&width=60'">
+          <img src="${producto.imagen}" alt="${producto.nombre}"  style="width: 50px; height: 50px;" class="producto-imagen" >
         </td>
         <td>
           <strong>${producto.nombre}</strong>
