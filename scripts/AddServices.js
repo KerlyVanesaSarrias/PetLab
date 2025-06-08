@@ -2,13 +2,23 @@
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-storage.js";
 
 const storage = window.firebaseStorage;
- 
-function addService( imagen, nombre, categoria, caracteristicas, stock, precio, descripcion, recomendaciones,agenda, duracion ) {
-    fetch("http://localhost:8080/servicios", {
+
+function getAuthHeaders() {
+    const token = localStorage.getItem('jwtToken');
+    return {
+        'Authorization': `Bearer ${token}`
+    };
+}
+
+function addService(imagen, nombre, categoria, caracteristicas, stock, precio, descripcion, recomendaciones, agenda, duracion) {
+    fetch("http://localhost:8081/servicios", {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+            'Content-Type': 'application/json',
+            ...getAuthHeaders()
+        },
         body: JSON.stringify({
-           
+
             imagen,
             nombre,
             categoria,
@@ -21,12 +31,11 @@ function addService( imagen, nombre, categoria, caracteristicas, stock, precio, 
             duracion
 
 
-
         })
     })
-    .then(res => res.json())
-    .then(data => console.log("Respuesta del backend:", data))
-    .catch(err => console.error("Error en fetch:", err));
+        .then(res => res.json())
+        .then(data => console.log("Respuesta del backend:", data))
+        .catch(err => console.error("Error en fetch:", err));
 
 }
 
@@ -35,9 +44,9 @@ document.getElementById("registroFormServices").addEventListener("submit", async
     e.preventDefault();
 
     const fileInput = document.getElementById("imagenS");
-    const file = fileInput.files[0]; 
+    const file = fileInput.files[0];
 
-     if (!file) {
+    if (!file) {
         alert("Por favor selecciona una imagen.");
         return;
     }
@@ -47,7 +56,7 @@ document.getElementById("registroFormServices").addEventListener("submit", async
         const snapshot = await uploadBytes(storageRef, file);
         console.log("IMAGEN ENVIADA");
         const imgURLS = await getDownloadURL(snapshot.ref);
-        
+
         const nombreS = document.getElementById("nombreS").value;
         const categoriaS = document.getElementById("categoriaS").value;
         const caracteristicasS = document.getElementById("caracteristicasS").value;
@@ -57,14 +66,14 @@ document.getElementById("registroFormServices").addEventListener("submit", async
         const recomendacionesS = document.getElementById("recomendacionS").value;
         const agendaS = document.getElementById("agendaS").value;
         const duracionS = document.getElementById("duracionS").value;
-        
+
         addService(imgURLS, nombreS, categoriaS, caracteristicasS, stockS, precioS, descripcionS, recomendacionesS, agendaS, duracionS)
-        
+
         e.target.reset();
 
-        } catch (error) {
+    } catch (error) {
         console.error("Error al subir la imagen:", error);
         alert("Hubo un error al subir la imagen.");
     }
-    });
+});
 

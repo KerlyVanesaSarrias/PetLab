@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginPasswordInput = document.getElementById("contrasena");
     const toggleLoginIcon = document.getElementById("toggle-login-password");
 
-    document.querySelector(".button-login").addEventListener("click", function (e) {
+    document.querySelector("#button-login").addEventListener("click", function (e) {
+        console.log("LOGIN")
         e.preventDefault();
 
         const usuarioInput = document.getElementById("usuario").value.trim();
@@ -31,6 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 "email": "admin2@gmail.com",
                 "phoneNumber": "3172576290",
                 "password": "123456"
+            },
+            {
+                "id": "925e",
+                "name": "Kerly",
+                "email": "kerlysarrias011@gmail.com",
+                "phoneNumber": "3172576290",
+                "password": "123456"
             }
         ];
 
@@ -39,12 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
             u.password === contrasenaInput
         );
 
-        if (adminValido) {
-            localStorage.setItem("rol", "admin");
-            localStorage.setItem("nombreUsuario", adminValido.name);
-            window.location.href = "/index.html";
-        } else {
-            // Consulta a Spring Boot (usuario real desde base de datos)
+        
             fetch("http://localhost:8081/auth/login", {
                 method: "POST",
                 headers: {
@@ -56,23 +59,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     contrasena: contrasenaInput
                 })
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Credenciales NO VALIDAS");
-                }
-                return response.json();
-            })
-            .then(data => {
-                localStorage.setItem("rol", "usuario");
-                localStorage.setItem("nombreUsuario", data.token);
-                localStorage.setItem("nombreUsuario", data.nombre )
-                window.location.href = "/index.html";
-            })
-            .catch(error => {
-                modalMensaje.textContent = error.message;
-                modalBootstrap.show();
-            });
-        }
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Credenciales NO VALIDAS");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    localStorage.setItem("role", adminValido ? "admin" : "user");
+                    localStorage.setItem("jwtToken", data.token); 
+                    localStorage.setItem("nombreUsuario", data.nombre); 
+                    window.location.href = "/";
+                })
+                .catch(error => {
+                    modalMensaje.textContent = error.message;
+                    modalBootstrap.show();
+                });
+        
 
     });
 
@@ -82,5 +85,5 @@ document.addEventListener("DOMContentLoaded", () => {
         loginPasswordInput.type = isPassword ? "text" : "password";
         toggleLoginIcon.classList.toggle("bi-eye");
         toggleLoginIcon.classList.toggle("bi-eye-slash");
-});
+    });
 });

@@ -1,11 +1,21 @@
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-storage.js";
 
+
+function getAuthHeaders() {
+    const token = localStorage.getItem('jwtToken');
+    return {
+        'Authorization': `Bearer ${token}`
+    };
+}
 const storage = window.firebaseStorage;
 
 function addProduct(imagen, nombre, categoria, caracteristicas, stock, precio, descripcion) {
-    fetch("http://localhost:8080/productos", {
+    fetch("http://localhost:8081/productos", {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+       headers: {
+    'Content-Type': 'application/json',
+    ...getAuthHeaders()
+},
         body: JSON.stringify({
             imagen,
             nombre,
@@ -20,6 +30,7 @@ function addProduct(imagen, nombre, categoria, caracteristicas, stock, precio, d
     .then(data => console.log("Respuesta del backend:", data))
     .catch(err => console.error("Error en fetch:", err));
 }
+
 
 
 document.getElementById("registroForm").addEventListener("submit", async (e) => {

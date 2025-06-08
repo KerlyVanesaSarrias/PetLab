@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administración de Productos - Panel de Control</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="/styles/header.css">
+   <link rel="stylesheet" href="/styles/cart.css">
+  <link rel="stylesheet" href="/styles/navbar.css">
+  <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="styles/admin-productos.css">
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+</head>
+<body>
+  <div id="container-navbar"></div>
+  
+  <main class="container-fluid mt-4">
+  
+    <div class="admin-header">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h1 class="productos-title">
+        
+            Gestor de inventario
+          </h1>
+       
+        </div>
+        <a href="/pages/formRegisterProduc.html">
+        <button id="btnAddProduct" class="btnCreate px-4 py-2 btn-add-product">
+          <i class="me-2"></i> AGREGAR NUEVO PRODUCTO
+        </button>
+        </a>
+      </div>
+    </div>
+
+    <!-- Filtros y búsqueda -->
+    <div class="filtros-container mb-4">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-search"></i></span>
+            <input type="text" class="form-control" id="buscarProducto" placeholder="Buscar por nombre, descripción o características...">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <select class="form-select" id="filtroTipo">
+            <option value="">Todos los tipos</option>
+            <option value="Producto">Productos</option>
+            <option value="Servicio">Servicios</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <select class="form-select" id="filtroCategoria">
+            <option value="">Todas las categorías</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-outline-secondary w-100" id="btnLimpiarFiltros">
+            <i class="bi bi-arrow-clockwise"></i> Limpiar
+          </button>
+        </div>
+      </div>
+    </div>
+
+     <!-- Estadísticas -->
+    <div class="estadisticas-container mb-4">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card stat-card">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <div class="stat-icon bg-primary">
+                  <i class="bi bi-box text-white"></i>
+                </div>
+                <div class="ms-3">
+                  <h5 class="mb-0" id="totalProductos">0</h5>
+                  <small class="text-muted">Total Productos</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card stat-card">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <div class="stat-icon bg-success">
+                  <i class="bi bi-gear text-white"></i>
+                </div>
+                <div class="ms-3">
+                  <h5 class="mb-0" id="totalServicios">0</h5>
+                  <small class="text-muted">Total Servicios</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card stat-card">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <div class="stat-icon bg-warning">
+                  <i class="bi bi-exclamation-triangle text-white"></i>
+                </div>
+                <div class="ms-3">
+                  <h5 class="mb-0" id="stockBajo">0</h5>
+                  <small class="text-muted">Stock Bajo</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card stat-card">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <div class="stat-icon bg-info">
+                  <i class="bi bi-currency-dollar text-white"></i>
+                </div>
+                <div class="ms-3">
+                  <h5 class="mb-0" id="valorInventario">$0</h5>
+                  <small class="text-muted">Valor Inventario</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Tabla de productos -->
+    <div class="table-container">
+      <div class="table-responsive">
+        <table class="table table-striped productos-table">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Nombre</th>
+              <th>Tipo</th>
+              <th>Categoría</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="productosTableBody">
+      
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Mensaje cuando no hay productos -->
+      <div id="noProductos" class="text-center py-5 d-none">
+        <i class="bi bi-inbox display-1 text-muted"></i>
+        <h4 class="text-muted mt-3">No hay productos para mostrar</h4>
+        <p class="text-muted">Los productos se cargarán desde tu base de datos</p>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Modal para Agregar/Editar Producto -->
+  <div class="modal fade" id="productoModal" tabindex="-1" aria-labelledby="productoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productoModalLabel">Agregar Producto</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="productoForm">
+            <input type="hidden" id="productoId">
+            
+            <!-- Tipo de producto/servicio -->
+            <div class="mb-3">
+              <label class="form-label">Tipo: <span class="text-danger">*</span></label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="relacion" id="tipoProducto" value="Producto" checked>
+                <label class="form-check-label" for="tipoProducto">Producto</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="relacion" id="tipoServicio" value="Servicio">
+                <label class="form-check-label" for="tipoServicio">Servicio</label>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre: <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="nombre" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="categoria" class="form-label">Categoría: <span class="text-danger">*</span></label>
+                  <select class="form-select" id="categoria" required>
+                    <option value="">Seleccione una opción</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="descripcion" class="form-label">Descripción: <span class="text-danger">*</span></label>
+              <textarea class="form-control" id="descripcion" rows="3" required></textarea>
+            </div>
+            
+            <div class="row">
+              <div class="col-md-6">
+                <div class="mb-3">
+                  <label for="imagen" class="form-label">Imagen:</label>
+                  <input type="file" class="form-control" id="imagen" accept="image/*">
+                  <div id="imagenPreview" class="mt-2 d-none">
+                    <img src="/placeholder.svg" alt="Vista previa" class="img-thumbnail" style="max-height: 150px;">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="mb-3">
+                  <label for="precio" class="form-label">Precio: <span class="text-danger">*</span></label>
+                  <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input type="number" class="form-control" id="precio" required min="0" step="1">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3" >
+                <div class="mb-3" id="stockField" >
+                  <label for="stock" class="form-label">Stock: <span class="text-danger">*</span></label>
+                  <input type="number" class="form-control" id="stock"  min="0">
+                </div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label for="caracteristicas" class="form-label">Características: <span class="text-danger">*</span></label>
+              <textarea class="form-control" id="caracteristicas" rows="3" required></textarea>
+            </div>
+            
+            <!-- Campos adicionales para servicios -->
+            <div id="camposServicio" class="d-none">
+              <hr>
+              <h6 class="text-primary">Información adicional del servicio</h6>
+              
+              <div class="mb-3">
+                <label for="recomendacion" class="form-label">Recomendaciones:</label>
+                <textarea class="form-control" id="recomendacion" rows="3" placeholder="Recomendaciones previas al servicio"></textarea>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="duracion" class="form-label">Duración:</label>
+                    <input type="text" class="form-control" id="duracion" placeholder="Ej: 30 minutos">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="agenda" class="form-label">Disponibilidad:</label>
+                    <input type="text" class="form-control" id="agenda" placeholder="Ej: Lunes a viernes">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" id="btnGuardarProducto">
+            <i class="bi bi-check-lg me-1"></i> Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal de Confirmación para Eliminar -->
+  <div class="modal fade" id="eliminarModal" tabindex="-1" aria-labelledby="eliminarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="eliminarModalLabel">
+            <i class="bi bi-exclamation-triangle text-warning me-2"></i>
+            Confirmar Eliminación
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>¿Está seguro que desea eliminar este elemento?</p>
+          <div class="alert alert-warning">
+            <i class="bi bi-info-circle me-2"></i>
+            Esta acción no se puede deshacer.
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" id="btnConfirmarEliminar">
+            <i class="bi bi-trash me-1"></i> Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal de Éxito -->
+  <div class="modal fade" id="modalExito" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center py-4">
+          <div class="mb-3 text-success">
+            <i class="bi bi-check-circle-fill" style="font-size: 4rem;"></i>
+          </div>
+          <h4 class="text-success">¡Operación Exitosa!</h4>
+          <p id="mensajeExito" class="text-muted">Operación realizada con éxito</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Loading Spinner -->
+  <div id="loadingSpinner" class="d-none">
+    <div class="spinner-overlay">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Cargando...</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="clearfix"></div>
+  <div style="height: 40px;"></div>
+  <div id="container-footer"></div>
+  
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="scripts/FirebaseConfig.js"></script>
+  <script src="/main.js" defer></script>
+  <script src="/scripts/AdminPyS.js"></script>
+  <script src="/scripts/Admin.js"></script>
+  <script src="/scripts/Gestor.js" defer></script>
+     <script src="/scripts/scripst.js"></script>
+    <script src="/scripts/footer.js"></script>
+    <script src="/scripts/cart.js"></script>
+</body>
+</html>
