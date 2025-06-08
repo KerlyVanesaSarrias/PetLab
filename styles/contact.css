@@ -34,11 +34,11 @@
     gap: 32px;
 }
 
-.row {
+/* .row {
     display: flex;
     gap: 32px;
     margin-bottom: 10px;
-}
+} */
 .col {
     flex: 1;
     display: flex;

@@ -63,11 +63,7 @@ main {
 }
 
 /* ==== FILAS Y COLUMNAS ==== */
-.row {
-  display: flex;
-  gap: 32px;
-  flex-wrap: wrap;
-}
+
 
 .col {
   flex: 1;
