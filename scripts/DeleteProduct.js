@@ -1,5 +1,5 @@
 function deleteProduct(id) {
-    fetch(`http://localhost:3000/products/${id}`, {
+    fetch(`https://8mameppfds.us-east-1.awsapprunner.com/${id}`, {
         method: "DELETE"
     })
     .then(res => {

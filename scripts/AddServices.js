@@ -11,7 +11,7 @@ function getAuthHeaders() {
 }
 
 function addService(imagen, nombre, categoria, caracteristicas, stock, precio, descripcion, recomendaciones, agenda, duracion) {
-    fetch("http://localhost:8081/servicios", {
+    fetch("https://8mameppfds.us-east-1.awsapprunner.com", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
