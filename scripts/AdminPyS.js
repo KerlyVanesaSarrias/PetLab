@@ -1,6 +1,6 @@
 
 class ApiManager {
-  constructor(baseUrl = 'http://localhost:8081') {
+  constructor(baseUrl = 'https://8mameppfds.us-east-1.awsapprunner.com') {
     this.baseUrl = baseUrl;
     this.storage = window.firebaseStorage;
   }
