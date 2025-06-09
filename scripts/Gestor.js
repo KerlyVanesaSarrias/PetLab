@@ -255,12 +255,19 @@ document.addEventListener("DOMContentLoaded", function () {
         ${producto.tipo === 'Producto' ? `<span class="badge text-bg-dark ${estadoStock.clase}">${estadoStock.texto}</span>` : ''}
       </td>
         <td>
+          <div class="d-flex">
           <button class="btn-editar me-2" data-id="${producto.id}" data-tipo="${producto.tipo}" title="Editar ${producto.tipo.toLowerCase()}">
-            <i class="bi bi-pencil-fill"></i>
+            <i class="bi bi-pen"></i>
           </button>
           <button class="btn-eliminar" data-id="${producto.id}" data-tipo="${producto.tipo}" title="Eliminar ${producto.tipo.toLowerCase()}">
-            <i class="bi bi-trash-fill"></i>
+              <lord-icon
+                color=""
+                trigger="hover"
+                src="/lottie/system-regular-39-trash-hover-trash-empty.json"
+              >
+        </lord-icon>
           </button>
+          </div>
         </td>
       `;
 
@@ -287,21 +294,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Función para actualizar estadísticas
   function actualizarEstadisticas() {
-  const totalProductos = productosOriginales.filter(p => p.tipo === 'Producto').length;
-  const totalServicios = productosOriginales.filter(p => p.tipo === 'Servicio').length;
-  
-  const stockBajo = productosOriginales
-    .filter(p => p.tipo === 'Producto' && p.stock <= 5).length;
+    const totalProductos = productosOriginales.filter(p => p.tipo === 'Producto').length;
+    const totalServicios = productosOriginales.filter(p => p.tipo === 'Servicio').length;
 
-  const valorInventario = productosOriginales
-    .filter(p => p.tipo === 'Producto')
-    .reduce((total, p) => total + (p.precio * p.stock), 0);
+    const stockBajo = productosOriginales
+      .filter(p => p.tipo === 'Producto' && p.stock <= 5).length;
 
-  document.getElementById('totalProductos').textContent = totalProductos;
-  document.getElementById('totalServicios').textContent = totalServicios;
-  document.getElementById('stockBajo').textContent = stockBajo;
-  document.getElementById('valorInventario').textContent = `$${valorInventario.toLocaleString()}`;
-}
+    const valorInventario = productosOriginales
+      .filter(p => p.tipo === 'Producto')
+      .reduce((total, p) => total + (p.precio * p.stock), 0);
+
+    document.getElementById('totalProductos').textContent = totalProductos;
+    document.getElementById('totalServicios').textContent = totalServicios;
+    document.getElementById('stockBajo').textContent = stockBajo;
+    document.getElementById('valorInventario').textContent = `$${valorInventario.toLocaleString()}`;
+  }
 
   // Función para aplicar filtros
   function aplicarFiltros() {

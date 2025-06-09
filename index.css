@@ -7,4 +7,20 @@
   align-content: center;
   text-align: center;
   cursor: pointer;
+  border: none;
 }
+
+
+
+.btn-editar, .btn-eliminar {
+  border: none !important;
+   font-size: 24px !important;
+  transition: transform 0.3s ease !important;
+  color:#145873
+}
+
+.btn-editar:hover {
+    transform: translate(5px, -5px) !important; 
+}
+
+
