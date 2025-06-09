@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function checkUserRole() {
     const rol = localStorage.getItem("role")
-    const registroLink = document.querySelector('a[href*="formRegisterProduc.html"]')
+    const registroLink = document.querySelector('a[href*="adminPyS.html"]')
     const mobileRegistroLink = document.getElementById("registroLink")
     const adminUserLink = document.querySelector('a[href*="adminUsers.html"]')
     const adminProductLink = document.querySelector('a[href*="adminProductos.html"]')

@@ -25,73 +25,34 @@
 <body>
     <main>
         <div id="container-navbar"></div>
-        <div>
-            <h1>Administrador de usuarios</h1>
-            <div class="card-usuario">
-                <span>Usuario 1</span>
-                <div style="display: flex; gap: 0.5rem;">
-                    <i>
-                        <lord-icon
-                            trigger="hover"
-                            src="/lottie/system-regular-39-trash-hover-trash-empty.json"
-                            style="width:24px;height:24px"
-                        ></lord-icon>
-                    </i>
-                    <i>
-                        <lord-icon
-                            trigger="hover"
-                            src="/lottie/wired-outline-245-edit-document-hover-pinch.json"
-                            style="width:24px;height:24px"
-                        ></lord-icon>
-                    </i>
+            <div>
+                <div class="adminUser-table">
+                    <h1>Administrador de usuarios</h1>
                 </div>
-            </div>
-            <div class="card-usuario">
-                <span>Usuario 1</span>
-                <div style="display: flex; gap: 0.5rem;">
-                    <i>
-                        <lord-icon
-                            trigger="hover"
-                            src="/lottie/system-regular-39-trash-hover-trash-empty.json"
-                            style="width:24px;height:24px"
-                        ></lord-icon>
-                    </i>
-                    <i>
-                        <lord-icon
-                            trigger="hover"
-                            src="/lottie/wired-outline-245-edit-document-hover-pinch.json"
-                            style="width:24px;height:24px"
-                        ></lord-icon>
-                    </i>
+                <div class="container-table">
+                    <table class="table table-striped users-table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Telefono</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody" class="body-table">
+                    
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-            <div class="card-usuario">
-                <span>Usuario 1</span>
-                <div style="display: flex; gap: 0.5rem;">
-                    <i>
-                        <lord-icon
-                            trigger="hover"
-                            src="/lottie/system-regular-39-trash-hover-trash-empty.json"
-                            style="width:24px;height:24px"
-                        ></lord-icon>
-                    </i>
-                    <i>
-                        <lord-icon
-                            trigger="hover"
-                            src="/lottie/wired-outline-245-edit-document-hover-pinch.json"
-                            style="width:24px;height:24px"
-                        ></lord-icon>
-                    </i>
-                </div>
-            </div>
 
-        </div>
+            </div>
         <div id="container-footer" class="container-footer"></div>
     </main>
     
     <script src="/scripts/scripst.js"></script>
     <script src="/scripts/footer.js"></script>
     <script src="/scripts/cart.js"></script>
+    <script src="/scripts/login_Scripts/usersList.js"></script>
     <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
