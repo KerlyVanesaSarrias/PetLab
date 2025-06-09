@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const contrasena = document.getElementById("form-password").value;
 
       try {
-        const response = await fetch("http://localhost:8081/auth/register", {
+        const response = await fetch("https://8mameppfds.us-east-1.awsapprunner.com/auth/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
