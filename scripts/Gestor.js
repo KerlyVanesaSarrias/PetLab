@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     Servicio: [
       "Hematología Veterinaria",
-      "Bioquímica", 
+      "Bioquímica",
       "Serología Veterinaria",
       "Gases Sanguíneos",
       "Ayudas Diagnósticas Veterinarias"
@@ -27,12 +27,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const filtroTipo = document.getElementById('filtroTipo');
   const filtroCategoria = document.getElementById('filtroCategoria');
   const loadingSpinner = document.getElementById('loadingSpinner');
-  
+
   // Modales
   const productoModal = new bootstrap.Modal(document.getElementById('productoModal'));
   const eliminarModal = new bootstrap.Modal(document.getElementById('eliminarModal'));
   const modalExito = new bootstrap.Modal(document.getElementById('modalExito'));
-  
+
   // Variables globales
   let productoIdAEliminar = null;
   let productoTipoAEliminar = null;
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       apiManager = new ApiManager();
       const connected = await apiManager.checkConnection();
-      
+
       if (connected) {
         console.log('API conectada exitosamente');
         await cargarDatosDesdeAPI();
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function mostrarToast(mensaje, tipo = 'info') {
     // Crear elemento toast
     const toastContainer = document.getElementById('toastContainer') || createToastContainer();
-    
+
     const toastId = 'toast_' + Date.now();
     const iconClass = {
       'success': 'bi-check-circle-fill text-success',
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
 
     toastContainer.insertAdjacentHTML('beforeend', toastHTML);
-    
+
     const toastElement = document.getElementById(toastId);
     const toast = new bootstrap.Toast(toastElement, { delay: 3000 });
     toast.show();
@@ -155,15 +155,15 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleCamposServicio(tipoSeleccionado);
       });
     });
-    
+
     btnGuardarProducto.addEventListener('click', guardarProducto);
     btnConfirmarEliminar.addEventListener('click', confirmarEliminarProducto);
     btnLimpiarFiltros.addEventListener('click', limpiarFiltros);
-    
+
     buscarInput.addEventListener('input', aplicarFiltros);
     filtroTipo.addEventListener('change', aplicarFiltros);
     filtroCategoria.addEventListener('change', aplicarFiltros);
-    
+
     imagenInput.addEventListener('change', mostrarVistaPrevia);
   }
 
@@ -191,16 +191,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Función para mostrar/ocultar campos específicos de servicios
- function toggleCamposServicio(tipoSeleccionado) {
-  if (tipoSeleccionado === 'Servicio') {
-    camposServicio.classList.remove('d-none');
-    document.getElementById('stockField').classList.add('d-none');
-    document.getElementById('stock').value = 0; 
-  } else {
-    camposServicio.classList.add('d-none');
-    document.getElementById('stockField').classList.remove('d-none'); 
+  function toggleCamposServicio(tipoSeleccionado) {
+    if (tipoSeleccionado === 'Servicio') {
+      camposServicio.classList.remove('d-none');
+      document.getElementById('stockField').classList.add('d-none');
+      document.getElementById('stock').value = 0;
+    } else {
+      camposServicio.classList.add('d-none');
+      document.getElementById('stockField').classList.remove('d-none');
+    }
   }
-}
   // Función para mostrar loading
   function mostrarLoading(mostrar = true) {
     if (mostrar) {
@@ -222,21 +222,21 @@ document.addEventListener("DOMContentLoaded", function () {
   function cargarProductos() {
     const tbody = document.getElementById('productosTableBody');
     const noProductos = document.getElementById('noProductos');
-    
+
     tbody.innerHTML = '';
-    
+
     if (productosFiltrados.length === 0) {
       noProductos.classList.remove('d-none');
       return;
     }
-    
+
     noProductos.classList.add('d-none');
-    
+
     productosFiltrados.forEach(producto => {
-      const estadoStock = obtenerEstadoStock(producto.stock);
+      const estadoStock = producto.tipo === 'Producto' ? obtenerEstadoStock(producto.stock) : { clase: '', texto: '' };
       const tr = document.createElement('tr');
       console.log('product: ', producto)
-      
+
       tr.innerHTML = `
         <td>
           <img src="${producto.imagen}" alt="${producto.nombre}"  style="width: 50px; height: 50px;" class="producto-imagen" >
@@ -248,12 +248,12 @@ document.addEventListener("DOMContentLoaded", function () {
           <span class="badge ${producto.tipo === 'Producto' ? 'bg-primary' : 'bg-success'}">${producto.tipo}</span>
         </td>
         <td>${producto.categoria}</td>
-     
+
         <td><strong>$${producto.precio.toLocaleString()}</strong></td>
-        <td>${producto.stock}</td>
-        <td>
-          <span class="badge text-bg-dark ${estadoStock.clase}">${estadoStock.texto}</span>
-        </td>
+        <td>${producto.tipo === 'Producto' ? producto.stock : ''}</td>
+      <td>
+        ${producto.tipo === 'Producto' ? `<span class="badge text-bg-dark ${estadoStock.clase}">${estadoStock.texto}</span>` : ''}
+      </td>
         <td>
           <button class="btn-editar me-2" data-id="${producto.id}" data-tipo="${producto.tipo}" title="Editar ${producto.tipo.toLowerCase()}">
             <i class="bi bi-pencil-fill"></i>
@@ -263,21 +263,21 @@ document.addEventListener("DOMContentLoaded", function () {
           </button>
         </td>
       `;
-      
+
       tbody.appendChild(tr);
     });
-    
+
     // Agregar event listeners a los botones de acción
     document.querySelectorAll('.btn-editar').forEach(btn => {
-      btn.addEventListener('click', function() {
+      btn.addEventListener('click', function () {
         const id = this.getAttribute('data-id');
         const tipo = this.getAttribute('data-tipo');
         editarProducto(id, tipo);
       });
     });
-    
+
     document.querySelectorAll('.btn-eliminar').forEach(btn => {
-      btn.addEventListener('click', function() {
+      btn.addEventListener('click', function () {
         const id = this.getAttribute('data-id');
         const tipo = this.getAttribute('data-tipo');
         confirmarEliminar(id, tipo);
@@ -287,35 +287,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Función para actualizar estadísticas
   function actualizarEstadisticas() {
-    const totalProductos = productosOriginales.filter(p => p.tipo === 'Producto').length;
-    const totalServicios = productosOriginales.filter(p => p.tipo === 'Servicio').length;
-    const stockBajo = productosOriginales.filter(p => p.stock <= 5).length;
-    const valorInventario = productosOriginales.reduce((total, p) => total + (p.precio * p.stock), 0);
-    
-    document.getElementById('totalProductos').textContent = totalProductos;
-    document.getElementById('totalServicios').textContent = totalServicios;
-    document.getElementById('stockBajo').textContent = stockBajo;
-    document.getElementById('valorInventario').textContent = `$${valorInventario.toLocaleString()}`;
-  }
+  const totalProductos = productosOriginales.filter(p => p.tipo === 'Producto').length;
+  const totalServicios = productosOriginales.filter(p => p.tipo === 'Servicio').length;
+  
+  const stockBajo = productosOriginales
+    .filter(p => p.tipo === 'Producto' && p.stock <= 5).length;
+
+  const valorInventario = productosOriginales
+    .filter(p => p.tipo === 'Producto')
+    .reduce((total, p) => total + (p.precio * p.stock), 0);
+
+  document.getElementById('totalProductos').textContent = totalProductos;
+  document.getElementById('totalServicios').textContent = totalServicios;
+  document.getElementById('stockBajo').textContent = stockBajo;
+  document.getElementById('valorInventario').textContent = `$${valorInventario.toLocaleString()}`;
+}
 
   // Función para aplicar filtros
   function aplicarFiltros() {
     const busqueda = buscarInput.value.toLowerCase().trim();
     const tipoFiltro = filtroTipo.value;
     const categoriaFiltro = filtroCategoria.value;
-    
+
     productosFiltrados = productosOriginales.filter(producto => {
-      const coincideBusqueda = !busqueda || 
+      const coincideBusqueda = !busqueda ||
         producto.nombre.toLowerCase().includes(busqueda) ||
         producto.descripcion.toLowerCase().includes(busqueda) ||
         producto.caracteristicas.toLowerCase().includes(busqueda);
-      
+
       const coincideTipo = !tipoFiltro || producto.tipo === tipoFiltro;
       const coincideCategoria = !categoriaFiltro || producto.categoria === categoriaFiltro;
-      
+
       return coincideBusqueda && coincideTipo && coincideCategoria;
     });
-    
+
     cargarProductos();
   }
 
@@ -333,7 +338,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const file = imagenInput.files[0];
     if (file) {
       const reader = new FileReader();
-      reader.onload = function(e) {
+      reader.onload = function (e) {
         const imgPreview = imagenPreview.querySelector('img');
         imgPreview.src = e.target.result;
         imagenPreview.classList.remove('d-none');
@@ -344,7 +349,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  
+
   function abrirModalAgregar() {
     document.getElementById('productoModalLabel').textContent = 'Agregar Nuevo Producto';
     productoForm.reset();
@@ -360,21 +365,21 @@ document.addEventListener("DOMContentLoaded", function () {
   function editarProducto(id, tipo) {
     const producto = productosOriginales.find(p => p.id == id && p.tipo === tipo);
     if (!producto) return;
-    
+
     document.getElementById('productoModalLabel').textContent = `Editar ${producto.tipo}`;
     document.getElementById('productoId').value = producto.id;
-    
+
     // Establecer el tipo
     if (producto.tipo === 'Producto') {
       document.getElementById('tipoProducto').checked = true;
     } else {
       document.getElementById('tipoServicio').checked = true;
     }
-    
+
     // Actualizar categorías y campos
     actualizarCategorias(producto.tipo);
     toggleCamposServicio(producto.tipo);
-    
+
     // Llenar campos del formulario
     document.getElementById('nombre').value = producto.nombre;
     document.getElementById('categoria').value = producto.categoria;
@@ -382,21 +387,21 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('precio').value = producto.precio;
     document.getElementById('caracteristicas').value = producto.caracteristicas;
     document.getElementById('stock').value = producto.stock;
-    
+
     // Mostrar imagen actual
     if (producto.imagen) {
       const imgPreview = imagenPreview.querySelector('img');
       imgPreview.src = producto.imagen;
       imagenPreview.classList.remove('d-none');
     }
-    
+
     // Campos específicos de servicios
     if (producto.tipo === 'Servicio') {
       document.getElementById('recomendacion').value = producto.recomendacion || '';
       document.getElementById('duracion').value = producto.duracion || '';
       document.getElementById('agenda').value = producto.agenda || '';
     }
-    
+
     productoModal.show();
   }
 
@@ -410,19 +415,19 @@ document.addEventListener("DOMContentLoaded", function () {
   // Función para eliminar producto
   async function confirmarEliminarProducto() {
     if (!productoIdAEliminar || !apiManager) return;
-    
+
     try {
       mostrarLoading(true);
-      
+
       if (productoTipoAEliminar === 'Producto') {
         await apiManager.deleteProduct(productoIdAEliminar);
       } else {
         await apiManager.deleteService(productoIdAEliminar);
       }
-      
+
       // Recargar datos desde la API
       await cargarDatosDesdeAPI();
-      
+
       eliminarModal.hide();
       document.getElementById('mensajeExito').textContent = `¡${productoTipoAEliminar} eliminado con éxito!`;
       modalExito.show();
@@ -443,19 +448,19 @@ document.addEventListener("DOMContentLoaded", function () {
       productoForm.reportValidity();
       return;
     }
-    
+
     if (!apiManager) {
       mostrarToast('API no está disponible', 'error');
       return;
     }
-    
+
     try {
       mostrarLoading(true);
-      
+
       const id = document.getElementById('productoId').value;
       const tipo = document.querySelector('input[name="relacion"]:checked').value;
       const imageFile = imagenInput.files[0];
-      
+
       const datos = {
         nombre: document.getElementById('nombre').value.trim(),
         categoria: document.getElementById('categoria').value,
@@ -464,14 +469,14 @@ document.addEventListener("DOMContentLoaded", function () {
         caracteristicas: document.getElementById('caracteristicas').value.trim(),
         stock: parseInt(document.getElementById('stock').value)
       };
-      
+
       // Campos específicos de servicios
       if (tipo === 'Servicio') {
         datos.recomendacion = document.getElementById('recomendacion').value.trim();
         datos.duracion = document.getElementById('duracion').value.trim();
         datos.agenda = document.getElementById('agenda').value.trim();
       }
-      
+
       // Si estamos editando, agregar la imagen actual
       if (id) {
         const productoActual = productosOriginales.find(p => p.id == id && p.tipo === tipo);
@@ -479,10 +484,10 @@ document.addEventListener("DOMContentLoaded", function () {
           datos.imagen = productoActual.imagen;
         }
       }
-      
+
       let resultado;
       let mensaje = '';
-      
+
       if (id) {
         // Editar existente
         if (tipo === 'Producto') {
@@ -502,17 +507,17 @@ document.addEventListener("DOMContentLoaded", function () {
           mensaje = '¡Servicio agregado con éxito!';
         }
       }
-      
+
       // Recargar datos desde la API
       await cargarDatosDesdeAPI();
-      
+
       productoModal.hide();
       document.getElementById('mensajeExito').textContent = mensaje;
       modalExito.show();
-      
+
       mostrarLoading(false);
       mostrarToast(mensaje, 'success');
-      
+
     } catch (error) {
       console.error('Error guardando elemento:', error);
       mostrarToast('Error guardando el elemento', 'error');

@@ -10,8 +10,8 @@ function getAuthHeaders() {
     };
 }
 
-function addService(imagen, nombre, categoria, caracteristicas, stock, precio, descripcion, recomendaciones, agenda, duracion) {
-    fetch("http://localhost:8081/servicios", {
+function addService(imagen, nombre, categoria, caracteristicas, precio, descripcion, recomendaciones, agenda, duracion) {
+    fetch("https://8mameppfds.us-east-1.awsapprunner.com/servicios", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -22,8 +22,7 @@ function addService(imagen, nombre, categoria, caracteristicas, stock, precio, d
             imagen,
             nombre,
             categoria,
-            caracteristicas,
-            stock,
+            caracteristicas,    
             precio,
             descripcion,
             recomendaciones,
@@ -60,14 +59,13 @@ document.getElementById("registroFormServices").addEventListener("submit", async
         const nombreS = document.getElementById("nombreS").value;
         const categoriaS = document.getElementById("categoriaS").value;
         const caracteristicasS = document.getElementById("caracteristicasS").value;
-        const stockS = document.getElementById("stockS").value;
         const precioS = document.getElementById("precioS").value;
         const descripcionS = document.getElementById("descripcionS").value;
         const recomendacionesS = document.getElementById("recomendacionS").value;
         const agendaS = document.getElementById("agendaS").value;
         const duracionS = document.getElementById("duracionS").value;
 
-        addService(imgURLS, nombreS, categoriaS, caracteristicasS, stockS, precioS, descripcionS, recomendacionesS, agendaS, duracionS)
+        addService(imgURLS, nombreS, categoriaS, caracteristicasS, precioS, descripcionS, recomendacionesS, agendaS, duracionS)
 
         e.target.reset();
 
