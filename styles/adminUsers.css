@@ -1,15 +1,31 @@
+.adminUser-table{
+    margin: 2rem 2rem;
+}       
+        
+        .container-table{
+            margin: 40px; 
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
 
-.card-usuario {
-    background-color: rgba(255, 255, 255, 0.1); /* Transparente, pero visible */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil */
-    border-radius: 10px;
-    padding: 1rem;
-    margin: 2rem 10rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra exterior suave */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    color: #fff; /* Para texto claro si el fondo es oscuro */
-    backdrop-filter: blur(8px); /* efecto glass si es compatible */
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #eaeaea;
+        }
+
+        td:last-child {
+            display: flex;
+            gap: 0.5rem;
+        }

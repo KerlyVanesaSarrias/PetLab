@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
         
-            fetch("http://localhost:8081/auth/login", {
+            fetch("https://8mameppfds.us-east-1.awsapprunner.com/auth/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
