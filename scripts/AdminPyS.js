@@ -92,7 +92,6 @@ class ApiManager {
         descripcion: service.descripcion,
         precio: parseInt(service.precio),
         caracteristicas: service.caracteristicas,
-        stock: parseInt(service.stock),
         recomendacion: service.recomendaciones || '',
         duracion: service.duracion || '',
         agenda: service.agenda || ''
@@ -160,7 +159,6 @@ class ApiManager {
           nombre: serviceData.nombre,
           categoria: serviceData.categoria,
           caracteristicas: serviceData.caracteristicas,
-          stock: serviceData.stock,
           precio: serviceData.precio,
           descripcion: serviceData.descripcion,
           recomendaciones: serviceData.recomendacion || '',
