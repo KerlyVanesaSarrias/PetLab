@@ -10,7 +10,7 @@ function getAuthHeaders() {
 const storage = window.firebaseStorage;
 
 function addProduct(imagen, nombre, categoria, caracteristicas, stock, precio, descripcion) {
-    fetch("https://8mameppfds.us-east-1.awsapprunner.com", {
+    fetch("https://8mameppfds.us-east-1.awsapprunner.com/productos", {
         method: 'POST',
        headers: {
     'Content-Type': 'application/json',
