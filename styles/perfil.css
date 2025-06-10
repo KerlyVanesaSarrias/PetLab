@@ -1,0 +1,32 @@
+
+.menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+.user-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 100;
+  border-radius: 8px;
+}
+
+.user-menu button {
+  display: block;
+  width: 100%;
+  padding: 6px 10px;
+  margin: 5px 0;
+  background-color: #f2f2f2;
+  border: none;
+  cursor: pointer;
+}
+
+.user-menu button:hover {
+  background-color: #e0e0e0;
+}
