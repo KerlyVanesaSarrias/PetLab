@@ -34,16 +34,7 @@
     gap: 32px;
 }
 
-/* .row {
-    display: flex;
-    gap: 32px;
-    margin-bottom: 10px;
-} */
-.col {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
+
 
 label {
     font-size: 1em;
@@ -52,24 +43,30 @@ label {
     font-weight: 400;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-textarea {
-    background: #ccc;
-    border: none;
-    border-radius: 4px;
-    padding: 8px;
-    width: 100%;
-    box-sizing: border-box;
-    font-size: 1em;
-    margin-bottom: 12px;
-    color: #222;
+input,
+textarea,
+select {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #bbb;  
+  background: #e6f5f3;        /* Color para el fondo de los imputs */
+  color: #000;
+  font-size: 1em;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  transition: border 0.2s ease-in-out;
 }
-textarea {
-    min-height: 120px;
-    resize: none;
+
+input:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid #0B3B59;
+  background: #e6f5f3;
+  outline: none;
 }
+
 
 input[type="text"]:focus,
 input[type="email"]:focus,
